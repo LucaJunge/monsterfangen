@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/backgrounds/cave_inside_169x98.png" type="Texture" id=1]
+[ext_resource path="res://assets/onscreencontrols/flatDark45.png" type="Texture" id=2]
+[ext_resource path="res://Encounter.gd" type="Script" id=3]
+[ext_resource path="res://EncounterUI.tscn" type="PackedScene" id=4]
+
+[node name="Encounter" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ScreenSize" type="RichTextLabel" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 11.0
+margin_right = 64.0
+margin_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+bbcode_text = "[center]NO SCREENSIZE FOUND[/center]"
+text = "NO SCREENSIZE FOUND"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundImage" type="TextureRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer"]
+position = Vector2( 16, 8 )
+scale = Vector2( 0.2, 0.2 )
+normal = ExtResource( 2 )
+action = "ui_accept"
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_right = 0.0

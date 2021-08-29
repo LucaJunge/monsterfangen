@@ -8,19 +8,59 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Pokemon",
+"language": "GDScript",
+"path": "res://Pokemon.gd"
+} ]
+_global_script_class_icons={
+"Pokemon": "res://assets/interface/pokemon.png"
+}
+
 [application]
 
 config/name="monsterfangen"
-run/main_scene="res://Map.tscn"
+run/main_scene="res://SceneManager.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Rules="*res://Rules.gd"
 
 [display]
 
-window/size/width=320
-window/size/height=180
-window/size/test_width=1280
-window/size/test_height=720
+window/size/width=300
+window/size/height=800
+window/size/test_width=300
+window/size/test_height=800
+window/handheld/orientation="portrait"
 window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[input]
+
+menu_open={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
+menu_close={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="World"
+2d_physics/layer_3="Ledge"
+2d_physics/layer_4="Door"
 
 [physics]
 
