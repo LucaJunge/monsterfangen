@@ -11,10 +11,6 @@ func transition_to_scene(new_scene: String):
 	$ScreenTransition/AnimationPlayer.play("FadeToBlack")
 
 func transition_to_transparent():
-	print("huihuihiu")
 	$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(load(next_scene).instance())
 	$ScreenTransition/AnimationPlayer.play("FadeToTransparent")
-
-func huhu():
-	print("huhu")

@@ -396,6 +396,7 @@ parameters/Walk/blend_position = Vector2( 0, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 0.5, 0.5 )
 limit_smoothed = true
 
 [node name="BlockingRayCast2D" type="RayCast2D" parent="."]

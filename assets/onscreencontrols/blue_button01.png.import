@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pokemon.png-306f418784353dfe7dc57ddc0022ca7d.stex"
+path="res://.import/blue_button01.png-3bae1ae34f9da6d975a7dcafd8b56f0c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interface/pokemon.png"
-dest_files=[ "res://.import/pokemon.png-306f418784353dfe7dc57ddc0022ca7d.stex" ]
+source_file="res://assets/onscreencontrols/blue_button01.png"
+dest_files=[ "res://.import/blue_button01.png-3bae1ae34f9da6d975a7dcafd8b56f0c.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -10,12 +10,12 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
-"class": "Pokemon",
+"class": "Monster",
 "language": "GDScript",
-"path": "res://Pokemon.gd"
+"path": "res://Monster.gd"
 } ]
 _global_script_class_icons={
-"Pokemon": "res://assets/interface/pokemon.png"
+"Monster": "res://assets/interface/monster.png"
 }
 
 [application]
@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Rules="*res://Rules.gd"
+PlayerData="*res://playerData.gd"
 
 [display]
 

@@ -38,6 +38,8 @@ func _on_Area2D_body_entered(body):
 	anim_player.play("Step")
 
 func triggerEncounter(randomNumber):
-	var enemyPokemon = Pokemon.new(10)
-	print("Monster Encounter"+ String(randomNumber))
+	var enemyMonster = Monster.new(Rules.monsterDictionary["0"])
+	Rules.nextMonster = enemyMonster
+	print("NextMonster", Rules.nextMonster)
+	#print("Monster Encounter"+ String(randomNumber))
 	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://Encounter.tscn")

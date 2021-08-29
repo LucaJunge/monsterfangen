@@ -25,10 +25,14 @@ var input_direction = Vector2(0, 0)
 var is_moving = false
 var percent_moved_to_next_tile = 0.0
 
+var partyMonsters = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim_tree.active = true
 	initial_position = position
+	PlayerData.playerParty.append(Monster.new(Rules.monsterDictionary["1"]))
+	print(PlayerData.playerParty)
 
 
 func _physics_process(delta):
