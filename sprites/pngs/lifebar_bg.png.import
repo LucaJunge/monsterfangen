@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/red_button12.png-a19568d4ec01badf64e9a598bf23afa7.stex"
+path="res://.import/lifebar_bg.png-d38749cf84bc52fc36a795034707c1d9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://red_button12.png"
-dest_files=[ "res://.import/red_button12.png-a19568d4ec01badf64e9a598bf23afa7.stex" ]
+source_file="res://sprites/pngs/lifebar_bg.png"
+dest_files=[ "res://.import/lifebar_bg.png-d38749cf84bc52fc36a795034707c1d9.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

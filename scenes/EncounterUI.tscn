@@ -1,14 +1,16 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://LifeBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/LifeBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/interface/monster.png" type="Texture" id=2]
 [ext_resource path="res://assets/onscreencontrols/red_button11.png" type="Texture" id=3]
 [ext_resource path="res://assets/onscreencontrols/flatDark34.png" type="Texture" id=4]
-[ext_resource path="res://EncounterUI.gd" type="Script" id=5]
-[ext_resource path="res://EnemySprite.gd" type="Script" id=6]
+[ext_resource path="res://scripts/EncounterUI.gd" type="Script" id=5]
+[ext_resource path="res://scripts/EnemySprite.gd" type="Script" id=6]
 [ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://PlayerSprite.gd" type="Script" id=8]
+[ext_resource path="res://scripts/PlayerSprite.gd" type="Script" id=8]
 [ext_resource path="res://assets/onscreencontrols/red_button12.png" type="Texture" id=9]
+[ext_resource path="res://assets/onscreencontrols/blue_button13.png" type="Texture" id=10]
+[ext_resource path="res://assets/onscreencontrols/red_button13.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 21
@@ -33,6 +35,22 @@ tracks/0/keys = {
 "values": [ 121.0, 141.0, 121.0 ]
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "Attack"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:margin_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 81.0 ]
+}
+
 [sub_resource type="Animation" id=3]
 resource_name = "Idle"
 length = 5.0
@@ -49,17 +67,33 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 121.0, 141.0, 121.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:margin_top")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0, -20.0 ]
+}
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.74902, 0.74902, 0.74902, 1 )
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color( 0.45098, 0.45098, 0.45098, 1 )
+[sub_resource type="DynamicFont" id=7]
+size = 28
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.85098, 0.85098, 0.85098, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.439216, 0.439216, 0.439216, 1 )
 border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
+corner_radius_top_left = 8
+corner_radius_top_right = 8
 
 [sub_resource type="DynamicFontData" id=5]
 font_path = "res://assets/fonts/Kenney Pixel.ttf"
@@ -84,22 +118,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+split_offset = 100
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer"]
-margin_right = 299.999
-margin_bottom = 394.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_right = 399.999
+margin_bottom = 494.0
+size_flags_horizontal = 11
+size_flags_vertical = 11
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/VBoxContainer"]
-margin_right = 299.0
-margin_bottom = 195.0
+margin_right = 399.0
+margin_bottom = 245.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_constants/margin_right = 20
@@ -112,19 +148,19 @@ __meta__ = {
 [node name="EnemyContainer" type="HBoxContainer" parent="VSplitContainer/VBoxContainer/MarginContainer"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 279.0
-margin_bottom = 195.0
+margin_right = 379.0
+margin_bottom = 245.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer"]
-margin_right = 127.0
-margin_bottom = 175.0
+margin_right = 177.0
+margin_bottom = 225.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="EnemyMonsterLabel" type="Label" parent="VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer"]
-margin_right = 127.0
+margin_right = 177.0
 margin_bottom = 17.0
 custom_fonts/font = SubResource( 1 )
 text = "enemy_monster"
@@ -132,28 +168,29 @@ valign = 1
 
 [node name="EnemyLevelLabel" type="Label" parent="VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer"]
 margin_top = 21.0
-margin_right = 127.0
+margin_right = 177.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 text = "LVL 1"
 valign = 1
 
 [node name="LifeBar" parent="VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer" instance=ExtResource( 1 )]
-margin_right = 127.0
+margin_top = 42.0
+margin_right = 177.0
 margin_bottom = 52.0
 
 [node name="EnemySprite" type="Control" parent="VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer"]
-margin_left = 131.0
-margin_right = 259.0
+margin_left = 181.0
+margin_right = 359.0
+margin_bottom = 225.0
 size_flags_horizontal = 3
-size_flags_vertical = 0
 script = ExtResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/EnemySprite"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -121.0
-margin_bottom = 122.026
+margin_bottom = 121.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource( 2 )
@@ -167,9 +204,9 @@ __meta__ = {
 anims/Idle = SubResource( 2 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="VSplitContainer/VBoxContainer"]
-margin_top = 199.0
-margin_right = 299.0
-margin_bottom = 394.0
+margin_top = 249.0
+margin_right = 399.0
+margin_bottom = 494.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_constants/margin_right = 20
@@ -177,20 +214,22 @@ custom_constants/margin_left = 20
 
 [node name="PlayerContainer" type="HBoxContainer" parent="VSplitContainer/VBoxContainer/MarginContainer2"]
 margin_left = 20.0
-margin_right = 279.0
-margin_bottom = 195.0
+margin_right = 379.0
+margin_bottom = 245.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="PlayerSprite" type="Control" parent="VSplitContainer/VBoxContainer/MarginContainer2/PlayerContainer"]
-margin_right = 127.0
+margin_right = 177.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="VSplitContainer/VBoxContainer/MarginContainer2/PlayerContainer/PlayerSprite"]
-margin_right = 121.0
-margin_bottom = 121.0
+margin_left = -40.0
+margin_top = -3.59849
+margin_right = 200.0
+margin_bottom = 137.402
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource( 2 )
@@ -202,12 +241,13 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VSplitContainer/VBoxContainer/MarginContainer2/PlayerContainer/PlayerSprite"]
+anims/Attack = SubResource( 8 )
 anims/Idle = SubResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/VBoxContainer/MarginContainer2/PlayerContainer"]
-margin_left = 131.0
-margin_right = 259.0
-margin_bottom = 195.0
+margin_left = 181.0
+margin_right = 359.0
+margin_bottom = 245.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -215,7 +255,7 @@ __meta__ = {
 }
 
 [node name="PlayerMonsterLabel" type="Label" parent="VSplitContainer/VBoxContainer/MarginContainer2/PlayerContainer/VBoxContainer"]
-margin_right = 128.0
+margin_right = 178.0
 margin_bottom = 17.0
 custom_fonts/font = SubResource( 1 )
 text = "player_monster"
@@ -226,7 +266,7 @@ __meta__ = {
 
 [node name="PlayerLevelLabel" type="Label" parent="VSplitContainer/VBoxContainer/MarginContainer2/PlayerContainer/VBoxContainer"]
 margin_top = 21.0
-margin_right = 128.0
+margin_right = 178.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 text = "LVL 1"
@@ -236,17 +276,54 @@ __meta__ = {
 }
 
 [node name="LifeBar" parent="VSplitContainer/VBoxContainer/MarginContainer2/PlayerContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 42.0
+margin_right = 178.0
 margin_bottom = 52.0
 
-[node name="Panel" type="Panel" parent="VSplitContainer"]
-margin_top = 406.0
-margin_right = 299.999
+[node name="VBoxContainer2" type="VBoxContainer" parent="VSplitContainer"]
+margin_top = 506.0
+margin_right = 399.999
 margin_bottom = 800.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 4 )
 
-[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/Panel"]
+[node name="NinePatchRect" type="NinePatchRect" parent="VSplitContainer/VBoxContainer2"]
+margin_right = 399.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 70 )
+texture = ExtResource( 10 )
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 20
+
+[node name="DialogText" type="RichTextLabel" parent="VSplitContainer/VBoxContainer2/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -14.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 7 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "MISSING_TXT
+MISSING_TXT"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="VSplitContainer/VBoxContainer2"]
+margin_top = 74.0
+margin_right = 399.0
+margin_bottom = 294.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 9 )
+
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/VBoxContainer2/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -259,38 +336,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonsContainer" type="GridContainer" parent="VSplitContainer/Panel/MarginContainer"]
+[node name="ButtonsContainer" type="GridContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 279.0
-margin_bottom = 374.0
+margin_right = 379.0
+margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainButtonContainer" type="CenterContainer" parent="VSplitContainer/Panel/MarginContainer/ButtonsContainer"]
-margin_right = 259.0
-margin_bottom = 302.0
+[node name="MainButtonContainer" type="CenterContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer"]
+margin_right = 359.0
+margin_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MainButton" type="TextureButton" parent="VSplitContainer/Panel/MarginContainer/ButtonsContainer/MainButtonContainer"]
-margin_left = 34.0
-margin_top = 126.0
-margin_right = 224.0
-margin_bottom = 175.0
+[node name="MainButton" type="TextureButton" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/MainButtonContainer"]
+margin_left = 84.0
+margin_top = 39.0
+margin_right = 274.0
+margin_bottom = 88.0
 rect_pivot_offset = Vector2( 95, 24 )
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+disabled = true
 keep_pressed_outside = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 11 )
 stretch_mode = 6
 
-[node name="CenterContainer" type="CenterContainer" parent="VSplitContainer/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton"]
+[node name="CenterContainer" type="CenterContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -298,7 +377,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VSplitContainer/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton/CenterContainer"]
+[node name="Label" type="Label" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton/CenterContainer"]
 margin_left = 42.0
 margin_top = 2.0
 margin_right = 148.0
@@ -310,48 +389,48 @@ text = "Attack"
 align = 1
 valign = 1
 
-[node name="OtherButtonsContainer" type="HBoxContainer" parent="VSplitContainer/Panel/MarginContainer/ButtonsContainer"]
-margin_top = 306.0
-margin_right = 259.0
-margin_bottom = 354.0
+[node name="OtherButtonsContainer" type="HBoxContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer"]
+margin_top = 132.0
+margin_right = 359.0
+margin_bottom = 180.0
 size_flags_horizontal = 3
 
-[node name="BagContainer" type="CenterContainer" parent="VSplitContainer/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer"]
-margin_right = 83.0
+[node name="BagContainer" type="CenterContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer"]
+margin_right = 117.0
 margin_bottom = 48.0
 size_flags_horizontal = 3
 
-[node name="BagButton" type="TextureButton" parent="VSplitContainer/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer/BagContainer"]
-margin_left = 17.0
-margin_right = 65.0
+[node name="BagButton" type="TextureButton" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer/BagContainer"]
+margin_left = 34.0
+margin_right = 82.0
 margin_bottom = 48.0
 texture_normal = ExtResource( 4 )
 
-[node name="RunContainer" type="CenterContainer" parent="VSplitContainer/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer"]
-margin_left = 87.0
-margin_right = 171.0
+[node name="RunContainer" type="CenterContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer"]
+margin_left = 121.0
+margin_right = 238.0
 margin_bottom = 48.0
 size_flags_horizontal = 3
 
-[node name="RunButton" type="TextureButton" parent="VSplitContainer/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer/RunContainer"]
-margin_left = 18.0
-margin_right = 66.0
+[node name="RunButton" type="TextureButton" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer/RunContainer"]
+margin_left = 34.0
+margin_right = 82.0
 margin_bottom = 48.0
 texture_normal = ExtResource( 4 )
 
-[node name="TeamContainer" type="CenterContainer" parent="VSplitContainer/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer"]
-margin_left = 175.0
-margin_right = 259.0
+[node name="TeamContainer" type="CenterContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer"]
+margin_left = 242.0
+margin_right = 359.0
 margin_bottom = 48.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TeamButton" type="TextureButton" parent="VSplitContainer/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer/TeamContainer"]
-margin_left = 18.0
-margin_right = 66.0
+[node name="TeamButton" type="TextureButton" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer/TeamContainer"]
+margin_left = 34.0
+margin_right = 82.0
 margin_bottom = 48.0
 texture_normal = ExtResource( 4 )
 
-[connection signal="button_up" from="VSplitContainer/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton" to="." method="_on_MainButton_button_up"]
+[connection signal="button_up" from="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton" to="." method="_on_MainButton_button_up"]

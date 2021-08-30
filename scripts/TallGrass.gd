@@ -42,4 +42,4 @@ func triggerEncounter(randomNumber):
 	Rules.nextMonster = enemyMonster
 	print("NextMonster", Rules.nextMonster)
 	#print("Monster Encounter"+ String(randomNumber))
-	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://Encounter.tscn")
+	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Encounter.tscn")

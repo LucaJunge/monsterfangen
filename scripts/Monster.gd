@@ -18,7 +18,7 @@ func _init(dict):
 	sprite = dict["sprite"]
 	monster_name = dict["name"]
 	
-	print("New Monster created with " + String(baseAttack) + " baseAttack")
+	#print("New Monster created with " + String(baseAttack) + " baseAttack")
 
 func attack():
 	pass

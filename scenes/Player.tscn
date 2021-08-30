@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://assets/tilemap_packed.png" type="Texture" id=1]
-[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -356,7 +356,9 @@ graph_offset = Vector2( -40, 61 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=36]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Persist",
+]]
 collision_mask = 14
 script = ExtResource( 2 )
 
@@ -398,6 +400,8 @@ parameters/Walk/blend_position = Vector2( 0, 0 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 10.0
 
 [node name="BlockingRayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 8, 8 )

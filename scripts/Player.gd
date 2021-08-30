@@ -31,8 +31,11 @@ var partyMonsters = []
 func _ready():
 	anim_tree.active = true
 	initial_position = position
+	
+	# Set cameras position on load
+	$Camera2D.position = position
 	PlayerData.playerParty.append(Monster.new(Rules.monsterDictionary["1"]))
-	print(PlayerData.playerParty)
+	#print(PlayerData.playerParty)
 
 
 func _physics_process(delta):
@@ -133,3 +136,12 @@ func move(delta):
 			position = initial_position + (TILE_SIZE * input_direction * percent_moved_to_next_tile)
 	else:
 		is_moving = false
+
+func save():
+	var save_dict = {
+		"filename": get_filename(),
+		"parent": get_parent().get_path(),
+		"pos_x": position.x, # Vector 2 is not supported by JSON
+		"pos_y": position.y
+	}
+	return save_dict

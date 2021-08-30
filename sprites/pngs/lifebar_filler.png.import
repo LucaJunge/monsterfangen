@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/red_button13.png-b36f351fdfe3b54fdb246c3febd2c390.stex"
+path="res://.import/lifebar_filler.png-8d7fb7359214cf23937ea095c9fb59df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/onscreencontrols/red_button13.png"
-dest_files=[ "res://.import/red_button13.png-b36f351fdfe3b54fdb246c3febd2c390.stex" ]
+source_file="res://sprites/pngs/lifebar_filler.png"
+dest_files=[ "res://.import/lifebar_filler.png-8d7fb7359214cf23937ea095c9fb59df.stex" ]
 
 [params]
 
