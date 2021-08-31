@@ -1,13 +1,16 @@
 extends Node2D
 
 var next_scene = null
-onready var save_button = $"CurrentScene/Map/MenuLayer"
+onready var menu_button = $UI/MenuButton
+onready var menu_overlay = $UI/MenuOverlay
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_game()
-	save_button.connect("save_game_signal", self, "save_game")
-
+	menu_overlay.visible = false
+	menu_overlay.connect("exit_button_pressed", self, "exit_optionsmenu")
+	#save_button.connect("save_game_signal", self, "save_game")
+	menu_button.connect("menu_button_pressed", self, "open_optionsmenu")
 
 func transition_to_scene(new_scene: String):
 	next_scene = new_scene
@@ -83,3 +86,15 @@ func load_game():
 			
 	print("game loaded.")
 	save_game.close()
+
+func exit_optionsmenu():
+	menu_overlay.visible = false
+	
+	# hide other control elements
+	$UI/AnalogPad.visible = true
+
+func open_optionsmenu():
+	menu_overlay.visible = true
+	
+	# show other control elements
+	$UI/AnalogPad.visible = false

@@ -22,5 +22,5 @@ func _unhandled_input(event):
 
 # Toggles the menu in the top right corner
 func _on_TextureButton_button_down():
-	menu.visible = !menu.visible
+	#menu.visible = !menu.visible
 	emit_signal("save_game_signal")

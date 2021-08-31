@@ -26,11 +26,13 @@ var is_moving = false
 var percent_moved_to_next_tile = 0.0
 
 var partyMonsters = []
+var sounds = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim_tree.active = true
 	initial_position = position
+	load_sounds()
 	
 	# Set cameras position on load
 	$Camera2D.position = position
@@ -126,6 +128,7 @@ func move(delta):
 	elif !ray.is_colliding():
 		if percent_moved_to_next_tile == 0:
 			emit_signal("player_moving_signal")
+				
 		percent_moved_to_next_tile += walk_speed * delta
 		if percent_moved_to_next_tile >= 1.0:
 			position = initial_position + (TILE_SIZE * input_direction)
@@ -145,3 +148,20 @@ func save():
 		"pos_y": position.y
 	}
 	return save_dict
+
+func load_sounds():
+	var sound_directory = Directory.new()
+	sound_directory.open("res://sounds/footstep")
+	sound_directory.list_dir_begin(true)
+	
+	var sound = sound_directory.get_next()
+	while sound != "":
+		sounds.append(load("res://sounds/footstep/" + sound))
+		sound = sound_directory.get_next()
+	
+	#print(sounds)
+
+#func play_footstep_sound():
+#	$AudioStreamPlayer.stream = sounds[randi()%4]
+#	if !$AudioStreamPlayer.playing:
+#		$AudioStreamPlayer.play()
