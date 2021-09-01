@@ -5,6 +5,7 @@ onready var dialogBox = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer2/
 onready var attackButton = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton
 onready var ui = $CanvasLayer/EncounterUI
 onready var ui_node = find_parent("SceneManager").find_node("UI").get_node("AnalogPad")
+onready var menu_button = find_parent("SceneManager").find_node("UI").get_node("MenuButton")
 onready var enemyLifebar = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer/LifeBar
 
 var current_state = null
@@ -21,6 +22,7 @@ func _ready():
 	
 	# hide the analog pad
 	ui_node.visible = false
+	menu_button.visible = false
 	
 	# populate the ui at start
 	initializeUI()
@@ -70,6 +72,7 @@ func handle_state(new_state):
 			dialogBox.text = "You won!"
 			get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Map.tscn")
 			ui_node.visible = true
+			menu_button.visible = true
 			# play animation...
 			# get xp...
 			# leave scene...

@@ -3,13 +3,17 @@ extends Node2D
 var next_scene = null
 onready var menu_button = $UI/MenuButton
 onready var menu_overlay = $UI/MenuOverlay
+onready var player = $CurrentScene/Map/YSort/Player/
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_game()
 	menu_overlay.visible = false
+	
+	# connect all menu overlay buttons...
 	menu_overlay.connect("exit_button_pressed", self, "exit_optionsmenu")
-	#save_button.connect("save_game_signal", self, "save_game")
+	menu_overlay.connect("save_button_pressed", self, "save_optionsmenu")
+
 	menu_button.connect("menu_button_pressed", self, "open_optionsmenu")
 
 func transition_to_scene(new_scene: String):
@@ -22,7 +26,7 @@ func transition_to_transparent():
 	$ScreenTransition/AnimationPlayer.play("FadeToTransparent")
 
 func save_game():
-	print("saving game...")
+	print("Saving game")
 	
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
@@ -90,11 +94,25 @@ func load_game():
 func exit_optionsmenu():
 	menu_overlay.visible = false
 	
-	# hide other control elements
+	#if player:
+	#	player.stop_input = false
+	
+	# show other control elements
 	$UI/AnalogPad.visible = true
+	menu_button.visible = true
 
 func open_optionsmenu():
 	menu_overlay.visible = true
 	
-	# show other control elements
+	# stop the player from moving if the options menu is open
+	#if player:
+	#	player.stop_input = true
+	#	player.moving = false
+	
+	# hide other control elements
 	$UI/AnalogPad.visible = false
+	menu_button.visible = false
+
+func save_optionsmenu():
+	save_game()
+	exit_optionsmenu()

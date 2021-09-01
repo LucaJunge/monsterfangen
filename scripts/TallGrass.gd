@@ -34,10 +34,10 @@ func _on_Area2D_body_entered(body):
 	if randomNumber < Rules.encounterRate:
 		body.get_node("Camera2D").clear_current()
 		body.stop_input = true
-		triggerEncounter(randomNumber)
+		triggerEncounter()
 	anim_player.play("Step")
 
-func triggerEncounter(randomNumber):
+func triggerEncounter():
 	var enemyMonster = Monster.new(Rules.monsterDictionary["0"])
 	Rules.nextMonster = enemyMonster
 	print("NextMonster", Rules.nextMonster)

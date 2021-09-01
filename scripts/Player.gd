@@ -8,48 +8,73 @@ signal player_triggered_encounter_signal
 export var walk_speed = 5.0
 const TILE_SIZE = 16
 
-onready var anim_tree = $AnimationTree
-onready var anim_state = anim_tree.get("parameters/playback")
-onready var ray = $BlockingRayCast2D
+onready var animation_tree = $AnimationTree
+onready var anim_state = animation_tree.get("parameters/playback")
+onready var blocking_ray = $BlockingRayCast2D
 onready var scene_transition_ray = $SceneTransitionRayCast2D
 
+# the animation states the player can be in
 enum PlayerState { IDLE, TURNING, WALKING }
+# the facing directions the player can be in
 enum FacingDirection {LEFT, RIGHT, UP, DOWN }
 
+# default values
 var player_state = PlayerState.IDLE
 var facing_direction = FacingDirection.DOWN
-
-var stop_input: bool = false
 var initial_position = Vector2(0, 0)
 var input_direction = Vector2(0, 0)
-var is_moving = false
+var stop_input: bool = false
+var moving = false
+
 var percent_moved_to_next_tile = 0.0
 
+# holds the current monsters in the player party
 var partyMonsters = []
+
+# all the sounds, the player can make, currently only footsteps
 var sounds = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	anim_tree.active = true
+	animation_tree.active = true
 	initial_position = position
-	load_sounds()
+	
+	# load all possible sounds
+	# BUG: also currently imports the .import metadata files...
+	#load_sounds()
 	
 	# Set cameras position on load
 	$Camera2D.position = position
+	
+	# debug: set one monster to test fights
 	PlayerData.playerParty.append(Monster.new(Rules.monsterDictionary["1"]))
-	#print(PlayerData.playerParty)
-
 
 func _physics_process(delta):
-	# no physics need to be calculated when the player is turning,
-	# so just return
-	
-	#print(int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")))
+	# no physics need to be calculated when the player is currently turning, so just return
 	if player_state == PlayerState.TURNING or stop_input:
 		return
+		
 	# if the player is not moving, try to process the possible input
-	elif is_moving == false:
-		process_player_input()
+	elif not moving:
+		get_input_direction()
+		
+		# change the animation states to represent the current direction
+		if input_direction != Vector2.ZERO:
+			animation_tree.set("parameters/Idle/blend_position", input_direction)
+			animation_tree.set("parameters/Walk/blend_position", input_direction)
+			animation_tree.set("parameters/Turn/blend_position", input_direction)
+			
+			# evaluates the input direction and checks if it differs from current direction
+			if need_to_turn():
+				player_state = PlayerState.TURNING
+				anim_state.travel("Turn")
+			else:
+				initial_position = position
+				moving = true
+				
+		# player did not move, do nothing
+		else:
+			anim_state.travel("Idle")
 	
 	# if we are moving (which means input direction is not 0), play the walk
 	# animation and move
@@ -60,29 +85,14 @@ func _physics_process(delta):
 	# the player is not moving
 	else:
 		anim_state.travel("Idle")
-		is_moving = false
+		moving = false
 		
-func process_player_input():
+func get_input_direction():
 	# move in one direction, only if the other one is 0
 	if input_direction.y == 0:
 		input_direction.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 	if input_direction.x == 0:
 		input_direction.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
-		
-	# change the animation states to represent the current direction
-	if input_direction != Vector2.ZERO:
-		anim_tree.set("parameters/Idle/blend_position", input_direction)
-		anim_tree.set("parameters/Walk/blend_position", input_direction)
-		anim_tree.set("parameters/Turn/blend_position", input_direction)
-		
-		if need_to_turn():
-			player_state = PlayerState.TURNING
-			anim_state.travel("Turn")
-		else:
-			initial_position = position
-			is_moving = true
-	else:
-		anim_state.travel("Idle")
 		
 func need_to_turn():
 	var new_facing_direction
@@ -94,12 +104,14 @@ func need_to_turn():
 		new_facing_direction = FacingDirection.UP
 	elif input_direction.y > 0:
 		new_facing_direction = FacingDirection.DOWN
-		
+	
+	# facing direction has changed
 	if facing_direction != new_facing_direction:
+		# set new facing direction and return "needs to turn"
 		facing_direction = new_facing_direction
 		return true
-		
-	facing_direction = new_facing_direction
+	
+	# facing direction is the same
 	return false
 	
 func finished_turning():
@@ -107,25 +119,35 @@ func finished_turning():
 	
 func move(delta):
 	
-	# cast into half of the next block
+	# cast the ray into half of the next block
 	var desired_step: Vector2 = input_direction * TILE_SIZE / 2
 	
 	# cast a ray to the half of the block in front
-	ray.cast_to = desired_step
-	ray.force_raycast_update()
+	blocking_ray.cast_to = desired_step
+	blocking_ray.force_raycast_update()
 	
 	scene_transition_ray.cast_to = desired_step
 	scene_transition_ray.force_raycast_update()
 	
+	# first check if there is a scene transition in the next tile
 	if scene_transition_ray.is_colliding():
-		emit_signal("player_has_entered_signal")
-		$Camera2D.clear_current()
-		stop_input = true
-		is_moving = false
-		emit_signal("player_stopped_signal")
-	# only move if no collising is found
+		
+		# walk into the tile to trigger a scene transition
+		percent_moved_to_next_tile += walk_speed * delta
+		if percent_moved_to_next_tile >= 1.0:
+			position = initial_position + (TILE_SIZE * input_direction)
+			percent_moved_to_next_tile = 0.0
+			stop_input = true;
+			moving = false
+			$Camera2D.clear_current()
+			emit_signal("player_has_entered_signal")
+			emit_signal("player_stopped_signal")
+		else:
+			# gradually interpolate the position until percent_moved_to_next_tile is 1.0
+			position = initial_position + (TILE_SIZE * input_direction * percent_moved_to_next_tile)
 	
-	elif !ray.is_colliding():
+	# if no collision is found, move
+	elif !blocking_ray.is_colliding():
 		if percent_moved_to_next_tile == 0:
 			emit_signal("player_moving_signal")
 				
@@ -133,19 +155,24 @@ func move(delta):
 		if percent_moved_to_next_tile >= 1.0:
 			position = initial_position + (TILE_SIZE * input_direction)
 			percent_moved_to_next_tile = 0.0
-			is_moving = false
+			moving = false
 			emit_signal("player_stopped_signal")
 		else:
+			# gradually interpolate the position until percent_moved_to_next_tile is 1.0
 			position = initial_position + (TILE_SIZE * input_direction * percent_moved_to_next_tile)
 	else:
-		is_moving = false
+		moving = false
 
+# save function for the player
+# what should be persisted?
 func save():
 	var save_dict = {
 		"filename": get_filename(),
 		"parent": get_parent().get_path(),
 		"pos_x": position.x, # Vector 2 is not supported by JSON
-		"pos_y": position.y
+		"pos_y": position.y,
+		"facing_direction": facing_direction,
+		"partyMonsters": partyMonsters
 	}
 	return save_dict
 
