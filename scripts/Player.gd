@@ -26,6 +26,8 @@ var input_direction = Vector2(0, 0)
 var stop_input: bool = false
 var moving = false
 
+onready var playerName = "NO_NAMEE"
+
 var percent_moved_to_next_tile = 0.0
 
 # holds the current monsters in the player party
@@ -169,6 +171,7 @@ func save():
 	var save_dict = {
 		"filename": get_filename(),
 		"parent": get_parent().get_path(),
+		"playerName": playerName,
 		"pos_x": position.x, # Vector 2 is not supported by JSON
 		"pos_y": position.y,
 		"facing_direction": facing_direction,

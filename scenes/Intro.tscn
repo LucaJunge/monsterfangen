@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/Intro.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.133333, 0.133333, 0.133333, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 1
+outline_color = Color( 0.0627451, 0.34902, 0.239216, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="Intro" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/Panel/MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 350.0
+margin_bottom = 750.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer"]
+margin_top = 98.0
+margin_right = 300.0
+margin_bottom = 602.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+
+[node name="PlaceholderText2" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 335.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "This scene is the placeholder for the intro cutscene.
+
+A monster has been added to your party. Your goal is to create the strongest monster guild in the world.
+
+By fighting other monsters you get a small chance to recruit the defeated monster and give them a new place inside your monster guild."
+align = 3
+valign = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 355.0
+margin_right = 300.0
+margin_bottom = 359.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelName" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 379.0
+margin_right = 300.0
+margin_bottom = 402.0
+custom_fonts/font = SubResource( 3 )
+text = "Choose your name"
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 422.0
+margin_right = 300.0
+margin_bottom = 455.0
+custom_fonts/font = SubResource( 4 )
+align = 1
+clear_button_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 475.0
+margin_right = 300.0
+margin_bottom = 504.0
+custom_fonts/font = SubResource( 5 )
+text = "Start your adventure"
+
+[connection signal="button_up" from="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_button_up"]

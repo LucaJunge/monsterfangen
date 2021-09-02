@@ -4,10 +4,11 @@ var next_scene = null
 onready var menu_button = $UI/MenuButton
 onready var menu_overlay = $UI/MenuOverlay
 onready var player = $CurrentScene/Map/YSort/Player/
+var filepath_to_load = "savegame.save"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_game()
+	#load_current_scene()
 	menu_overlay.visible = false
 	
 	# connect all menu overlay buttons...
@@ -54,10 +55,9 @@ func save_game():
 		save_game.store_line(to_json(node_data))
 	save_game.close()
 
-		
 func load_game():
 	var save_game = File.new()
-	if not save_game.file_exists("user://savegame.save"):
+	if not save_game.file_exists("user://" + filepath_to_load):
 		print("No savegame exists.")
 		return # Error, No savegame to load
 	
@@ -71,7 +71,7 @@ func load_game():
 		node.queue_free()
 	
 	# Load the save game line by line and process the dictionary to restore the objects
-	save_game.open("user://savegame.save", File.READ)
+	save_game.open("user://" + filepath_to_load, File.READ)
 	
 	while save_game.get_position() < save_game.get_len():
 		# Get the saved dictionary from the next line in the save file
