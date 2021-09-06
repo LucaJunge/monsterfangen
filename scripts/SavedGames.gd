@@ -20,13 +20,11 @@ func get_savegames(path: String):
 	
 	while true:
 		var savegame = directory.get_next()
-		print(savegame)
 		
 		if savegame == "":
 			break
 			
 		elif directory.current_is_dir():
-			print("is a directory " + str(savegame))
 			continue
 			
 		else:
@@ -44,8 +42,12 @@ func create_savegame_containers():
 		var savegame_title = current_savegame.get_node("MarginContainer/Container/savegame_title")
 		
 		savegame_title.set_text(savegame)
-		current_savegame.filepath_to_load = savegame
+		current_savegame.savegame_filename = savegame
 		
 		# savegame_info = ...
 		
 		savegame_container.add_child(current_savegame)
+
+
+func _on_back_to_menu_button_button_up():
+	get_tree().change_scene("res://scenes/MainMenu.tscn")

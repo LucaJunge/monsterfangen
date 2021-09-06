@@ -1,21 +1,24 @@
 extends Node2D
 
+signal update_ui
+
 var next_scene = null
 onready var menu_button = $UI/MenuButton
 onready var menu_overlay = $UI/MenuOverlay
 onready var player = $CurrentScene/Map/YSort/Player/
-var filepath_to_load = "savegame.save"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#load_current_scene()
 	menu_overlay.visible = false
 	
-	# connect all menu overlay buttons...
+	# connect all menu overlay buttons and loading signals...
 	menu_overlay.connect("exit_button_pressed", self, "exit_optionsmenu")
 	menu_overlay.connect("save_button_pressed", self, "save_optionsmenu")
-
+	connect("update_ui", menu_overlay, "update_ui")
 	menu_button.connect("menu_button_pressed", self, "open_optionsmenu")
+	
+	# finally, load the game
+	load_game()
 
 func transition_to_scene(new_scene: String):
 	next_scene = new_scene
@@ -27,19 +30,21 @@ func transition_to_transparent():
 	$ScreenTransition/AnimationPlayer.play("FadeToTransparent")
 
 func save_game():
-	print("Saving game")
-	
 	var save_game = File.new()
-	save_game.open("user://savegame.save", File.WRITE)
+	print(Rules.savegame_filename)
+	save_game.open("user://" + Rules.savegame_filename, File.WRITE)
 	
 	# get all nodes that should be persisted
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	
+	# also save the autoloads
+	save_nodes.append(get_node("/root/PlayerData"))
+	
 	for node in save_nodes:
-		print(node)
+		print("Saving %s" % node.name)
 		
 		# Check the node is an instanced scene so it can be instanced again during load
-		if node.filename.empty():
+		if node.filename.empty() and (node.name != "PlayerData"):
 			print("persistent node '%s' is not an instanced scene, skipped" % node.name)
 			continue
 			
@@ -56,10 +61,16 @@ func save_game():
 	save_game.close()
 
 func load_game():
+	if(Rules.savegame_filename == ""):
+		print("Rules.savegame_filename is empty")
+		return
+		
 	var save_game = File.new()
-	if not save_game.file_exists("user://" + filepath_to_load):
-		print("No savegame exists.")
+	if not save_game.file_exists("user://" + Rules.savegame_filename):
+		print("No savegame file exists.")
 		return # Error, No savegame to load
+	
+	
 	
 	# We need to revert the game state so we're not cloning objects
 	# during loading. This will vary wildly depending on the needs of a
@@ -71,12 +82,23 @@ func load_game():
 		node.queue_free()
 	
 	# Load the save game line by line and process the dictionary to restore the objects
-	save_game.open("user://" + filepath_to_load, File.READ)
+	save_game.open("user://" + Rules.savegame_filename, File.READ)
 	
 	while save_game.get_position() < save_game.get_len():
 		# Get the saved dictionary from the next line in the save file
 		var node_data = parse_json(save_game.get_line())
 		
+		if(node_data["filename"] == "PlayerData"):
+			print("Here is playerdata")
+			
+			for key in node_data.keys():
+				print(key + str(PlayerData.get(key)))
+				PlayerData.set(key, node_data[key])
+				print(key + str(PlayerData.get(key)))
+				
+			emit_signal("update_ui")
+			continue
+			
 		# First, create the object, add it to the tree and set its position
 		var new_object = load(node_data["filename"]).instance()
 		get_node(node_data["parent"]).add_child(new_object)
@@ -88,7 +110,6 @@ func load_game():
 				continue
 			new_object.set(key, node_data[key])
 			
-	print("game loaded.")
 	save_game.close()
 
 func exit_optionsmenu():

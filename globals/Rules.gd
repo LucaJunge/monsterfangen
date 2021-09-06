@@ -1,5 +1,8 @@
 extends Node
 
+# Global configuration
+var savegame_filename = "" # empty signals the SceneManager that no game shall be loaded
+
 var encounterRate = 0.1
 var nextMonster = null
 
@@ -19,15 +22,3 @@ var monsterDictionary = {
 		"sprite": "res://assets/interface/tile_0026.png",
 	}
 }
-
-# id
-# name
-# baseAttack
-# baseHealth
-# sprite
-# 
-#
-#
-#
-#
-

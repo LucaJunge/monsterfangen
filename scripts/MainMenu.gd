@@ -6,8 +6,7 @@ func _on_StartNewGameButton_button_up():
 	get_tree().change_scene("res://scenes/Intro.tscn")
 
 func _on_LoadGameButton_button_up():
-	print("Load Game")
-	# show saved games
+	# show saved games selection screen
 	get_tree().change_scene("res://scenes/SavedGames.tscn")
 
 func _on_OptionsButton_button_up():

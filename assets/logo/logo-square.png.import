@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/logo.png-017de6ce0c27066e3c0377ee024a25c8.stex"
+path="res://.import/logo-square.png-20c6eccd8fdc83d6d05c1841bf45a715.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/logo/logo.png"
-dest_files=[ "res://.import/logo.png-017de6ce0c27066e3c0377ee024a25c8.stex" ]
+source_file="res://assets/logo/logo-square.png"
+dest_files=[ "res://.import/logo-square.png-20c6eccd8fdc83d6d05c1841bf45a715.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

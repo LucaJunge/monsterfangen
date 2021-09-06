@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/logo.png-017de6ce0c27066e3c0377ee024a25c8.stex"
+path="res://.import/grassy_plains_by_theodenn.jpg-3b7e48b7339a2dd71b5cfaeceff12955.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/logo/logo.png"
-dest_files=[ "res://.import/logo.png-017de6ce0c27066e3c0377ee024a25c8.stex" ]
+source_file="res://assets/backgrounds/grassy_plains_by_theodenn.jpg"
+dest_files=[ "res://.import/grassy_plains_by_theodenn.jpg-3b7e48b7339a2dd71b5cfaeceff12955.stex" ]
 
 [params]
 

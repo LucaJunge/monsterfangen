@@ -26,7 +26,7 @@ var input_direction = Vector2(0, 0)
 var stop_input: bool = false
 var moving = false
 
-onready var playerName = "NO_NAMEE"
+onready var playerName = PlayerData.playerName
 
 var percent_moved_to_next_tile = 0.0
 
