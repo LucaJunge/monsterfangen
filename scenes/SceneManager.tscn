@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Map.tscn" type="PackedScene" id=1]
-[ext_resource path="res://AnalogPad.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/SceneManager.gd" type="Script" id=3]
 [ext_resource path="res://scenes/OptionsMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/MenuButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeToBlack"
@@ -74,15 +74,20 @@ anims/FadeToTransparent = SubResource( 2 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="AnalogPad" parent="UI" instance=ExtResource( 2 )]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = -176.0
-margin_right = 176.0
-margin_bottom = -16.0
-mouse_default_cursor_shape = 3
-
 [node name="MenuButton" parent="UI" instance=ExtResource( 5 )]
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -400.0
+margin_top = -800.0
 
 [node name="MenuOverlay" parent="UI" instance=ExtResource( 4 )]
+
+[node name="Joystick" parent="UI" instance=ExtResource( 6 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_top = -144.0
+margin_right = 64.0
+margin_bottom = -16.0

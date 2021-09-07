@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/Intro.gd" type="Script" id=2]
+[ext_resource path="res://theme/monsterfangen.tres" type="Theme" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.133333, 0.133333, 0.133333, 1 )
@@ -10,17 +11,7 @@ bg_color = Color( 0.133333, 0.133333, 0.133333, 1 )
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 30
-outline_size = 1
-outline_color = Color( 0.0627451, 0.34902, 0.239216, 1 )
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=4]
-size = 30
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=5]
 size = 30
 font_data = ExtResource( 1 )
 
@@ -32,6 +23,7 @@ script = ExtResource( 2 )
 [node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,9 +61,9 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer"]
-margin_top = 98.0
+margin_top = 104.0
 margin_right = 300.0
-margin_bottom = 602.0
+margin_bottom = 596.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
@@ -106,14 +98,13 @@ __meta__ = {
 [node name="LabelName" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 379.0
 margin_right = 300.0
-margin_bottom = 402.0
-custom_fonts/font = SubResource( 3 )
+margin_bottom = 394.0
 text = "Choose your name"
 
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 422.0
+margin_top = 414.0
 margin_right = 300.0
-margin_bottom = 455.0
+margin_bottom = 447.0
 custom_fonts/font = SubResource( 4 )
 align = 1
 clear_button_enabled = true
@@ -122,10 +113,9 @@ __meta__ = {
 }
 
 [node name="StartGameButton" type="Button" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 475.0
+margin_top = 467.0
 margin_right = 300.0
-margin_bottom = 504.0
-custom_fonts/font = SubResource( 5 )
+margin_bottom = 492.0
 text = "Start your adventure"
 
 [connection signal="button_up" from="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_button_up"]

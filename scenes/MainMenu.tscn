@@ -71,7 +71,6 @@ __meta__ = {
 margin_top = 278.0
 margin_right = 360.0
 margin_bottom = 343.0
-focus_mode = 0
 size_flags_horizontal = 7
 custom_fonts/font = SubResource( 2 )
 text = "Start New Game"

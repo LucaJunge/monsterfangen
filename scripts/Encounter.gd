@@ -1,13 +1,16 @@
 extends Node2D
 
+# debug signal for enemy actions
 signal timeout
+
 onready var dialogBox = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer2/NinePatchRect/DialogText
 onready var attackButton = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton
 onready var ui = $CanvasLayer/EncounterUI
-onready var ui_node = find_parent("SceneManager").find_node("UI").get_node("AnalogPad")
+onready var ui_node = find_parent("SceneManager").find_node("UI").get_node("Joystick")
 onready var menu_button = find_parent("SceneManager").find_node("UI").get_node("MenuButton")
 onready var enemyLifebar = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer/LifeBar
 
+# manage the current encounter state
 var current_state = null
 enum BATTLE_STATES {
 	PLAYER,
@@ -21,6 +24,7 @@ func _ready():
 	connect_signals()
 	
 	# hide the analog pad
+	# todo: DO THIS IN THE SCENE MANAGER OR SOMEWHERE ELSE
 	ui_node.visible = false
 	menu_button.visible = false
 	
@@ -58,6 +62,9 @@ func handle_state(new_state):
 			pass
 		BATTLE_STATES.ENEMY:
 			# Enemy code here
+			if enemyLifebar.value <= 0:
+				handle_state(BATTLE_STATES.WIN)
+				
 			dialogBox.text = "What will the enemy do?"
 			attackButton.disabled = true
 			yield(get_tree().create_timer(1.5), "timeout")
@@ -89,13 +96,11 @@ func connect_signals():
 	ui.connect("has_attacked_signal", self, "_on_playerAttack")
 
 func _on_playerAttack():
-	print("player attack signal")
+	print("Player attacked")
 	# play attack animation on player...
 	
 	# make damage to enemy
 	enemyLifebar.value -= 27
 	
-	if enemyLifebar.value <= 0:
-		handle_state(BATTLE_STATES.WIN)
-	else:
-		handle_state(BATTLE_STATES.ENEMY)
+	# change to the enemy state
+	handle_state(BATTLE_STATES.ENEMY)

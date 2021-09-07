@@ -22,16 +22,14 @@ enum FacingDirection {LEFT, RIGHT, UP, DOWN }
 var player_state = PlayerState.IDLE
 var facing_direction = FacingDirection.DOWN
 var initial_position = Vector2(0, 0)
-var input_direction = Vector2(0, 0)
+var input_direction = Vector2(0, 1)
 var stop_input: bool = false
 var moving = false
+var will_encounter: bool = false
 
 onready var playerName = PlayerData.playerName
 
 var percent_moved_to_next_tile = 0.0
-
-# holds the current monsters in the player party
-var partyMonsters = []
 
 # all the sounds, the player can make, currently only footsteps
 var sounds = []
@@ -39,17 +37,25 @@ var sounds = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_tree.active = true
+	print("player ready")
+	
+	# set player position on load
+	position = PlayerData.playerPosition
+	
 	initial_position = position
 	
 	# load all possible sounds
 	# BUG: also currently imports the .import metadata files...
 	#load_sounds()
 	
-	# Set cameras position on load
-	$Camera2D.position = position
-	
+	# Set camera position on load
+	$Camera2D.position = Vector2(0, 0)
+
+
 	# debug: set one monster to test fights
-	PlayerData.playerParty.append(Monster.new(Rules.monsterDictionary["1"]))
+	if PlayerData.playerParty.size() == 0:
+		PlayerData.playerParty.append(Monster.new(Rules.monsterDictionary["0"]))
+	#print(PlayerData.playerParty)
 
 func _physics_process(delta):
 	# no physics need to be calculated when the player is currently turning, so just return
@@ -159,6 +165,9 @@ func move(delta):
 			percent_moved_to_next_tile = 0.0
 			moving = false
 			emit_signal("player_stopped_signal")
+			if will_encounter:
+				triggerEncounter(0)
+
 		else:
 			# gradually interpolate the position until percent_moved_to_next_tile is 1.0
 			position = initial_position + (TILE_SIZE * input_direction * percent_moved_to_next_tile)
@@ -174,8 +183,7 @@ func save():
 		"playerName": playerName,
 		"pos_x": position.x, # Vector 2 is not supported by JSON
 		"pos_y": position.y,
-		"facing_direction": facing_direction,
-		"partyMonsters": partyMonsters
+		"facing_direction": facing_direction
 	}
 	return save_dict
 
@@ -195,3 +203,13 @@ func load_sounds():
 #	$AudioStreamPlayer.stream = sounds[randi()%4]
 #	if !$AudioStreamPlayer.playing:
 #		$AudioStreamPlayer.play()
+
+func triggerEncounter(monster_to_spawn: int = 0):
+	anim_state.travel("Idle")
+	$Camera2D.clear_current()
+	stop_input = true
+	will_encounter = false
+	var enemyMonster = Monster.new(Rules.monsterDictionary[str(monster_to_spawn)])
+	Rules.nextMonster = enemyMonster
+	PlayerData.playerPosition = position
+	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Encounter.tscn")

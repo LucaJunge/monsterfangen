@@ -89,12 +89,26 @@ func load_game():
 		var node_data = parse_json(save_game.get_line())
 		
 		if(node_data["filename"] == "PlayerData"):
-			print("Here is playerdata")
 			
 			for key in node_data.keys():
-				print(key + str(PlayerData.get(key)))
-				PlayerData.set(key, node_data[key])
-				print(key + str(PlayerData.get(key)))
+				
+				if key == "playerParty":
+					var monster_dict = {}
+					
+					# entry = id of the dictionary entry of playerParty
+					for entry in node_data[key]:
+						
+						monster_dict[entry] = {}
+						# for every monster attribute like base_attack, add it to the dictionary
+						for attribute in node_data["playerParty"][entry]:
+							monster_dict[entry][attribute] = node_data["playerParty"][entry][attribute]
+				
+					# recreate nodes for every saved monster and append it to the playerParty
+					for index in monster_dict:
+						var current_monster = Monster.new(monster_dict[index])
+						PlayerData.playerParty.append(current_monster)
+				else:
+					PlayerData.set(key, node_data[key])
 				
 			emit_signal("update_ui")
 			continue
@@ -119,7 +133,7 @@ func exit_optionsmenu():
 	#	player.stop_input = false
 	
 	# show other control elements
-	$UI/AnalogPad.visible = true
+	$UI/Joystick.visible = true
 	menu_button.visible = true
 
 func open_optionsmenu():
@@ -131,7 +145,7 @@ func open_optionsmenu():
 	#	player.moving = false
 	
 	# hide other control elements
-	$UI/AnalogPad.visible = false
+	$UI/Joystick.visible = false
 	menu_button.visible = false
 
 func save_optionsmenu():
