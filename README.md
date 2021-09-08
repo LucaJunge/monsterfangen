@@ -4,4 +4,8 @@
 
 monsterfangen is a mobile game made with the [Godot Engine](https://godotengine.org/).
 
-![Ingame](./assets/screenshots/ingame1.jpg)
+<p align="center" width="100%">
+  <img width="30%" src="./assets/screenshots/ingame1.jpg">
+  <img width="30%" src="./assets/screenshots/ingame2.jpg">
+  <img width="30%" src="./assets/screenshots/ingame3.jpg">
+</p>
