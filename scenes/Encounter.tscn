@@ -23,10 +23,9 @@ __meta__ = {
 }
 
 [node name="EncounterUI" parent="CanvasLayer" instance=ExtResource( 1 )]
-anchor_left = 0.0
-anchor_right = 1.0
 
 [node name="BATTLE_STATE" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 40.0

@@ -1,0 +1,54 @@
+[
+  {
+    "color_name": "font-color",
+    "color": "#ffeceff4"
+  },
+  {
+    "color_name": "font-color-disabled",
+    "color": "#50eceff4"
+  },
+  {
+    "color_name": "font-color-hover",
+    "color": "#ffeceff4"
+  },
+  {
+    "color_name": "font-color-hover",
+    "color": "#ffeceff4"
+  },
+  {
+    "color_name": "blue-button-disabled-bgcolor",
+    "color": "#ff8093ab"
+  },
+  {
+    "color_name": "blue-button-disabled-bordercolor",
+    "color": "#ff93acc4"
+  },
+  {
+    "color_name": "blue-button-disabled-shadow",
+    "color": "#10000000"
+  },
+  {
+    "color_name": "blue-button-normal-bgcolor",
+    "color": "#ff5e81ac"
+  },
+  {
+    "color_name": "blue-button-normal-bordercolor",
+    "color": "#ff729cc5"
+  },
+  {
+    "color_name": "blue-button-normal-shadow",
+    "color": "#20000000"
+  },
+  {
+    "color_name": "blue-button-pressed-bgcolor",
+    "color": "#ff425a78"
+  },
+  {
+    "color_name": "blue-button-pressed-bordercolor",
+    "color": "#ff547391"
+  },
+  {
+    "color_name": "blue-button-pressed-shadow",
+    "color": "#20000000"
+  }
+]

@@ -1,7 +1,6 @@
 extends Node
 
 # Global configuration
-var savegame_filename = "" # empty signals the SceneManager that no game shall be loaded
 
 var encounterRate = 0.1
 var nextMonster = null

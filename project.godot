@@ -32,6 +32,7 @@ config/icon="res://assets/logo/logo-square.png"
 
 Rules="*res://globals/Rules.gd"
 PlayerData="*res://globals/PlayerData.gd"
+Utils="*res://globals/Utils.gd"
 
 [display]
 
@@ -40,6 +41,10 @@ window/size/height=800
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
+
+[global]
+
+color=false
 
 [input]
 

@@ -1,8 +1,14 @@
 extends Node
 
+# Player Data
 var playerName: String = "PLAYERDATA_NAME_EMPTY"
 var playerPosition: Vector2 = Vector2(0, 0)
 var playerParty: Array = []
+
+# Savegame Data
+var savegame_filename = "" # empty signals the SceneManager that no game shall be loaded
+var savegame_timestamp_created = ""
+var savegame_timestamp_lastsaved = ""
 
 func save():
 	
@@ -18,7 +24,9 @@ func save():
 		"filename": get_name(),
 		"playerName": playerName,
 		"playerPosition": playerPosition,
-		"playerParty": monster_dict
+		"playerParty": monster_dict,
+		"savegame_timestamp_created": savegame_timestamp_created,
+		"savegame_timestamp_lastsaved": OS.get_system_time_secs()
 	}
 	
 	return save_dict

@@ -51,12 +51,6 @@ func _ready():
 	# Set camera position on load
 	$Camera2D.position = Vector2(0, 0)
 
-
-	# debug: set one monster to test fights
-	if PlayerData.playerParty.size() == 0:
-		PlayerData.playerParty.append(Monster.new(Rules.monsterDictionary["0"]))
-	#print(PlayerData.playerParty)
-
 func _physics_process(delta):
 	# no physics need to be calculated when the player is currently turning, so just return
 	if player_state == PlayerState.TURNING or stop_input:

@@ -3,8 +3,8 @@ extends Node2D
 # debug signal for enemy actions
 signal timeout
 
-onready var dialogBox = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer2/NinePatchRect/DialogText
-onready var attackButton = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton
+onready var dialogBox = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer2/PanelContainer/DialogText
+onready var attackButton = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/FightButtonMarginContainer/FightButton
 onready var ui = $CanvasLayer/EncounterUI
 onready var ui_node = find_parent("SceneManager").find_node("UI").get_node("Joystick")
 onready var menu_button = find_parent("SceneManager").find_node("UI").get_node("MenuButton")
@@ -94,6 +94,7 @@ func handle_state(new_state):
 
 func connect_signals():
 	ui.connect("has_attacked_signal", self, "_on_playerAttack")
+	ui.connect("wants_to_flee", self, "flee")
 
 func _on_playerAttack():
 	print("Player attacked")
@@ -104,3 +105,10 @@ func _on_playerAttack():
 	
 	# change to the enemy state
 	handle_state(BATTLE_STATES.ENEMY)
+
+# should this be another battle_state?
+func flee():
+	dialogBox.text = "You fled!"
+	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Map.tscn")
+	ui_node.visible = true
+	menu_button.visible = true

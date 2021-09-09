@@ -31,8 +31,10 @@ func transition_to_transparent():
 
 func save_game():
 	var save_game = File.new()
-	print(Rules.savegame_filename)
-	save_game.open("user://" + Rules.savegame_filename, File.WRITE)
+	
+	# check if a savegame_filename exists? else print an error save, useful for recovery?
+	print(PlayerData.savegame_filename)
+	save_game.open("user://" + PlayerData.savegame_filename, File.WRITE)
 	
 	# get all nodes that should be persisted
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
@@ -61,13 +63,18 @@ func save_game():
 	save_game.close()
 
 func load_game():
-	if(Rules.savegame_filename == ""):
-		print("Rules.savegame_filename is empty")
-		return
-		
 	var save_game = File.new()
-	if not save_game.file_exists("user://" + Rules.savegame_filename):
+	
+	# This can never happen actually
+	if(PlayerData.savegame_filename == ""):
+		print("PlayerData.savegame_filename is empty")
+		return
+
+	# This happens, if we start a new game
+	if not save_game.file_exists("user://" + PlayerData.savegame_filename):
 		print("No savegame file exists.")
+		if PlayerData.playerParty.size() == 0:
+			PlayerData.playerParty.append(Monster.new(Rules.monsterDictionary["1"]))
 		return # Error, No savegame to load
 	
 	
@@ -82,7 +89,7 @@ func load_game():
 		node.queue_free()
 	
 	# Load the save game line by line and process the dictionary to restore the objects
-	save_game.open("user://" + Rules.savegame_filename, File.READ)
+	save_game.open("user://" + PlayerData.savegame_filename, File.READ)
 	
 	while save_game.get_position() < save_game.get_len():
 		# Get the saved dictionary from the next line in the save file
@@ -110,7 +117,6 @@ func load_game():
 				else:
 					PlayerData.set(key, node_data[key])
 				
-			emit_signal("update_ui")
 			continue
 			
 		# First, create the object, add it to the tree and set its position
@@ -123,7 +129,8 @@ func load_game():
 			if key == "filename" or key == "parent" or key == "pos_x" or key == "pos_y":
 				continue
 			new_object.set(key, node_data[key])
-			
+	
+	emit_signal("update_ui")
 	save_game.close()
 
 func exit_optionsmenu():

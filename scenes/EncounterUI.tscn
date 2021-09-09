@@ -1,14 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/LifeBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/interface/monster.png" type="Texture" id=2]
-[ext_resource path="res://assets/onscreencontrols/red_button11.png" type="Texture" id=3]
-[ext_resource path="res://assets/onscreencontrols/flatDark34.png" type="Texture" id=4]
+[ext_resource path="res://theme/fight_button.tres" type="StyleBox" id=3]
+[ext_resource path="res://theme/monsterfangen.tres" type="Theme" id=4]
 [ext_resource path="res://scripts/EncounterUI.gd" type="Script" id=5]
 [ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://assets/onscreencontrols/red_button12.png" type="Texture" id=9]
-[ext_resource path="res://assets/onscreencontrols/blue_button13.png" type="Texture" id=10]
-[ext_resource path="res://assets/onscreencontrols/red_button13.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 21
@@ -77,37 +74,107 @@ tracks/1/keys = {
 "values": [ -20.0, 0.0, -20.0 ]
 }
 
+[sub_resource type="StyleBoxFlat" id=12]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.85098, 0.85098, 0.85098, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="DynamicFont" id=5]
 size = 28
 font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.85098, 0.85098, 0.85098, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 0.439216, 0.439216, 0.439216, 1 )
-border_blend = true
-corner_radius_top_left = 8
-corner_radius_top_right = 8
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
 
-[sub_resource type="DynamicFontData" id=7]
-font_path = "res://assets/fonts/Kenney Pixel.ttf"
+[sub_resource type="DynamicFont" id=13]
+size = 30
+outline_size = 3
+outline_color = Color( 0, 0, 0, 0.235294 )
+font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=8]
-size = 50
-extra_spacing_bottom = 5
-font_data = SubResource( 7 )
+[sub_resource type="DynamicFont" id=7]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0, 0, 0.235294 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.803922, 0.576471, 0.388235, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.745098, 0.517647, 0.333333, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color( 0, 0, 0, 0.254902 )
+shadow_size = 2
+shadow_offset = Vector2( 1, 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 25
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.172549 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.356863, 0.611765, 0.690196, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.298039, 0.541176, 0.611765, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color( 0, 0, 0, 0.254902 )
+shadow_size = 2
+shadow_offset = Vector2( 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.458824, 0.6, 0.411765, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.396078, 0.541176, 0.34902, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color( 0, 0, 0, 0.254902 )
+shadow_size = 2
+shadow_offset = Vector2( 1, 1 )
 
 [node name="EncounterUI" type="Control"]
-anchor_left = 0.00333333
-anchor_right = 1.00333
+anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
+theme = ExtResource( 4 )
 script = ExtResource( 5 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="VSplitContainer" type="VSplitContainer" parent="."]
@@ -121,7 +188,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer"]
-margin_right = 399.999
+margin_right = 400.0
 margin_bottom = 494.0
 size_flags_horizontal = 11
 size_flags_vertical = 11
@@ -131,7 +198,7 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/VBoxContainer"]
-margin_right = 399.0
+margin_right = 400.0
 margin_bottom = 245.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -145,19 +212,19 @@ __meta__ = {
 [node name="EnemyContainer" type="HBoxContainer" parent="VSplitContainer/VBoxContainer/MarginContainer"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 379.0
+margin_right = 380.0
 margin_bottom = 245.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer"]
-margin_right = 177.0
+margin_right = 178.0
 margin_bottom = 225.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="EnemyMonsterLabel" type="Label" parent="VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer"]
-margin_right = 177.0
+margin_right = 178.0
 margin_bottom = 17.0
 custom_fonts/font = SubResource( 1 )
 text = "enemy_monster"
@@ -165,7 +232,7 @@ valign = 1
 
 [node name="EnemyLevelLabel" type="Label" parent="VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer"]
 margin_top = 21.0
-margin_right = 177.0
+margin_right = 178.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 text = "LVL 1"
@@ -173,12 +240,12 @@ valign = 1
 
 [node name="LifeBar" parent="VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer" instance=ExtResource( 1 )]
 margin_top = 42.0
-margin_right = 177.0
+margin_right = 178.0
 margin_bottom = 52.0
 
 [node name="EnemySprite" type="Control" parent="VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer"]
-margin_left = 181.0
-margin_right = 359.0
+margin_left = 182.0
+margin_right = 360.0
 margin_bottom = 225.0
 size_flags_horizontal = 3
 
@@ -201,7 +268,7 @@ anims/Idle = SubResource( 2 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="VSplitContainer/VBoxContainer"]
 margin_top = 249.0
-margin_right = 399.0
+margin_right = 400.0
 margin_bottom = 494.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -210,13 +277,13 @@ custom_constants/margin_left = 20
 
 [node name="PlayerContainer" type="HBoxContainer" parent="VSplitContainer/VBoxContainer/MarginContainer2"]
 margin_left = 20.0
-margin_right = 379.0
+margin_right = 380.0
 margin_bottom = 245.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="PlayerSprite" type="Control" parent="VSplitContainer/VBoxContainer/MarginContainer2/PlayerContainer"]
-margin_right = 177.0
+margin_right = 178.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
@@ -240,8 +307,8 @@ anims/Attack = SubResource( 3 )
 anims/Idle = SubResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/VBoxContainer/MarginContainer2/PlayerContainer"]
-margin_left = 181.0
-margin_right = 359.0
+margin_left = 182.0
+margin_right = 360.0
 margin_bottom = 245.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -277,155 +344,167 @@ margin_bottom = 52.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VSplitContainer"]
 margin_top = 506.0
-margin_right = 399.999
+margin_right = 400.0
 margin_bottom = 800.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="NinePatchRect" type="NinePatchRect" parent="VSplitContainer/VBoxContainer2"]
-margin_right = 399.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 0, 70 )
-texture = ExtResource( 10 )
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 20
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/VBoxContainer2"]
+margin_right = 400.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 0, 56 )
+custom_styles/panel = SubResource( 12 )
 
-[node name="DialogText" type="RichTextLabel" parent="VSplitContainer/VBoxContainer2/NinePatchRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="DialogText" type="RichTextLabel" parent="VSplitContainer/VBoxContainer2/PanelContainer"]
 margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -14.0
+margin_top = 5.0
+margin_right = 390.0
+margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 5 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "MISSING_TXT
 MISSING_TXT"
+fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="Panel" parent="VSplitContainer/VBoxContainer2"]
-margin_top = 74.0
-margin_right = 399.0
+margin_top = 60.0
+margin_right = 400.0
 margin_bottom = 294.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 6 )
 
-[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/VBoxContainer2/Panel"]
+[node name="ButtonsContainer" type="GridContainer" parent="VSplitContainer/VBoxContainer2/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FightButtonMarginContainer" type="MarginContainer" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer"]
+margin_right = 400.0
+margin_bottom = 135.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 5
+
+[node name="AttacksContainer" type="GridContainer" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/FightButtonMarginContainer"]
+visible = false
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 380.0
+margin_bottom = 244.0
+columns = 2
+
+[node name="FightButton2" type="Button" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/FightButtonMarginContainer/AttacksContainer"]
+visible = false
+margin_right = 178.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 13 )
+text = "FIGHT"
+
+[node name="FightButton3" type="Button" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/FightButtonMarginContainer/AttacksContainer"]
+visible = false
+margin_left = 182.0
+margin_right = 360.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "FIGHT"
+
+[node name="FightButton4" type="Button" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/FightButtonMarginContainer/AttacksContainer"]
+visible = false
+margin_top = 114.0
+margin_right = 178.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "FIGHT"
+
+[node name="FightButton5" type="Button" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/FightButtonMarginContainer/AttacksContainer"]
+visible = false
+margin_left = 182.0
+margin_top = 114.0
+margin_right = 360.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "FIGHT"
+
+[node name="FightButton" type="Button" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/FightButtonMarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 380.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "FIGHT"
+
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer"]
+margin_top = 145.0
+margin_right = 400.0
+margin_bottom = 234.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_constants/margin_bottom = 15
 
-[node name="ButtonsContainer" type="GridContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer"]
+[node name="OtherButtonsContainer" type="HBoxContainer" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/MarginContainer"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 379.0
-margin_bottom = 200.0
+margin_right = 380.0
+margin_bottom = 74.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_constants/separation = 15
 
-[node name="MainButtonContainer" type="CenterContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer"]
-margin_right = 359.0
-margin_bottom = 128.0
+[node name="BagButton" type="Button" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/MarginContainer/OtherButtonsContainer"]
+margin_right = 110.0
+margin_bottom = 54.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
+text = "BAG"
 
-[node name="MainButton" type="TextureButton" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/MainButtonContainer"]
-margin_left = 84.0
-margin_top = 39.0
-margin_right = 274.0
-margin_bottom = 88.0
-rect_pivot_offset = Vector2( 95, 24 )
-mouse_default_cursor_shape = 2
+[node name="RunButton" type="Button" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/MarginContainer/OtherButtonsContainer"]
+margin_left = 125.0
+margin_right = 235.0
+margin_bottom = 54.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-disabled = true
-keep_pressed_outside = true
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 9 )
-texture_disabled = ExtResource( 11 )
-stretch_mode = 6
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
+text = "RUN"
 
-[node name="CenterContainer" type="CenterContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton/CenterContainer"]
-margin_left = 42.0
-margin_top = 2.0
-margin_right = 148.0
-margin_bottom = 46.0
+[node name="TeamButton" type="Button" parent="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/MarginContainer/OtherButtonsContainer"]
+margin_left = 250.0
+margin_right = 360.0
+margin_bottom = 54.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
-text = "Attack"
-align = 1
-valign = 1
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 9 )
+text = "TEAM"
 
-[node name="OtherButtonsContainer" type="HBoxContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer"]
-margin_top = 132.0
-margin_right = 359.0
-margin_bottom = 180.0
-size_flags_horizontal = 3
-
-[node name="BagContainer" type="CenterContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer"]
-margin_right = 117.0
-margin_bottom = 48.0
-size_flags_horizontal = 3
-
-[node name="BagButton" type="TextureButton" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer/BagContainer"]
-margin_left = 34.0
-margin_right = 82.0
-margin_bottom = 48.0
-texture_normal = ExtResource( 4 )
-
-[node name="RunContainer" type="CenterContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer"]
-margin_left = 121.0
-margin_right = 238.0
-margin_bottom = 48.0
-size_flags_horizontal = 3
-
-[node name="RunButton" type="TextureButton" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer/RunContainer"]
-margin_left = 34.0
-margin_right = 82.0
-margin_bottom = 48.0
-texture_normal = ExtResource( 4 )
-
-[node name="TeamContainer" type="CenterContainer" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer"]
-margin_left = 242.0
-margin_right = 359.0
-margin_bottom = 48.0
-size_flags_horizontal = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TeamButton" type="TextureButton" parent="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/OtherButtonsContainer/TeamContainer"]
-margin_left = 34.0
-margin_right = 82.0
-margin_bottom = 48.0
-texture_normal = ExtResource( 4 )
-
-[connection signal="button_up" from="VSplitContainer/VBoxContainer2/Panel/MarginContainer/ButtonsContainer/MainButtonContainer/MainButton" to="." method="_on_MainButton_button_up"]
+[connection signal="button_up" from="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/FightButtonMarginContainer/FightButton" to="." method="_on_FightButton_button_up"]
+[connection signal="button_up" from="VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/MarginContainer/OtherButtonsContainer/RunButton" to="." method="_on_RunButton_button_up"]
