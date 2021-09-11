@@ -22,7 +22,7 @@ func update_ui():
 		monster_name.set_text(PlayerData.playerParty[i].monster_name)
 		
 		var monster_hp = current_monster_panel.get_node("HBoxContainer/VBoxContainer/monster_hp")
-		monster_hp.set_text(str(PlayerData.playerParty[i].base_health))
+		monster_hp.set_text("level: " + str(PlayerData.playerParty[i].level) + "\nhp: " + str(PlayerData.playerParty[i].current_health)+ "\nattack: " + str(PlayerData.playerParty[i].current_attack) + "\ndefense: " + str(PlayerData.playerParty[i].current_defense) + "\ntempo: " + str(PlayerData.playerParty[i].current_tempo))
 		
 		var monster_sprite = current_monster_panel.get_node("HBoxContainer/TextureRect")
 		monster_sprite.set_texture(load(PlayerData.playerParty[i]["sprite"]))

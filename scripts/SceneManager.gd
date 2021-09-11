@@ -21,6 +21,7 @@ func _ready():
 	load_game()
 
 func transition_to_scene(new_scene: String):
+	emit_signal("update_ui")
 	next_scene = new_scene
 	$ScreenTransition/AnimationPlayer.play("FadeToBlack")
 
@@ -75,6 +76,7 @@ func load_game():
 		print("No savegame file exists.")
 		if PlayerData.playerParty.size() == 0:
 			PlayerData.playerParty.append(Monster.new(Rules.monsterDictionary["1"]))
+			emit_signal("update_ui")
 		return # Error, No savegame to load
 	
 	
@@ -112,6 +114,8 @@ func load_game():
 				
 					# recreate nodes for every saved monster and append it to the playerParty
 					for index in monster_dict:
+						#print(monster_dict[index])
+						monster_dict[index]["loading"] = true
 						var current_monster = Monster.new(monster_dict[index])
 						PlayerData.playerParty.append(current_monster)
 				else:

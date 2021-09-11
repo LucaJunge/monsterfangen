@@ -8,7 +8,7 @@ onready var attackButton = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContaine
 onready var ui = $CanvasLayer/EncounterUI
 onready var ui_node = find_parent("SceneManager").find_node("UI").get_node("Joystick")
 onready var menu_button = find_parent("SceneManager").find_node("UI").get_node("MenuButton")
-onready var enemyLifebar = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer/LifeBar
+onready var enemyLifebar = $CanvasLayer/EncounterUI/VSplitContainer/Control/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer/LifeBar
 
 # manage the current encounter state
 var current_state = null
@@ -36,18 +36,18 @@ func _ready():
 
 func initializeUI():
 	# set enemy sprite
-	var enemySprite = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/EnemySprite/TextureRect
+	var enemySprite = $CanvasLayer/EncounterUI/VSplitContainer/Control/VBoxContainer/MarginContainer/EnemyContainer/EnemySprite/TextureRect
 	enemySprite.set_texture(load(Rules.nextMonster["sprite"]))
 	
 	# set enemy monster name
-	var enemyName = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer/EnemyMonsterLabel
+	var enemyName = $CanvasLayer/EncounterUI/VSplitContainer/Control/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer/EnemyMonsterLabel
 	enemyName.text = str(Rules.nextMonster["monster_name"])
 	
-	var playerSprite = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer/MarginContainer2/PlayerContainer/PlayerSprite/TextureRect
+	var playerSprite = $CanvasLayer/EncounterUI/VSplitContainer/Control/VBoxContainer/MarginContainer2/PlayerContainer/PlayerSprite/TextureRect
 	playerSprite.set_texture(load(PlayerData.playerParty[0]["sprite"]))
 	
 	# set player monster name
-	var playerName = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer/MarginContainer2/PlayerContainer/VBoxContainer/PlayerMonsterLabel
+	var playerName = $CanvasLayer/EncounterUI/VSplitContainer/Control/VBoxContainer/MarginContainer2/PlayerContainer/VBoxContainer/PlayerMonsterLabel
 	playerName.text = str(PlayerData.playerParty[0]["monster_name"])
 
 func handle_state(new_state):
@@ -77,12 +77,20 @@ func handle_state(new_state):
 		BATTLE_STATES.WIN:
 			# Win code here
 			dialogBox.text = "You won!"
-			get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Map.tscn")
 			ui_node.visible = true
 			menu_button.visible = true
 			# play animation...
+			print(PlayerData.playerParty[0].current_xp)
+			print(PlayerData.playerParty[0].level)
+			var xp = PlayerData.playerParty[0].calculate_xp(Rules.nextMonster)
+			PlayerData.playerParty[0].add_xp(xp)
+			print(PlayerData.playerParty[0].current_xp)
+			print(PlayerData.playerParty[0].level)
 			# get xp...
 			# leave scene...
+			# recruit chance based on monster type?
+			# random? player/monster level? skilling?
+			get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Map.tscn")
 			pass
 		BATTLE_STATES.LOSE:
 			# Lose code here
