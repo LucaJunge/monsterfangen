@@ -3,12 +3,12 @@ extends Node2D
 # debug signal for enemy actions
 signal timeout
 
-onready var dialogBox = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer2/PanelContainer/DialogText
-onready var attackButton = $CanvasLayer/EncounterUI/VSplitContainer/VBoxContainer2/Panel/ButtonsContainer/FightButtonMarginContainer/FightButton
+onready var dialogBox = $CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/PanelContainer/DialogText
+onready var attackButton = $CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/FightButtonMarginContainer/FightButton
 onready var ui = $CanvasLayer/EncounterUI
 onready var ui_node = find_parent("SceneManager").find_node("UI").get_node("Joystick")
 onready var menu_button = find_parent("SceneManager").find_node("UI").get_node("MenuButton")
-onready var enemyLifebar = $CanvasLayer/EncounterUI/VSplitContainer/Control/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer/LifeBar
+onready var enemyLifebar = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemyInfo/EnemyHealth
 
 # manage the current encounter state
 var current_state = null
@@ -36,19 +36,28 @@ func _ready():
 
 func initializeUI():
 	# set enemy sprite
-	var enemySprite = $CanvasLayer/EncounterUI/VSplitContainer/Control/VBoxContainer/MarginContainer/EnemyContainer/EnemySprite/TextureRect
+	var enemySprite = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemySpriteContainer/EnemySprite
 	enemySprite.set_texture(load(Rules.nextMonster["sprite"]))
 	
 	# set enemy monster name
-	var enemyName = $CanvasLayer/EncounterUI/VSplitContainer/Control/VBoxContainer/MarginContainer/EnemyContainer/VBoxContainer/EnemyMonsterLabel
+	var enemyName = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemyInfo/EnemyName
 	enemyName.text = str(Rules.nextMonster["monster_name"])
 	
-	var playerSprite = $CanvasLayer/EncounterUI/VSplitContainer/Control/VBoxContainer/MarginContainer2/PlayerContainer/PlayerSprite/TextureRect
+	# set enemy level
+	var enemyLevel = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemyInfo/EnemyLevel
+	enemyLevel.text = "Lv" + str(Rules.nextMonster["level"])
+	
+	# set player sprite
+	var playerSprite = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerSpriteContainer/PlayerSprite
 	playerSprite.set_texture(load(PlayerData.playerParty[0]["sprite"]))
 	
 	# set player monster name
-	var playerName = $CanvasLayer/EncounterUI/VSplitContainer/Control/VBoxContainer/MarginContainer2/PlayerContainer/VBoxContainer/PlayerMonsterLabel
+	var playerName = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo/PlayerName
 	playerName.text = str(PlayerData.playerParty[0]["monster_name"])
+	
+	# set player level
+	var playerLevel = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo/PlayerLevel
+	playerLevel.text = "Lv" + str(PlayerData.playerParty[0]["level"])
 
 func handle_state(new_state):
 	$CanvasLayer/BATTLE_STATE.text = str(BATTLE_STATES.keys()[new_state])
@@ -77,8 +86,6 @@ func handle_state(new_state):
 		BATTLE_STATES.WIN:
 			# Win code here
 			dialogBox.text = "You won!"
-			ui_node.visible = true
-			menu_button.visible = true
 			# play animation...
 			print(PlayerData.playerParty[0].current_xp)
 			print(PlayerData.playerParty[0].level)
@@ -90,7 +97,7 @@ func handle_state(new_state):
 			# leave scene...
 			# recruit chance based on monster type?
 			# random? player/monster level? skilling?
-			get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Map.tscn")
+			get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Map.tscn", true)
 			pass
 		BATTLE_STATES.LOSE:
 			# Lose code here

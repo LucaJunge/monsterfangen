@@ -5,6 +5,7 @@ signal update_ui
 var next_scene = null
 onready var menu_button = $UI/MenuButton
 onready var menu_overlay = $UI/MenuOverlay
+onready var joystick = $UI/Joystick
 onready var player = $CurrentScene/Map/YSort/Player/
 
 # Called when the node enters the scene tree for the first time.
@@ -20,8 +21,10 @@ func _ready():
 	# finally, load the game
 	load_game()
 
-func transition_to_scene(new_scene: String):
+func transition_to_scene(new_scene: String, show_ui: bool = true):
 	emit_signal("update_ui")
+	menu_button.visible = true
+	joystick.visible = true
 	next_scene = new_scene
 	$ScreenTransition/AnimationPlayer.play("FadeToBlack")
 

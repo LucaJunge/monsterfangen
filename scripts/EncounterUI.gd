@@ -7,9 +7,9 @@ onready var playerSpriteAnimationPlayer = $VSplitContainer/Control/VBoxContainer
 onready var enemySpriteAnimationPlayer = $VSplitContainer/Control/VBoxContainer/MarginContainer/EnemyContainer/EnemySprite/AnimationPlayer
 
 func _ready():
-	playerSpriteAnimationPlayer.play("Idle")
-	enemySpriteAnimationPlayer.play("Idle")
-	#pass
+	#playerSpriteAnimationPlayer.play("Idle")
+	#enemySpriteAnimationPlayer.play("Idle")
+	pass
 	
 # This is the current attack button
 func _on_FightButton_button_up():
