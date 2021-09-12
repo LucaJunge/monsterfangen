@@ -3,6 +3,7 @@ extends Node2D
 signal update_ui
 
 var next_scene = null
+var show_ui = false
 onready var menu_button = $UI/MenuButton
 onready var menu_overlay = $UI/MenuOverlay
 onready var joystick = $UI/Joystick
@@ -17,15 +18,15 @@ func _ready():
 	menu_overlay.connect("save_button_pressed", self, "save_optionsmenu")
 	connect("update_ui", menu_overlay, "update_ui")
 	menu_button.connect("menu_button_pressed", self, "open_optionsmenu")
+	$ScreenTransition/AnimationPlayer.connect("animation_finished", self, "on_screen_transition_finished")
 	
 	# finally, load the game
 	load_game()
 
-func transition_to_scene(new_scene: String, show_ui: bool = true):
+func transition_to_scene(new_scene: String, _show_ui: bool = true):
 	emit_signal("update_ui")
-	menu_button.visible = true
-	joystick.visible = true
 	next_scene = new_scene
+	show_ui = _show_ui
 	$ScreenTransition/AnimationPlayer.play("FadeToBlack")
 
 func transition_to_transparent():
@@ -165,3 +166,9 @@ func open_optionsmenu():
 func save_optionsmenu():
 	save_game()
 	exit_optionsmenu()
+
+func on_screen_transition_finished(animation_name):
+	if animation_name == "FadeToTransparent" and show_ui == true:
+		menu_button.visible = true
+		joystick.visible = true
+		show_ui = false

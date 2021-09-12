@@ -97,7 +97,7 @@ func handle_state(new_state):
 			# leave scene...
 			# recruit chance based on monster type?
 			# random? player/monster level? skilling?
-			get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Map.tscn", true)
+			get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Map.tscn")
 			pass
 		BATTLE_STATES.LOSE:
 			# Lose code here
@@ -125,5 +125,3 @@ func _on_playerAttack():
 func flee():
 	dialogBox.text = "You fled!"
 	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Map.tscn")
-	ui_node.visible = true
-	menu_button.visible = true

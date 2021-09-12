@@ -206,4 +206,4 @@ func triggerEncounter(monster_to_spawn: int = 0):
 	var enemyMonster = Monster.new(Rules.monsterDictionary[str(monster_to_spawn)])
 	Rules.nextMonster = enemyMonster
 	PlayerData.playerPosition = position
-	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Encounter.tscn")
+	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Encounter.tscn", false)
