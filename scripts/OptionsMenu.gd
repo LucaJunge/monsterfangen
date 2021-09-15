@@ -12,7 +12,14 @@ func _ready():
 
 func update_ui():
 	var playerLabel = $MarginContainer/VBoxContainer/Player
+	
+	# cut name if there are more than 10 characters
+	#if(PlayerData.playerName.length() >= 10):
+	#	playerLabel.set_text(PlayerData.playerName.substr(0, 10) + "...")
+	#else:
 	playerLabel.set_text(PlayerData.playerName)
+		
+	# update the party screen with the current monsters
 	party_screen.update_ui()
 
 func _on_Exit_button_up():

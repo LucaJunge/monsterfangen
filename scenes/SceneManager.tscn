@@ -74,13 +74,13 @@ anims/FadeToTransparent = SubResource( 2 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="MenuOverlay" parent="UI" instance=ExtResource( 4 )]
+
 [node name="MenuButton" parent="UI" instance=ExtResource( 5 )]
 anchor_left = 1.0
 anchor_top = 1.0
 margin_left = -400.0
 margin_top = -800.0
-
-[node name="MenuOverlay" parent="UI" instance=ExtResource( 4 )]
 
 [node name="Joystick" parent="UI" instance=ExtResource( 6 )]
 anchor_left = 0.5
