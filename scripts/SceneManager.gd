@@ -7,6 +7,7 @@ var show_ui = false
 onready var menu_button = $UI/MenuButton
 onready var menu_overlay = $UI/MenuOverlay
 onready var joystick = $UI/Joystick
+onready var actions_button = $UI/ActionsButton
 onready var player = $CurrentScene/Map/YSort/Player/
 
 # Called when the node enters the scene tree for the first time.
@@ -18,6 +19,7 @@ func _ready():
 	menu_overlay.connect("save_button_pressed", self, "save_optionsmenu")
 	connect("update_ui", menu_overlay, "update_ui")
 	menu_button.connect("menu_button_pressed", self, "open_optionsmenu")
+	actions_button.connect("action_pressed_event", player, "interact")
 	$ScreenTransition/AnimationPlayer.connect("animation_finished", self, "on_screen_transition_finished")
 	
 	# finally, load the game

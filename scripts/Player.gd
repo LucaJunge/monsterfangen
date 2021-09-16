@@ -119,6 +119,9 @@ func need_to_turn():
 func finished_turning():
 	player_state = PlayerState.IDLE
 	
+func interact():
+	print(facing_direction)
+	
 func move(delta):
 	
 	# cast the ray into half of the next block

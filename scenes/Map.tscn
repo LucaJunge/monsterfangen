@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/WorldTileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Tree.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/TallGrass.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Sign.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/world/another_tileset.png" type="Texture" id=9]
 [ext_resource path="res://scenes/House.tscn" type="PackedScene" id=10]
 
@@ -528,6 +529,9 @@ position = Vector2( 160, -144 )
 position = Vector2( 144, -144 )
 
 [node name="YSort" type="YSort" parent="."]
+
+[node name="Sign" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 80, -16 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 

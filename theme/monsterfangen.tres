@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=2]
+[gd_resource type="Theme" load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=1]
 
@@ -98,6 +98,8 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.266667, 0.52549, 0.305882, 1 )
 border_color = Color( 0.1734, 0.34, 0.19839, 1 )
 corner_radius_top_left = 3
@@ -111,7 +113,7 @@ expand_margin_top = 2.0
 expand_margin_bottom = 2.0
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.329412, 0.854902, 0.278431, 1 )
 corner_radius_top_left = 2
 corner_radius_top_right = 2
@@ -120,14 +122,14 @@ corner_radius_bottom_left = 2
 corner_detail = 4
 anti_aliasing = false
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=10]
 size = 18
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.196078 )
 font_data = ExtResource( 1 )
 
 [resource]
-default_font = SubResource( 9 )
+default_font = SubResource( 10 )
 Button/colors/font_color = Color( 0.92549, 0.937255, 0.956863, 1 )
 Button/colors/font_color_disabled = Color( 0.92549, 0.937255, 0.956863, 0.313726 )
 Button/colors/font_color_hover = Color( 0.92549, 0.937255, 0.956863, 1 )
@@ -152,8 +154,9 @@ LineEdit/icons/clear = null
 LineEdit/styles/focus = null
 LineEdit/styles/normal = SubResource( 6 )
 LineEdit/styles/read_only = null
+PanelContainer/styles/panel = SubResource( 7 )
 ProgressBar/colors/font_color = Color( 0.941176, 0.941176, 0.941176, 1 )
 ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = null
-ProgressBar/styles/bg = SubResource( 7 )
-ProgressBar/styles/fg = SubResource( 8 )
+ProgressBar/styles/bg = SubResource( 8 )
+ProgressBar/styles/fg = SubResource( 9 )
