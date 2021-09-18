@@ -173,4 +173,5 @@ func on_screen_transition_finished(animation_name):
 	if animation_name == "FadeToTransparent" and show_ui == true:
 		menu_button.visible = true
 		joystick.visible = true
+		actions_button.visible = true
 		show_ui = false

@@ -9,7 +9,7 @@ onready var ui = $CanvasLayer/EncounterUI
 onready var ui_node = find_parent("SceneManager").find_node("UI").get_node("Joystick")
 onready var menu_button = find_parent("SceneManager").find_node("UI").get_node("MenuButton")
 onready var enemyLifebar = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemyInfo/EnemyHealth
-
+onready var actionButton = find_parent("SceneManager").find_node("UI").get_node("ActionsButton")
 # manage the current encounter state
 var current_state = null
 enum BATTLE_STATES {
@@ -27,6 +27,7 @@ func _ready():
 	# todo: DO THIS IN THE SCENE MANAGER OR SOMEWHERE ELSE
 	ui_node.visible = false
 	menu_button.visible = false
+	actionButton.visible = false
 	
 	# populate the ui at start
 	initializeUI()
