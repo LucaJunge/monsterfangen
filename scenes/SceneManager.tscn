@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ActionsButton.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/MenuButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Joystick.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Dialog.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/DialogManager.gd" type="Script" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeToBlack"
@@ -54,6 +55,9 @@ tracks/0/keys = {
 
 [node name="SceneManager" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="DialogManager" type="Node2D" parent="."]
+script = ExtResource( 8 )
 
 [node name="CurrentScene" type="Node2D" parent="."]
 

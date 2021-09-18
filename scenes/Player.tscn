@@ -408,6 +408,11 @@ position = Vector2( 8, 8 )
 cast_to = Vector2( 0, 8 )
 collision_mask = 6
 
+[node name="InteractionRayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 8 )
+collision_mask = 16
+
 [node name="SceneTransitionRayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 8, 8 )
 cast_to = Vector2( 0, 8 )

@@ -12,6 +12,7 @@ onready var animation_tree = $AnimationTree
 onready var anim_state = animation_tree.get("parameters/playback")
 onready var blocking_ray = $BlockingRayCast2D
 onready var scene_transition_ray = $SceneTransitionRayCast2D
+onready var interaction_ray = $InteractionRayCast2D
 
 # the animation states the player can be in
 enum PlayerState { IDLE, TURNING, WALKING }
@@ -120,7 +121,29 @@ func finished_turning():
 	player_state = PlayerState.IDLE
 	
 func interact():
-	print(facing_direction)
+	var interactable = null
+	# get the current facing direction
+	match facing_direction:
+		0:
+			interaction_ray.cast_to = Vector2(-8, 0)
+			interaction_ray.force_raycast_update()
+			interactable = interaction_ray.get_collider()
+		1:
+			interaction_ray.cast_to = Vector2(8, 0)
+			interaction_ray.force_raycast_update()
+			interactable = interaction_ray.get_collider()
+		2:
+			interaction_ray.cast_to = Vector2(0, -8)
+			interaction_ray.force_raycast_update()
+			interactable = interaction_ray.get_collider()
+		3:
+			interaction_ray.cast_to = Vector2(0, 8)
+			interaction_ray.force_raycast_update()
+			interactable = interaction_ray.get_collider()
+	
+	if interactable and interactable.has_method("interact"):
+		#stop_input = true
+		interactable.interact()
 	
 func move(delta):
 	
