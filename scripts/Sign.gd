@@ -6,10 +6,8 @@ export (String, FILE) var dialog_file = "res://assets/dialogs/default.json"
 func _ready():
 	pass # Replace with function body.
 
-func trigger_dialog():
-	# show box
+func interact():
 	# disable player movement
 	# add text to box
-	var dialog = get_node("/root/SceneManager/UI/Dialog")
-	print("this is a dialog")
+	get_node("/root/SceneManager/DialogManager").start_dialog(dialog_file)
 	pass
