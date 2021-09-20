@@ -9,6 +9,7 @@ onready var menu_overlay = $UI/MenuOverlay
 onready var joystick = $UI/Joystick
 onready var actions_button = $UI/ActionsButton
 onready var player = $CurrentScene/Map/YSort/Player/
+var spawn_direction = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

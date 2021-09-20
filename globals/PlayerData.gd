@@ -3,6 +3,7 @@ extends Node
 # Player Data
 var playerName: String = "PLAYERDATA_NAME_EMPTY"
 var playerPosition: Vector2 = Vector2(0, 0)
+var playerDirection: Vector2 = Vector2(0, 1)
 var playerParty: Array = []
 
 # Savegame Data
