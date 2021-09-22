@@ -23,7 +23,7 @@ enum FacingDirection {LEFT, RIGHT, UP, DOWN }
 var player_state = PlayerState.IDLE
 var facing_direction = FacingDirection.DOWN
 var initial_position = Vector2(0, 0)
-var input_direction = Vector2(0, 1)
+var input_direction = Vector2(0, 0)
 var stop_input: bool = false
 var moving = false
 var will_encounter: bool = false
@@ -44,6 +44,7 @@ func _ready():
 	position = PlayerData.playerPosition
 	
 	initial_position = position
+	set_spawn_direction(PlayerData.playerDirection)
 	
 	# load all possible sounds
 	# BUG: also currently imports the .import metadata files...
@@ -63,6 +64,7 @@ func _physics_process(delta):
 		
 		# change the animation states to represent the current direction
 		if input_direction != Vector2.ZERO:
+			#set_spawn_direction(input_direction) would be shorter
 			animation_tree.set("parameters/Idle/blend_position", input_direction)
 			animation_tree.set("parameters/Walk/blend_position", input_direction)
 			animation_tree.set("parameters/Turn/blend_position", input_direction)
@@ -232,4 +234,10 @@ func triggerEncounter(monster_to_spawn: int = 0):
 	var enemyMonster = Monster.new(Rules.monsterDictionary[str(monster_to_spawn)])
 	Rules.nextMonster = enemyMonster
 	PlayerData.playerPosition = position
+	PlayerData.playerDirection = input_direction
 	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Encounter.tscn", false)
+	
+func set_spawn_direction(direction: Vector2):
+	animation_tree.set("parameters/Idle/blend_position", direction)
+	animation_tree.set("parameters/Walk/blend_position", direction)
+	animation_tree.set("parameters/Turn/blend_position", direction)

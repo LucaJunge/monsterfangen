@@ -125,4 +125,4 @@ func _on_playerAttack():
 # should this be another battle_state?
 func flee():
 	dialogBox.text = "You fled!"
-	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Map.tscn")
+	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Map.tscn", true)
