@@ -19,11 +19,11 @@ extra_spacing_top = 10
 extra_spacing_bottom = 10
 font_data = ExtResource( 3 )
 
+[sub_resource type="StyleBoxEmpty" id=3]
+
 [sub_resource type="StyleBoxEmpty" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 outline_size = 1
 outline_color = Color( 0.384314, 0.494118, 0.309804, 1 )
@@ -139,9 +139,9 @@ margin_top = 638.0
 margin_right = 360.0
 margin_bottom = 680.0
 size_flags_horizontal = 3
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 5 )
-custom_fonts/font = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Licenses"
 flat = true
 
