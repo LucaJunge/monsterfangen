@@ -15,3 +15,6 @@ func _on_OptionsButton_button_up():
 func _on_Exit_button_up():
 	print("Exit")
 	get_tree().quit()
+
+func _on_Licenses_button_up():
+	$MainMenuCanvas/Licenses.visible = true

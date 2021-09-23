@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/juhani_junkala_chiptune_adventures_stage_select.mp3-d3c60ae7ac9c3e3fb3a5fd2a8b29d78a.mp3str"
+
+[deps]
+
+source_file="res://assets/music/juhani_junkala_chiptune_adventures_stage_select.mp3"
+dest_files=[ "res://.import/juhani_junkala_chiptune_adventures_stage_select.mp3-d3c60ae7ac9c3e3fb3a5fd2a8b29d78a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
