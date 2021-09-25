@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/flatDark15.png-d16edc7f2afe988f970d543b3a010a91.stex"
+path="res://.import/another_tileset.png-3fb09805ad662b57a955708508ffebba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/onscreencontrols/flatDark15.png"
-dest_files=[ "res://.import/flatDark15.png-d16edc7f2afe988f970d543b3a010a91.stex" ]
+source_file="res://assets/tilemaps/another_tileset.png"
+dest_files=[ "res://.import/another_tileset.png-3fb09805ad662b57a955708508ffebba.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
