@@ -4,7 +4,7 @@ onready var savegame_container = $CanvasLayer/Panel/MarginContainer/ScrollContai
 onready var empty_message = $CanvasLayer/Panel/MarginContainer/ScrollContainer/VBoxContainer/empty_message
 
 onready var savegames = []
-var savegame_template = load("res://scenes/SavegameContainer.tscn")
+var savegame_template = load("res://scenes/SavegameContainer/SavegameContainer.tscn")
 
 func _ready():
 	get_savegames("user://")
@@ -29,7 +29,7 @@ func get_savegames(path: String):
 			
 		else:
 			savegames.append(savegame)
-			print(savegame)
+			#print(savegame)
 	
 func create_savegame_containers():
 	

@@ -17,7 +17,7 @@ func save():
 	var monster_dict = {}
 	
 	for monster in playerParty:
-		print("saving " + str(monster.monster_name) + " at index " + str(monster_index))
+		#print("saving " + str(monster.monster_name) + " at index " + str(monster_index))
 		monster_dict[monster_index] = monster.save()
 		monster_index += 1
 	

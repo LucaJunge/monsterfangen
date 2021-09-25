@@ -1,5 +1,7 @@
 extends Node
 
+var is_debug = true
+
 func get_savegame_info(path):
 	var savegame = File.new()
 	var savegame_info = {}
@@ -15,3 +17,7 @@ func get_savegame_info(path):
 			# more info...
 
 	return savegame_info
+
+func debug_var(variable_name, variable_value):
+	if is_debug:
+		print(str(variable_name) + ": " + str(variable_value))

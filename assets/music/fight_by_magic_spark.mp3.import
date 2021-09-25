@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fight_by_magic_spark.mp3-06477a294af2251100dc78bff62c372c.mp3str"
+
+[deps]
+
+source_file="res://assets/music/fight_by_magic_spark.mp3"
+dest_files=[ "res://.import/fight_by_magic_spark.mp3-06477a294af2251100dc78bff62c372c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

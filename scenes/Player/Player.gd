@@ -38,7 +38,6 @@ var sounds = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_tree.active = true
-	print("player ready")
 	
 	# set player position on load
 	position = PlayerData.playerPosition
@@ -232,6 +231,7 @@ func triggerEncounter(monster_to_spawn: int = 0):
 	stop_input = true
 	will_encounter = false
 	var enemyMonster = Monster.new(Rules.monsterDictionary[str(monster_to_spawn)])
+	enemyMonster.set_level(1)
 	Rules.nextMonster = enemyMonster
 	PlayerData.playerPosition = position
 	PlayerData.playerDirection = input_direction

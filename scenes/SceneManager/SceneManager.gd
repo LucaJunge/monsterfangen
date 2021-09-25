@@ -41,7 +41,6 @@ func save_game():
 	var save_game = File.new()
 	
 	# check if a savegame_filename exists? else print an error save, useful for recovery?
-	print(PlayerData.savegame_filename)
 	save_game.open("user://" + PlayerData.savegame_filename, File.WRITE)
 	
 	# get all nodes that should be persisted
@@ -51,7 +50,7 @@ func save_game():
 	save_nodes.append(get_node("/root/PlayerData"))
 	
 	for node in save_nodes:
-		print("Saving %s" % node.name)
+		#print("Saving %s" % node.name)
 		
 		# Check the node is an instanced scene so it can be instanced again during load
 		if node.filename.empty() and (node.name != "PlayerData"):
@@ -80,7 +79,7 @@ func load_game():
 
 	# This happens, if we start a new game
 	if not save_game.file_exists("user://" + PlayerData.savegame_filename):
-		print("No savegame file exists.")
+		#print("New Game")
 		if PlayerData.playerParty.size() == 0:
 			PlayerData.playerParty.append(Monster.new(Rules.monsterDictionary["1"]))
 			emit_signal("update_ui")
