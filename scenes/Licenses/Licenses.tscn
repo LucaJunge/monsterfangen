@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/Licenses/Licenses.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.92549, 0.937255, 0.956863, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 1
+outline_color = Color( 1, 1, 1, 0.196078 )
+font_data = ExtResource( 2 )
+
+[node name="Licenses" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+margin_right = 400.0
+margin_bottom = 800.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="LicenseList" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 380.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Intro" type="Label" parent="ScrollContainer/MarginContainer/LicenseList"]
+margin_right = 360.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "The following projects and resources were used in the game and are listed somewhat in order of appearance."
+autowrap = true
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/LicenseList"]
+margin_top = 39.0
+margin_right = 360.0
+margin_bottom = 41.0
+custom_constants/separation = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/MarginContainer/LicenseList"]
+margin_top = 45.0
+margin_right = 360.0
+margin_bottom = 65.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 10
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer/LicenseList/MarginContainer"]
+margin_left = 5.0
+margin_top = 10.0
+margin_right = 355.0
+margin_bottom = 10.0
+custom_constants/separation = 0
