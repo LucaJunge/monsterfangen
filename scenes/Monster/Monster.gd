@@ -3,6 +3,8 @@ class_name Monster, "res://assets/interface/monster.png"
 
 #var variable = value setget setterfunc, getterfunc
 
+signal level_up_signal
+
 var monster_name = "MISSINGNO"
 var sprite = "res://assets/interface/missingno.png"
 
@@ -75,6 +77,7 @@ func level_up():
 	level = level + 1
 	# change values for attack, defense etc.
 	set_statusvalues()
+	emit_signal("level_up_signal")
 	
 func calculate_xp(monster: Monster):
 	var calculated_xp: int = 0

@@ -11,6 +11,17 @@ onready var joystick = find_parent("SceneManager").find_node("UI").get_node("Joy
 onready var menu_button = find_parent("SceneManager").find_node("UI").get_node("MenuButton")
 onready var actionButton = find_parent("SceneManager").find_node("UI").get_node("ActionsButton")
 onready var enemy_lifebar = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemyInfo/EnemyHealth
+onready var sound_effect_player = $SoundEffectPlayer
+onready var music_player = $MusicPlayer
+
+onready var bag_button = $CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/MarginContainer/OtherButtonsContainer/BagButton
+onready var run_button = $CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/MarginContainer/OtherButtonsContainer/RunButton
+onready var team_button = $CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/MarginContainer/OtherButtonsContainer/TeamButton
+
+onready var level_up_sound = preload("res://assets/sounds/confirmation_002.ogg")
+onready var hit_sound = preload("res://assets/sounds/hit.wav")
+
+var timer_time = 2.0
 
 # who is the player monster? currently always [0] in the array
 onready var player_monster = PlayerData.playerParty[0]
@@ -18,6 +29,7 @@ onready var player_monster = PlayerData.playerParty[0]
 # manage the current encounter state
 var current_state = null
 enum BATTLE_STATES {
+	INIT,
 	PLAYER,
 	ENEMY,
 	WIN,
@@ -30,13 +42,16 @@ func _ready():
 	# todo: DO THIS IN THE SCENE MANAGER OR SOMEWHERE ELSE
 	joystick.visible = false
 	menu_button.visible = false
-	actionButton.visible = false	
+	actionButton.visible = false
 	
 	# populate the ui at start
 	initializeUI()
 	
+	# connect signals
+	player_monster.connect("level_up_signal", self, "level_up")
+	
 	# set the starting state to the player
-	handle_state(BATTLE_STATES.PLAYER)
+	handle_state(BATTLE_STATES.INIT)
 
 func initializeUI():
 	# set enemy sprite
@@ -73,57 +88,77 @@ func initializeUI():
 	var playerLife = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo/PlayerHealth
 	playerLife.max_value = PlayerData.playerParty[0]["health"]
 	playerLife.value = PlayerData.playerParty[0]["current_health"]
-	
 
 func handle_state(new_state):
 	current_state = new_state
 	
 	match current_state:
+		BATTLE_STATES.INIT:
+			
+			disable_buttons(true)
+			# play monster entry animation
+			# update ui ("a wild xyz appears / ")
+			var dialogBoxText = "A wild %s appeared"
+			dialogBox.text = dialogBoxText % Rules.nextMonster["monster_name"]
+			yield(get_tree().create_timer(timer_time), "timeout")
+			handle_state(BATTLE_STATES.PLAYER)
+			pass
+			
 		BATTLE_STATES.PLAYER:
-			# Player code here
+			disable_buttons(false)
+			
+			# debug audio playing
+			#playSound(level_up_sound)
 			
 			if player_monster.current_health <= 0:
 				handle_state(BATTLE_STATES.LOSE)
 				
 			dialogBox.text = "What will you do?\nChoose an action!"
-			attackButton.disabled = false
 			pass
 		BATTLE_STATES.ENEMY:
-			# Enemy code here
+			disable_buttons(true)
+			
 			if Rules.nextMonster.current_health <= 0:
 				handle_state(BATTLE_STATES.WIN)
-			
+				continue
+				
 			dialogBox.text = "What will the enemy do?"
-			attackButton.disabled = true
 			
-			yield(get_tree().create_timer(1.5), "timeout")
+			yield(get_tree().create_timer(timer_time), "timeout")
 			var damage = Rules.nextMonster.attack(player_monster)
+			dialogBox.text = "The enemy attacked you!"
 			#print_debug("damage from enemey", damage)
+			playSoundOverMusic(hit_sound)
 			player_monster.take_damage(damage)
+			yield(get_tree().create_timer(timer_time / 2.0), "timeout")
 			
 			$CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo/PlayerHealth.value = player_monster.current_health
 			
 			handle_state(BATTLE_STATES.PLAYER)
 			pass
 		BATTLE_STATES.WIN:
-			# Win code here
+			disable_buttons(true)
 			dialogBox.text = "You won!"
 			# play animation...
-			var xp = PlayerData.playerParty[0].calculate_xp(Rules.nextMonster)
-			PlayerData.playerParty[0].add_xp(xp)
+			var xp = player_monster.calculate_xp(Rules.nextMonster)
+			player_monster.add_xp(xp)
 			# get xp...
 			# leave scene...
 			# recruit chance based on monster type?
 			# random? player/monster level? skilling?
+			yield(get_tree().create_timer(timer_time), "timeout")
 			$AnimationPlayer.play("fade_out_music")
 			get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/World/World1/World1.tscn")
 			pass
 		BATTLE_STATES.LOSE:
-			# Lose code here
-			print("You lost...")
+			disable_buttons(true)
+			dialogBox.text = "You lost"
+			
 			# remove some money...
 			# find nearest hospital...
 			# respawn player
+			
+			yield(get_tree().create_timer(timer_time), "timeout")
 			$AnimationPlayer.play("fade_out_music")
 			get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/World/World1/World1.tscn")
 			pass
@@ -134,7 +169,8 @@ func _on_RunButton_button_up():
 		get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/World/World1/World1.tscn", true)
 	else:
 		dialogBox.text = "You can't flee!"
-		yield(get_tree().create_timer(1.5), "timeout")
+		disable_buttons(true)
+		yield(get_tree().create_timer(timer_time), "timeout")
 		handle_state(BATTLE_STATES.ENEMY)
 
 func _on_FightButton_button_up():
@@ -142,8 +178,11 @@ func _on_FightButton_button_up():
 	
 	# make damage to enemy
 	var damage = player_monster.attack(Rules.nextMonster)
-	print(damage)
+	#print(damage)
 	
+	dialogBox.text = "You attacked!"
+	playSoundOverMusic(hit_sound)
+	yield(get_tree().create_timer(timer_time / 2.0), "timeout")
 	Rules.nextMonster.take_damage(damage)
 	
 	# updat the lifebar with the new value
@@ -151,3 +190,29 @@ func _on_FightButton_button_up():
 	
 	# change to the enemy state
 	handle_state(BATTLE_STATES.ENEMY)
+
+func disable_buttons(value):
+	bag_button.disabled = value
+	run_button.disabled = value
+	team_button.disabled = value
+	attackButton.disabled = value
+	
+func playSound(stream: AudioStream):
+	music_player.volume_db = -10
+	sound_effect_player.stream = stream
+	sound_effect_player.play()
+	music_player.volume_db = 0
+
+func playSoundOverMusic(stream: AudioStream):
+	# play sound without turning down volume of the music
+	sound_effect_player.stream = stream
+	sound_effect_player.play()
+	pass
+	
+func level_up():
+	# update ui
+	var dialogBoxText = "%s reached level %s!"
+	dialogBox.text = dialogBoxText % [PlayerData.playerParty[0]["monster_name"], str(PlayerData.playerParty[0]["level"])]
+	# play sound
+	playSound(level_up_sound)
+	pass
