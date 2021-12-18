@@ -14,10 +14,12 @@ onready var blocking_ray = $BlockingRayCast2D
 onready var scene_transition_ray = $SceneTransitionRayCast2D
 onready var interaction_ray = $InteractionRayCast2D
 
+onready var interaction_ray_line2d = $InteractionRayLine2D
+
 # the animation states the player can be in
 enum PlayerState { IDLE, TURNING, WALKING }
 # the facing directions the player can be in
-enum FacingDirection {LEFT, RIGHT, UP, DOWN }
+enum FacingDirection {LEFT = 0, RIGHT = 1, UP = 2, DOWN = 3 }
 
 # default values
 var player_state = PlayerState.IDLE
@@ -43,6 +45,7 @@ func _ready():
 	position = PlayerData.playerPosition
 	
 	initial_position = position
+	
 	set_spawn_direction(PlayerData.playerDirection)
 	
 	# load all possible sounds
@@ -124,24 +127,26 @@ func finished_turning():
 func interact():
 	var interactable = null
 	# get the current facing direction
-	match facing_direction:
-		0:
+	print("Facing Direction: " + str(facing_direction))
+	match int(facing_direction):
+		0: #left
 			interaction_ray.cast_to = Vector2(-8, 0)
 			interaction_ray.force_raycast_update()
 			interactable = interaction_ray.get_collider()
-		1:
+		1: #right
 			interaction_ray.cast_to = Vector2(8, 0)
 			interaction_ray.force_raycast_update()
 			interactable = interaction_ray.get_collider()
-		2:
+		2: #up
 			interaction_ray.cast_to = Vector2(0, -8)
 			interaction_ray.force_raycast_update()
 			interactable = interaction_ray.get_collider()
-		3:
+		3: #down
 			interaction_ray.cast_to = Vector2(0, 8)
 			interaction_ray.force_raycast_update()
 			interactable = interaction_ray.get_collider()
 	
+	interaction_ray_line2d.set_point_position(1, interaction_ray.cast_to + interaction_ray.cast_to)
 	if interactable and interactable.has_method("interact"):
 		#stop_input = true
 		interactable.interact()
@@ -236,6 +241,9 @@ func triggerEncounter(monster_to_spawn: int = 0):
 	PlayerData.playerPosition = position
 	PlayerData.playerDirection = input_direction
 	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Encounter/Encounter.tscn", false)
+	
+func direction_to_enum(direction_vector):
+	pass
 	
 func set_spawn_direction(direction: Vector2):
 	animation_tree.set("parameters/Idle/blend_position", direction)

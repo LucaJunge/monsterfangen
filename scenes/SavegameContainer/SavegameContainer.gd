@@ -9,4 +9,4 @@ func _on_SavegameContainer_gui_input(event):
 			load_scene_manager()
 
 func load_scene_manager():
-	get_tree().change_scene("res://scenes/SceneManager.tscn")
+	get_tree().change_scene("res://scenes/SceneManager/SceneManager.tscn")

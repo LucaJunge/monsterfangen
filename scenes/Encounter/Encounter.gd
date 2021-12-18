@@ -70,7 +70,7 @@ func initializeUI():
 	var enemyLife = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemyInfo/EnemyHealth
 	enemyLife.max_value = Rules.nextMonster["health"]
 	enemyLife.value = Rules.nextMonster["current_health"]
-	print(enemyLife.value)
+	#print(enemyLife.value)
 	
 	# set player sprite
 	var playerSprite = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerSpriteContainer/PlayerSprite
@@ -88,6 +88,11 @@ func initializeUI():
 	var playerLife = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo/PlayerHealth
 	playerLife.max_value = PlayerData.playerParty[0]["health"]
 	playerLife.value = PlayerData.playerParty[0]["current_health"]
+	
+	# set player health as text
+	var player_health_text = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo/PlayerHealthText
+	player_health_text.text = str(PlayerData.playerParty[0]["current_health"]) + " / " + str(PlayerData.playerParty[0]["health"])
+
 
 func handle_state(new_state):
 	current_state = new_state
@@ -125,34 +130,42 @@ func handle_state(new_state):
 			dialogBox.text = "What will the enemy do?"
 			
 			yield(get_tree().create_timer(timer_time), "timeout")
-			var damage = Rules.nextMonster.attack(player_monster)
+			var damage = Rules.nextMonster.attack_enemy(player_monster)
 			dialogBox.text = "The enemy attacked you!"
 			#print_debug("damage from enemey", damage)
 			playSoundOverMusic(hit_sound)
 			player_monster.take_damage(damage)
-			yield(get_tree().create_timer(timer_time / 2.0), "timeout")
+			$AnimationPlayer.play("take_damage_player")
 			
 			$CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo/PlayerHealth.value = player_monster.current_health
+			
+			var player_health_text = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo/PlayerHealthText
+			player_health_text.text = str(PlayerData.playerParty[0]["current_health"]) + " / " + str(PlayerData.playerParty[0]["health"])
+						
+			yield(get_tree().create_timer(timer_time / 2.0), "timeout")
 			
 			handle_state(BATTLE_STATES.PLAYER)
 			pass
 		BATTLE_STATES.WIN:
 			disable_buttons(true)
 			dialogBox.text = "You won!"
+			
+			yield(get_tree().create_timer(timer_time), "timeout")
+			
 			# play animation...
 			var xp = player_monster.calculate_xp(Rules.nextMonster)
 			player_monster.add_xp(xp)
-			# get xp...
-			# leave scene...
+			
 			# recruit chance based on monster type?
 			# random? player/monster level? skilling?
+			
 			yield(get_tree().create_timer(timer_time), "timeout")
 			$AnimationPlayer.play("fade_out_music")
 			get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/World/World1/World1.tscn")
 			pass
 		BATTLE_STATES.LOSE:
 			disable_buttons(true)
-			dialogBox.text = "You lost"
+			dialogBox.text = "You lost!"
 			
 			# remove some money...
 			# find nearest hospital...
@@ -160,6 +173,10 @@ func handle_state(new_state):
 			
 			yield(get_tree().create_timer(timer_time), "timeout")
 			$AnimationPlayer.play("fade_out_music")
+			
+			# set position to nearest hospital
+			#PlayerData.playerPosition = nearest_hospital_spawn.position
+			
 			get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/World/World1/World1.tscn")
 			pass
 
@@ -177,19 +194,24 @@ func _on_FightButton_button_up():
 	# play attack animation on player...
 	
 	# make damage to enemy
-	var damage = player_monster.attack(Rules.nextMonster)
+	var damage = player_monster.attack_enemy(Rules.nextMonster)
 	#print(damage)
 	
 	dialogBox.text = "You attacked!"
 	playSoundOverMusic(hit_sound)
-	yield(get_tree().create_timer(timer_time / 2.0), "timeout")
 	Rules.nextMonster.take_damage(damage)
-	
-	# updat the lifebar with the new value
+	$AnimationPlayer.play("take_damage_enemy")
+	disable_buttons(true)
+		
+	# update the lifebar with the new value
 	enemy_lifebar.value = Rules.nextMonster.current_health
+	
+	# placeholder for progress bar animation
+	yield(get_tree().create_timer(timer_time / 2.0), "timeout")
 	
 	# change to the enemy state
 	handle_state(BATTLE_STATES.ENEMY)
+
 
 func disable_buttons(value):
 	bag_button.disabled = value
@@ -214,5 +236,15 @@ func level_up():
 	var dialogBoxText = "%s reached level %s!"
 	dialogBox.text = dialogBoxText % [PlayerData.playerParty[0]["monster_name"], str(PlayerData.playerParty[0]["level"])]
 	# play sound
+	var playerLevel = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo/PlayerLevel
+	playerLevel.text = "Lv" + str(PlayerData.playerParty[0]["level"])
+	
+	var player_health_text = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo/PlayerHealthText
+	player_health_text.text = str(PlayerData.playerParty[0]["current_health"]) + " / " + str(PlayerData.playerParty[0]["health"])
+	
+	var player_health = $CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo/PlayerHealth
+	player_health.max_value = PlayerData.playerParty[0]["health"]
+	player_health.value = player_monster.current_health
+	
 	playSound(level_up_sound)
 	pass

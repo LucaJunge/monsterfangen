@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://theme/components/bag_button.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/backgrounds/cave_inside_169x98.png" type="Texture" id=2]
@@ -236,6 +236,38 @@ tracks/0/keys = {
 "values": [ 0.0, -80.0 ]
 }
 
+[sub_resource type="Animation" id=19]
+resource_name = "take_damage_enemy"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemySpriteContainer/EnemySprite:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -10, 0 ), Vector2( 0, 0 ), Vector2( 10, 0 ), Vector2( 0, 0 ), Vector2( -10, 0 ), Vector2( 0, 0 ), Vector2( 10, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "take_damage_player"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerSpriteContainer/PlayerSprite:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -10, 0 ), Vector2( 0, 0 ), Vector2( 10, 0 ), Vector2( 0, 0 ), Vector2( -10, 0 ), Vector2( 0, 0 ), Vector2( 10, 0 ), Vector2( 0, 0 ) ]
+}
+
 [node name="Encounter" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -329,7 +361,8 @@ text = "EnemyLevel"
 [node name="EnemyHealth" type="ProgressBar" parent="CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemyInfo"]
 margin_top = 49.0
 margin_right = 188.0
-margin_bottom = 50.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 0, 5 )
 step = 1.0
 percent_visible = false
 
@@ -429,9 +462,21 @@ text = "PlayerLevel"
 [node name="PlayerHealth" type="ProgressBar" parent="CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo"]
 margin_top = 49.0
 margin_right = 188.0
-margin_bottom = 50.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 0, 5 )
 step = 1.0
 percent_visible = false
+
+[node name="PlayerHealthText" type="Label" parent="CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo"]
+margin_top = 58.0
+margin_right = 188.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 9 )
+text = "??? / ???"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer/EncounterUI/VSplitContainer"]
 margin_top = 506.0
@@ -607,6 +652,8 @@ text = "TEAM"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade_out_music = SubResource( 17 )
+anims/take_damage_enemy = SubResource( 19 )
+anims/take_damage_player = SubResource( 18 )
 
 [connection signal="button_up" from="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/FightButtonMarginContainer/FightButton" to="." method="_on_FightButton_button_up"]
 [connection signal="button_up" from="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/MarginContainer/OtherButtonsContainer/RunButton" to="." method="_on_RunButton_button_up"]

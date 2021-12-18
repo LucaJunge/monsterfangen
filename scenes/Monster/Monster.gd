@@ -101,7 +101,7 @@ func set_statusvalues():
 func set_current_xp():
 	xp = int(pow(level, 3))
 
-func attack(enemy_monster: Monster):
+func attack_enemy(enemy_monster: Monster):
 	var damage = 0
 	var base_damage = 2
 	

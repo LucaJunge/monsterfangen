@@ -9,7 +9,7 @@ func _ready():
 
 
 func _on_action_button_up():
-	print("action pressed")
+	#print("action pressed")
 	emit_signal("action_pressed_event")
 
 func _on_up_pressed():

@@ -21,6 +21,7 @@ func update_ui():
 			PlayerData.playerParty[i]["sprite"],
 			PlayerData.playerParty[i]["monster_name"],
 			PlayerData.playerParty[i]["level"],
-			"M",
-			PlayerData.playerParty[i]["current_health"])
+			"",
+			PlayerData.playerParty[i]["current_health"],
+			PlayerData.playerParty[i]["health"])
 		#print("loaded " + PlayerData.playerParty[i].monster_name)

@@ -3,7 +3,9 @@ extends Node2D
 onready var dialog_box = get_node("/root/SceneManager/UI/Dialog")
 onready var dialog_text = get_node("/root/SceneManager/UI/Dialog/MarginContainer/MarginContainer/Text")
 
-onready var action_button = get_node("/root/SceneManager/UI/ActionsButton")
+onready var action_button = get_node("/root/SceneManager/UI/ActionsButton/HBoxContainer/action")
+onready var up_button = get_node("/root/SceneManager/UI/ActionsButton/HBoxContainer/VBoxContainer/up")
+onready var down_button = get_node("/root/SceneManager/UI/ActionsButton/HBoxContainer/VBoxContainer/down")
 
 var dialog_started: bool = false
 var dialog_array = []
