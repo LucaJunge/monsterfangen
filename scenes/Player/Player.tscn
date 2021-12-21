@@ -420,4 +420,10 @@ collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="InteractionRayLine2D" type="Line2D" parent="."]
+position = Vector2( 8, 8 )
+points = PoolVector2Array( 0, 0, 0, 16 )
+width = 1.0
+joint_mode = 1
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

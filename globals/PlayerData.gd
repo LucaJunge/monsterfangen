@@ -25,6 +25,7 @@ func save():
 		"filename": get_name(),
 		"playerName": playerName,
 		"playerPosition": playerPosition,
+		"playerDirection": playerDirection,
 		"playerParty": monster_dict,
 		"savegame_timestamp_created": savegame_timestamp_created,
 		"savegame_timestamp_lastsaved": OS.get_system_time_secs()

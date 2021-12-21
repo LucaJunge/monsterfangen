@@ -120,14 +120,15 @@ __meta__ = {
 [node name="hp_progressbar" type="ProgressBar" parent="HBoxContainer/InfoGrid"]
 margin_top = 22.0
 margin_right = 292.0
-margin_bottom = 37.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 value = 50.0
+percent_visible = false
 
 [node name="monster_hp" type="Label" parent="HBoxContainer/InfoGrid"]
-margin_top = 41.0
+margin_top = 27.0
 margin_right = 292.0
-margin_bottom = 62.0
+margin_bottom = 48.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_fonts/font = SubResource( 3 )

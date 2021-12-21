@@ -14,6 +14,7 @@ var spawn_direction = Vector2(0,0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	menu_overlay.visible = false
+	#print(player)
 	
 	# connect all menu overlay buttons and loading signals...
 	menu_overlay.connect("exit_button_pressed", self, "exit_optionsmenu")
@@ -130,16 +131,20 @@ func load_game():
 			continue
 			
 		# First, create the object, add it to the tree and set its position
-		var new_object = load(node_data["filename"]).instance()
-		get_node(node_data["parent"]).add_child(new_object)
-		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
+		var new_player = load(node_data["filename"]).instance()
+		get_node(node_data["parent"]).add_child(new_player)
+		new_player.position = Vector2(node_data["pos_x"], node_data["pos_y"])
 		
 		# Set the remaining variables
 		for key in node_data.keys():
 			if key == "filename" or key == "parent" or key == "pos_x" or key == "pos_y":
 				continue
-			new_object.set(key, node_data[key])
-	
+			new_player.set(key, node_data[key])
+		
+		# overwrite the default player with the instanced player
+		player = new_player
+		actions_button.connect("action_pressed_event", player, "interact")
+		
 	emit_signal("update_ui")
 	save_game.close()
 

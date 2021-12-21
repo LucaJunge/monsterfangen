@@ -135,6 +135,7 @@ margin_right = 300.0
 margin_bottom = 512.0
 custom_fonts/font = SubResource( 4 )
 align = 1
+max_length = 8
 clear_button_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
