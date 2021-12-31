@@ -150,6 +150,7 @@ func interact():
 	if interactable and interactable.has_method("interact"):
 		#stop_input = true
 		interactable.interact()
+		# how to enable input again? ;(
 	
 func move(delta):
 	

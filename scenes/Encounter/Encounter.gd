@@ -183,6 +183,7 @@ func handle_state(new_state):
 func _on_RunButton_button_up():
 	if rand_range(0.0, 1.0) > 0.5:
 		dialogBox.text = "You fled!"
+		disable_buttons(true)
 		get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/World/World1/World1.tscn", true)
 	else:
 		dialogBox.text = "You can't flee!"

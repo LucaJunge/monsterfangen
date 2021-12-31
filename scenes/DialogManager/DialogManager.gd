@@ -46,6 +46,7 @@ func next_line():
 		dialog_box.visible = false
 		dialog_started = false
 		# activate player movement again...
+		#emit("")
 		return
 	
 	# get new first entry and display it

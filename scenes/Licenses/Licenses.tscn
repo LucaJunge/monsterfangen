@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Licenses/Licenses.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://theme/monsterfangen.tres" type="Theme" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.92549, 0.937255, 0.956863, 1 )
@@ -44,28 +45,35 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 380.0
-margin_bottom = 85.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Intro" type="Label" parent="ScrollContainer/MarginContainer/LicenseList"]
+[node name="BackButton" type="Button" parent="ScrollContainer/MarginContainer/LicenseList"]
 margin_right = 360.0
-margin_bottom = 35.0
+margin_bottom = 25.0
+theme = ExtResource( 3 )
+text = "Back"
+
+[node name="Intro" type="Label" parent="ScrollContainer/MarginContainer/LicenseList"]
+margin_top = 29.0
+margin_right = 360.0
+margin_bottom = 64.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "The following projects and resources were used in the game and are listed somewhat in order of appearance."
 autowrap = true
 
 [node name="HSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/LicenseList"]
-margin_top = 39.0
+margin_top = 68.0
 margin_right = 360.0
-margin_bottom = 41.0
+margin_bottom = 70.0
 custom_constants/separation = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/MarginContainer/LicenseList"]
-margin_top = 45.0
+margin_top = 74.0
 margin_right = 360.0
-margin_bottom = 65.0
+margin_bottom = 94.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 10
 custom_constants/margin_left = 5
@@ -77,3 +85,5 @@ margin_top = 10.0
 margin_right = 355.0
 margin_bottom = 10.0
 custom_constants/separation = 0
+
+[connection signal="pressed" from="ScrollContainer/MarginContainer/LicenseList/BackButton" to="." method="_on_BackButton_pressed"]

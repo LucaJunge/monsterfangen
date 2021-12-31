@@ -35,3 +35,7 @@ func list_licenses():
 		
 		license_container.add_child(current_license)
 	license_container.update()
+
+
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://scenes/MainMenu/MainMenu.tscn")

@@ -19,18 +19,16 @@ corner_detail = 5
 anti_aliasing = false
 
 [node name="Joystick" type="Control"]
-anchor_right = 0.32
-anchor_bottom = 0.16
-margin_right = -1.52588e-05
-margin_bottom = -1.52588e-05
+margin_right = 128.0
+margin_bottom = 128.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="JoystickBackground" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = 128.0
+margin_bottom = 128.0
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
@@ -46,7 +44,6 @@ margin_left = -16.0
 margin_top = -16.0
 margin_right = 16.0
 margin_bottom = 16.0
-rect_scale = Vector2( 1.5, 1.5 )
 rect_pivot_offset = Vector2( 16, 16 )
 mouse_filter = 2
 mouse_default_cursor_shape = 2

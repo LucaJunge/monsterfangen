@@ -92,10 +92,13 @@ func load_game():
 	# during loading. This will vary wildly depending on the needs of a
 	# project, so take care with this step.
 	# For our example, we will accomplish this by deleting saveable objects.
+	
+	# currently only the player is in save_nodes
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	
-	for node in save_nodes:
-		node.queue_free()
+	#print(save_nodes)
+	#for node in save_nodes:
+		#node.queue_free()
 	
 	# Load the save game line by line and process the dictionary to restore the objects
 	save_game.open("user://" + PlayerData.savegame_filename, File.READ)
@@ -131,19 +134,20 @@ func load_game():
 			continue
 			
 		# First, create the object, add it to the tree and set its position
-		var new_player = load(node_data["filename"]).instance()
-		get_node(node_data["parent"]).add_child(new_player)
-		new_player.position = Vector2(node_data["pos_x"], node_data["pos_y"])
+		#var new_player = load(node_data["filename"]).instance()
+		
+		#get_node(node_data["parent"]).add_child(new_player)
+		player.position = Vector2(node_data["pos_x"], node_data["pos_y"])
 		
 		# Set the remaining variables
 		for key in node_data.keys():
 			if key == "filename" or key == "parent" or key == "pos_x" or key == "pos_y":
 				continue
-			new_player.set(key, node_data[key])
+			player.set(key, node_data[key])
 		
 		# overwrite the default player with the instanced player
-		player = new_player
-		actions_button.connect("action_pressed_event", player, "interact")
+		#player = new_player
+		#actions_button.connect("action_pressed_event", player, "interact")
 		
 	emit_signal("update_ui")
 	save_game.close()
