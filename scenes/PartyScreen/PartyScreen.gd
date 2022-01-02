@@ -7,7 +7,7 @@ func _ready():
 	pass
 
 func _on_back_button_button_up():
-	get_parent().get_node("MarginContainer").visible = true
+	get_parent().get_node("HBoxContainer").visible = true
 	visible = false
 
 func update_ui():

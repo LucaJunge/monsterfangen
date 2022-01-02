@@ -34,8 +34,11 @@ func transition_to_scene(new_scene: String, _show_ui: bool = true):
 	$ScreenTransition/AnimationPlayer.play("FadeToBlack")
 
 func transition_to_transparent():
+	actions_button.disconnect("action_pressed_event", player, "interact")
 	$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(load(next_scene).instance())
+	player = $CurrentScene/Map/YSort/Player/
+	actions_button.connect("action_pressed_event", player, "interact")
 	$ScreenTransition/AnimationPlayer.play("FadeToTransparent")
 
 func save_game():
@@ -161,6 +164,7 @@ func exit_optionsmenu():
 	# show other control elements
 	$UI/Joystick.visible = true
 	menu_button.visible = true
+	actions_button.visible = true
 
 func open_optionsmenu():
 	menu_overlay.visible = true
@@ -173,6 +177,7 @@ func open_optionsmenu():
 	# hide other control elements
 	$UI/Joystick.visible = false
 	menu_button.visible = false
+	actions_button.visible = false
 
 func save_optionsmenu():
 	save_game()

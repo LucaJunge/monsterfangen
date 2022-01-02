@@ -20,4 +20,4 @@ shape = SubResource( 1 )
 
 [node name="Door" parent="." instance=ExtResource( 2 )]
 position = Vector2( 16, 48 )
-next_scene_path = "res://scenes/PlayerHomeFloor1.tscn"
+next_scene_path = "res://scenes/PlayerHomeFloor1/PlayerHomeFloor1.tscn"

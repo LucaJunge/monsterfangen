@@ -13,6 +13,7 @@ size = 30
 font_data = ExtResource( 1 )
 
 [sub_resource type="AtlasTexture" id=3]
+flags = 3
 atlas = ExtResource( 4 )
 region = Rect2( 386, 1, 12, 16 )
 

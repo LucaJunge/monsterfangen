@@ -147,6 +147,7 @@ func interact():
 			interactable = interaction_ray.get_collider()
 	
 	interaction_ray_line2d.set_point_position(1, interaction_ray.cast_to + interaction_ray.cast_to)
+	print(interaction_ray.cast_to)
 	if interactable and interactable.has_method("interact"):
 		#stop_input = true
 		interactable.interact()
