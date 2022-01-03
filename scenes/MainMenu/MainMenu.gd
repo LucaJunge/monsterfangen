@@ -11,7 +11,8 @@ func _on_LoadGameButton_button_up():
 
 func _on_OptionsButton_button_up():
 	# show options menu
-	get_tree().change_scene("res://scenes/Options/Options.tscn")
+	#get_tree().change_scene("res://scenes/Options/Options.tscn")
+	get_tree().change_scene("res://scenes/ScrollList/ScrollList.tscn")
 
 func _on_Exit_button_up():
 	print("Exit")
