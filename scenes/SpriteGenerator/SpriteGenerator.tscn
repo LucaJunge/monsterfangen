@@ -104,6 +104,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 45, 45 )
+
+[node name="Sprite" type="Node2D" parent="Viewport"]
+
 [connection signal="value_changed" from="VBoxContainer/Sliders/RedSlider" to="." method="_on_RedSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/Sliders/GreenSlider" to="." method="_on_GreenSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/Sliders/BlueSlider" to="." method="_on_BlueSlider_value_changed"]

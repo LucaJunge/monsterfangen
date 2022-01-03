@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 var birth_limit = 5
 var death_limit = 4
 var ca_steps = 4
@@ -36,7 +36,7 @@ func _ready():
 	
 	var all_groups = fill_colors(map, body_color_scheme, eye_color_scheme, number_of_colors, true)
 	
-	var group = draw_group()
+	var group = draw_monster(all_groups)
 	 
 	# add elements to the colors array
 	#for horizontal in 20:
@@ -321,12 +321,29 @@ func get_color(map, pos, is_negative, right, left, down, up, colorscheme, eye_co
 		col = eye_colorscheme[n2]
 	return col
 
-func draw_group():
+func draw_monster(all_groups):
 	var groups = []
 	var negative_groups = []
-	var draw_size = 10
+	var draw_size = 4
 	var movement = false
-	onready var cell_drawer = preload("res://SpriteGenerator/CellDrawer.tscn")
+	var is_eye = false
+	var eye_cutoff = 0.0
+	var average = Vector2()
+	var sprite = get_node("Viewport/Sprite")
+	#onready var cell_drawer = preload("res://SpriteGenerator/CellDrawer.tscn")
+	
+	var largest = 0
+	for g in groups:
+		largest = max(largest, g.arr.size())
+
+	# for every row?
+	for i in range(groups.size() - 1, -1, -1):
+		var g = groups[i].arr
+		#if g.size >= largest * 0.25:
+		for c in g:
+			print("draw rect")
+			sprite.draw_rect(Rect2(c.position.x*draw_size, c.position.y*draw_size, draw_size, draw_size), c.color)
+	
 
 # Helper functions
 

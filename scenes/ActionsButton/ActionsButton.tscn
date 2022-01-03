@@ -1,21 +1,17 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://theme/monsterfangen.tres" type="Theme" id=1]
+[ext_resource path="res://assets/ui/tile_0168.png" type="Texture" id=2]
 [ext_resource path="res://scenes/ActionsButton/ActionsButton.gd" type="Script" id=3]
+[ext_resource path="res://assets/ui/tile_0166.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/tile_0013.png" type="Texture" id=5]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.270588, 0.372549, 0.498039, 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.368627, 0.505882, 0.67451, 1 )
-
-[node name="ActionsButton" type="ToolButton"]
-anchor_right = 0.32
-anchor_bottom = 0.16
-theme = ExtResource( 1 )
-custom_styles/pressed = SubResource( 1 )
-custom_styles/normal = SubResource( 2 )
-flat = false
+[node name="ActionsButton" type="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -104.0
+margin_right = 128.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true,
@@ -25,49 +21,61 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 0
+size_flags_vertical = 0
 custom_constants/separation = 0
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="action" type="Button" parent="HBoxContainer"]
-margin_right = 101.0
-margin_bottom = 128.0
+[node name="action" type="TextureButton" parent="HBoxContainer"]
+margin_right = 96.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 64, 64 )
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/font_color_pressed = Color( 0.313726, 0.313726, 0.313726, 1 )
-custom_constants/hseparation = 0
-text = "ACTION"
-flat = true
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 101.0
+margin_left = 96.0
+margin_top = 17.0
 margin_right = 128.0
-margin_bottom = 128.0
+margin_bottom = 86.0
 size_flags_horizontal = 0
-size_flags_vertical = 3
-custom_constants/separation = 0
+size_flags_vertical = 4
+custom_constants/separation = 5
+alignment = 1
 
-[node name="up" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_right = 27.0
-margin_bottom = 64.0
-size_flags_vertical = 3
-custom_colors/font_color_pressed = Color( 0.313726, 0.313726, 0.313726, 1 )
-text = "^"
-flat = true
+[node name="up" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="down" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 64.0
-margin_right = 27.0
-margin_bottom = 128.0
-size_flags_vertical = 3
-custom_colors/font_color_pressed = Color( 0.313726, 0.313726, 0.313726, 1 )
-custom_constants/hseparation = 0
-text = "v"
-flat = true
+[node name="down" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+margin_top = 37.0
+margin_right = 32.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 32, 32 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 5
 
-[connection signal="button_up" from="HBoxContainer/action" to="." method="_on_action_button_up"]
+[connection signal="pressed" from="HBoxContainer/action" to="." method="_on_action_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/up" to="." method="_on_up_pressed"]
-[connection signal="button_up" from="HBoxContainer/VBoxContainer/down" to="." method="_on_down_button_up"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/down" to="." method="_on_down_pressed"]
