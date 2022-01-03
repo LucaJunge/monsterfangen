@@ -1,0 +1,55 @@
+\documentclass[12pt]{scrreprt}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{lipsum}
+\usepackage[pagecolor=none]{pagecolor}
+\usepackage{fontspec}
+\usepackage{csquotes}
+\usepackage{tikz}
+
+\definecolor{titlepagecolor}{HTML}{3b4252}
+\definecolor{linecolor}{HTML}{2e3440}
+\definecolor{namecolor}{rgb}{1,1,1}
+\definecolor{datecolor}{HTML}{979ba3}
+\definecolor{white}{cmyk}{0,0,0,0}
+\setmainfont{Noto Sans}
+
+% variables
+%\newcommand{\gametitle}{My new game }
+\newcommand{\version}{0.1}
+
+\begin{document}
+
+\begin{titlepage}
+    \pagecolor{titlepagecolor}
+    \newgeometry{left=5cm,right=1cm,bottom=1cm, top=7cm}
+    \noindent
+    \color{white}
+    {\Large Game Design Document }\hspace{0.5cm} \color{datecolor}\textit{Version \version}
+    \par
+    \noindent
+    \color{linecolor}
+    \makebox[0pt][l]{\rule{1.3\textwidth}{5pt}}
+    \par\bigskip
+    \color{white}
+    % --- Choose a different font for the main title
+	% {\gametitlefont \gametitle}
+	% ---
+    {\noindent\fontsize{80pt}{12pt}\gametitlefont \gametitle}
+    %{\noindent \includegraphics[width=0.7\textwidth]{./logo}}
+    \par\vspace{0.5cm}
+    {\noindent \Large \contributors}
+    \par\vspace{0.1cm}
+    \color{datecolor}
+    {\noindent\textit{\today}}
+\vfill%
+
+\end{titlepage}
+\restoregeometry
+\restorepagecolor
+
+\end{document} 

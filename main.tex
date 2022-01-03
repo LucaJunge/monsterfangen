@@ -1,0 +1,77 @@
+\documentclass[12pt, a4paper]{scrartcl}
+
+\usepackage[a4paper,width=150mm,top=30mm,bottom=30mm,bindingoffset=0mm]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage[subpreambles=true]{standalone}
+\usepackage[hidelinks]{hyperref}
+\usepackage{hyphenat}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{import}
+\usepackage{titling}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+
+\definecolor{linecolor}{HTML}{2e3440}
+\pagestyle{fancy}
+\fancyfoot[C]{\thepage}
+\fancyhead[R]{\textbf{\leftmark}}
+\renewcommand{\headrulewidth}{1.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\renewcommand{\headrule}{\hbox to\headwidth{%
+    \color{linecolor}\leaders\hrule height \headrulewidth\hfill}}
+
+\addto\captionsgerman{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {Table of Contents}%
+}
+
+\newcommand{\gametitle}{monsterfangen }
+\newcommand{\contributors}{Luca Junge}
+
+\usepackage[onehalfspacing]{setspace}
+\usepackage[pagecolor=none]{pagecolor}
+
+\setmainfont{Noto Sans}
+\setmonofont{Fira Code}
+% --- Choose a different font for the game title on the titlepage
+\newfontfamily{\gametitlefont}{Kenney Pixel Regular}
+
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\setlength{\parindent}{0pt}
+\bibliography{bibliography}
+
+\title{\textbf{Game Design Document}\\\gametitle}
+\subtitle{\gametitle}
+\author{Luca Junge}
+\color{linecolor}
+
+
+%-----------------------%
+% START OF THE DOCUMENT
+
+\begin{document}
+\include{titlepage}
+
+\pagecolor{white}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+
+\pagestyle{fancy}
+
+\include{chapters/overview}
+\include{chapters/mechanics}
+\include{chapters/dynamics}
+\include{chapters/visualsandsounds}
+\include{chapters/documentinformation}
+
+\end{document}
