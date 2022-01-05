@@ -39,8 +39,8 @@ func _init(dict):
 		set_current_xp()
 		current_health = health
 
-func set_level(level: int):
-	level = level
+func set_level(_level: int):
+	level = _level
 	set_statusvalues()
 	set_current_xp()
 	current_health = health

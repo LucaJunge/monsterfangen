@@ -3,7 +3,6 @@ extends KinematicBody2D
 signal player_moving_signal
 signal player_stopped_signal
 signal player_has_entered_signal
-signal player_triggered_encounter_signal
 
 export var walk_speed = 5.0
 const TILE_SIZE = 16
@@ -24,11 +23,12 @@ enum FacingDirection {LEFT = 0, RIGHT = 1, UP = 2, DOWN = 3 }
 # default values
 var player_state = PlayerState.IDLE
 var facing_direction = FacingDirection.DOWN
-var initial_position = Vector2(0, 0)
-var input_direction = Vector2(0, 0)
+var initial_position: Vector2 = Vector2(0, 0)
+var input_direction: Vector2 = Vector2(0, 0)
 var stop_input: bool = false
 var moving = false
 var will_encounter: bool = false
+var encounter_level_range = {"min": 1, "max": 5}
 
 onready var playerName = PlayerData.playerName
 
@@ -202,8 +202,7 @@ func move(delta):
 	else:
 		moving = false
 
-# save function for the player
-# what should be persisted?
+# save function for the player, what should be persisted?
 func save():
 	var save_dict = {
 		"filename": get_filename(),
@@ -237,15 +236,14 @@ func triggerEncounter(monster_to_spawn: int = 0):
 	$Camera2D.clear_current()
 	stop_input = true
 	will_encounter = false
-	var enemyMonster = Monster.new(Rules.monsterDictionary[str(monster_to_spawn)])
-	enemyMonster.set_level(1)
-	Rules.nextMonster = enemyMonster
+	var enemy_monster = Monster.new(Rules.monsterDictionary[str(monster_to_spawn)])
+	var enemy_level = ceil(rand_range(encounter_level_range.min, encounter_level_range.max-0.1))
+	enemy_monster.set_level(enemy_level)
+	print(enemy_monster.level)
+	Rules.nextMonster = enemy_monster
 	PlayerData.playerPosition = position
 	PlayerData.playerDirection = input_direction
 	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Encounter/Encounter.tscn", false)
-	
-func direction_to_enum(direction_vector):
-	pass
 	
 func set_spawn_direction(direction: Vector2):
 	animation_tree.set("parameters/Idle/blend_position", direction)

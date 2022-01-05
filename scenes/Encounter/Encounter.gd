@@ -7,6 +7,7 @@ onready var dialogBox = $CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer
 onready var attackButton = $CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/FightButtonMarginContainer/FightButton
 
 # maybe call a function of the scene manager, something like show_ui() or disable_ui()?
+# get_node("root/SceneManager")
 onready var joystick = find_parent("SceneManager").find_node("UI").get_node("Joystick")
 onready var menu_button = find_parent("SceneManager").find_node("UI").get_node("MenuButton")
 onready var actionButton = find_parent("SceneManager").find_node("UI").get_node("ActionsButton")
@@ -117,6 +118,7 @@ func handle_state(new_state):
 			
 			if player_monster.current_health <= 0:
 				handle_state(BATTLE_STATES.LOSE)
+				return # is this correct? otherwise the text will be set to the statement below (l. 123)
 				
 			dialogBox.text = "What will you do?\nChoose an action!"
 			pass
@@ -226,8 +228,8 @@ func playSound(stream: AudioStream):
 	sound_effect_player.play()
 	music_player.volume_db = 0
 
+# play sound without turning down volume of the music
 func playSoundOverMusic(stream: AudioStream):
-	# play sound without turning down volume of the music
 	sound_effect_player.stream = stream
 	sound_effect_player.play()
 	pass
