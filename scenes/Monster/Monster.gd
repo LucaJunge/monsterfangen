@@ -78,12 +78,14 @@ func level_up():
 	# change values for attack, defense etc.
 	set_statusvalues()
 	emit_signal("level_up_signal")
-	
-func calculate_xp(monster: Monster):
+
+# calculates the xp a monster would get from an enemy
+func calculate_xp(enemy: Monster):
 	var calculated_xp: int = 0
 	
-	calculated_xp = int(ceil((float(monster.level) / float(level)) * monster.base_xp))
-	
+	# loosely based on https://www.pokewiki.de/Erfahrung#5._Generation
+	calculated_xp = int((enemy.base_xp * enemy.level / 5) * (float(enemy.level) / float(level)))
+
 	return calculated_xp
 	
 func add_xp(amount: int = 0):
@@ -102,12 +104,18 @@ func set_current_xp():
 	xp = int(pow(level, 3))
 
 func attack_enemy(enemy_monster: Monster):
-	var damage = 0
+	#var damage = 0
+	var damage_2 = 0
+	
+	# damage of the attack
 	var base_damage = 2
+	#var new_damage = 50 # damage of tackle
 	
-	damage = base_damage * int(ceil(attack / float(enemy_monster.defense)))
+	#damage = base_damage * int(ceil(attack / float(enemy_monster.defense)))
+	damage_2 = floor(floor((level * 2/5 + 2)) * base_damage * (float(attack) / (2 * enemy_monster.defense)) + 2)
 	
-	return damage
+	#print(str(damage) + " : " + str(damage_2))
+	return damage_2
 
 func take_damage(amount):
 	current_health -= amount

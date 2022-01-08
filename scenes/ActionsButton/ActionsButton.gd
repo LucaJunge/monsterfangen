@@ -7,11 +7,13 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_up_pressed():
-	print("up pressed")
+	#print("up pressed")
+	pass
 
 func _on_down_pressed():
-	print("down pressed")
+	#print("down pressed")
+	pass
 
 func _on_action_pressed():
-	print("action pressed")
+	#print("action pressed")
 	emit_signal("action_pressed_event")

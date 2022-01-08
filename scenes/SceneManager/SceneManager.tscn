@@ -68,9 +68,12 @@ script = ExtResource( 8 )
 [node name="ColorRect" type="ColorRect" parent="ScreenTransition"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -0.793701
+margin_right = -0.793701
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -81,6 +84,7 @@ anims/FadeToTransparent = SubResource( 2 )
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="MenuOverlay" parent="UI" instance=ExtResource( 4 )]
+visible = false
 
 [node name="MenuButton" parent="UI" instance=ExtResource( 5 )]
 anchor_top = 1.0
@@ -105,5 +109,5 @@ margin_right = 248.0
 
 [node name="Dialog" parent="UI" instance=ExtResource( 7 )]
 visible = false
-margin_top = -208.0
-margin_bottom = -148.0
+margin_top = -295.0
+margin_bottom = -235.0

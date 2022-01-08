@@ -172,7 +172,7 @@ func handle_state(new_state):
 			# remove some money...
 			# find nearest hospital...
 			# respawn player
-			
+			$AnimationPlayer.play("die_player")
 			yield(get_tree().create_timer(timer_time), "timeout")
 			$AnimationPlayer.play("fade_out_music")
 			

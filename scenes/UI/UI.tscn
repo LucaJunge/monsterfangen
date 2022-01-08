@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/OptionsMenu/OptionsMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/MenuButton/MenuButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Joystick/Joystick.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.823529, 0.898039, 1, 0 )
+border_color = Color( 0.235294, 0.235294, 0.235294, 0.705882 )
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuOverlay" parent="." instance=ExtResource( 1 )]
+visible = false
+custom_styles/panel = SubResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -800.236
+margin_right = 400.0
+margin_bottom = -0.235962
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Joystick" parent="Control/VBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 27.0
+size_flags_stretch_ratio = 3.0
+
+[node name="MenuButton" parent="Control/VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 31.0
+margin_right = 40.0
+margin_bottom = 40.0

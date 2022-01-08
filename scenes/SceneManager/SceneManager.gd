@@ -86,6 +86,7 @@ func load_game():
 		#print("New Game")
 		if PlayerData.playerParty.size() == 0:
 			PlayerData.playerParty.append(Monster.new(Rules.monsterDictionary["1"]))
+			PlayerData.playerParty[0].set_level(5)
 			emit_signal("update_ui")
 		return # Error, No savegame to load
 	
@@ -189,3 +190,6 @@ func on_screen_transition_finished(animation_name):
 		joystick.visible = true
 		actions_button.visible = true
 		show_ui = false
+
+func heal_player():
+	player.heal()

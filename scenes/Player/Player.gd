@@ -127,7 +127,7 @@ func finished_turning():
 func interact():
 	var interactable = null
 	# get the current facing direction
-	print("Facing Direction: " + str(facing_direction))
+	#print("Facing Direction: " + str(facing_direction))
 	match int(facing_direction):
 		0: #left
 			interaction_ray.cast_to = Vector2(-8, 0)
@@ -147,7 +147,7 @@ func interact():
 			interactable = interaction_ray.get_collider()
 	
 	interaction_ray_line2d.set_point_position(1, interaction_ray.cast_to + interaction_ray.cast_to)
-	print(interaction_ray.cast_to)
+	#print(interaction_ray.cast_to)
 	if interactable and interactable.has_method("interact"):
 		#stop_input = true
 		interactable.interact()
@@ -239,7 +239,7 @@ func triggerEncounter(monster_to_spawn: int = 0):
 	var enemy_monster = Monster.new(Rules.monsterDictionary[str(monster_to_spawn)])
 	var enemy_level = ceil(rand_range(encounter_level_range.min, encounter_level_range.max-0.1))
 	enemy_monster.set_level(enemy_level)
-	print(enemy_monster.level)
+	#print(enemy_monster.level)
 	Rules.nextMonster = enemy_monster
 	PlayerData.playerPosition = position
 	PlayerData.playerDirection = input_direction
@@ -249,3 +249,8 @@ func set_spawn_direction(direction: Vector2):
 	animation_tree.set("parameters/Idle/blend_position", direction)
 	animation_tree.set("parameters/Walk/blend_position", direction)
 	animation_tree.set("parameters/Turn/blend_position", direction)
+
+# Heals all monsters in the playerParty
+func heal():
+	for monster in PlayerData.playerParty:
+		monster.current_health = monster.health

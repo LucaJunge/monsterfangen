@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/tilemaps/another_tileset.png" type="Texture" id=1]
 [ext_resource path="res://scenes/WorldTileMap/WorldTileMap.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Tree/Tree.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/House/House.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/HealBed/HealBed.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -146,515 +147,643 @@ tile_data = PoolIntArray( -786426, 0, 1, -786425, 0, 1, -655370, 0, 1, -655364, 
 
 [node name="TallGrass" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 112, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass2" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 128, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass3" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 128, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass4" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 112, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass5" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 144, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass6" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 160, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass7" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 160, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass8" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 144, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass9" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 112, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass10" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 128, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass11" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 128, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass12" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 112, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass13" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 144, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass14" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 160, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass15" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 160, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass16" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 144, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass17" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 176, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass18" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 192, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass19" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 192, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass20" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 176, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass21" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 208, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass22" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 224, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass23" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 224, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass24" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 208, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass25" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 176, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass26" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 192, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass27" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 192, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass28" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 176, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass29" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 208, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass30" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 224, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass31" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 224, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass32" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 208, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass33" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 240, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass34" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 256, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass35" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 256, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass36" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 240, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass37" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 272, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass38" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 288, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass39" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 288, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass40" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 272, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass41" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 240, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass42" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 256, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass43" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 256, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass44" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 240, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass45" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 272, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass46" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 288, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass47" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 288, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass48" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 272, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass49" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 304, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass50" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 320, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass51" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 320, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass52" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 304, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass53" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 336, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass54" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 352, -32 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass55" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 352, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass56" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 336, -48 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass57" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 304, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass58" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 320, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass59" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 320, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass60" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 304, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass61" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 336, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass62" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 352, -64 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass63" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 352, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass64" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 336, -80 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass65" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 304, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass66" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 320, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass67" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 320, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass68" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 304, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass69" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 336, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass70" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 352, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass71" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 352, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass72" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 336, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass73" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 304, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass74" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 320, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass75" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 320, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass76" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 304, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass77" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 336, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass78" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 352, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass79" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 352, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass80" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 336, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass81" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 240, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass82" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 256, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass83" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 256, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass84" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 240, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass85" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 272, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass86" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 288, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass87" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 288, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass88" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 272, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass89" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 240, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass90" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 256, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass91" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 256, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass92" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 240, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass93" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 272, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass94" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 288, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass95" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 288, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass96" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 272, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass97" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 176, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass98" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 192, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass99" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 192, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass100" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 176, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass101" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 208, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass102" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 224, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass103" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 224, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass104" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 208, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass105" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 176, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass106" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 192, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass107" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 192, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass108" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 176, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass109" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 208, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass110" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 224, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass111" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 224, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass112" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 208, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass113" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 112, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass114" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 128, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass115" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 128, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass116" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 112, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass117" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 144, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass118" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 160, -96 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass119" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 160, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass120" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 144, -112 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass121" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 112, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass122" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 128, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass123" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 128, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass124" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 112, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass125" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 144, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass126" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 160, -128 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass127" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 160, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="TallGrass128" parent="Grasses" instance=ExtResource( 3 )]
 position = Vector2( 144, -144 )
-level_range_max = 3
+level_range_min = 5
+level_range_max = 7
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -751,3 +880,6 @@ position = Vector2( 32, -128 )
 
 [node name="House" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( -64, 48 )
+
+[node name="StaticBody2D" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 112, 48 )

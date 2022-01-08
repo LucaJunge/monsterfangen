@@ -1,37 +1,51 @@
 [
   {
-    "projectName": "Grassy Plains Background by Theoden",
+    "projectName": "Grassy Plains Background",
+    "author": "Theoden",
     "license": "CC0",
     "projectDescription": "'A simple background I painted long time ago.' - Theoden on opengameart.org",
     "url": "https://opengameart.org/content/grassy-plains-background"
   },
   {
     "projectName": "Kenney Fonts (Kenney Pixel)",
+    "author": "Kenney",
     "license": "CC0",
     "projectDescription": "Collection of various fonts, both pixel and vector based.",
     "url": "https://www.kenney.nl/assets/kenney-fonts"
   },
   {
     "projectName": "Kenney Interface Sounds",
+    "author": "Kenney",
     "license": "CC0",
     "projectDescription": "This package includes interface sounds like button clicks, snaps, minimize, maximize, confirmation sounds and more.",
     "url": "https://www.kenney.nl/assets/interface-sounds"
   },
   {
     "projectName": "Onscreen Controls",
+    "author": "Kenney",
     "license": "CC0",
     "projectDescription": "Onscreen controls for use in mobile games, there are 8 styles available and you can mix and match controls to create a style that perfectly fits your game.",
     "url": "https://www.kenney.nl/assets/onscreen-controls"
   },
   {
     "projectName": "RPG Urban Pack",
+    "author": "Kenney",
     "license": "CC0",
     "projectDescription": "This package includes over 480 tiles for urban landscapes. Including vehicles, road tiles, buildings and all sorts of details. Also includes 6 characters in four directions with walking animations.",
     "url": "https://www.kenney.nl/assets/rpg-urban-pack"
   },
   {
-    "projectName": "'Fight' by Magic_Spark",
+    "projectName": "'Fight'",
+    "author": "Magic_Spark",
+    "license": "N/A",
     "projectDescription": "Soundtrack for the Encounter",
     "url": "https://soundcloud.com/magic_sparku/fight"
+  },
+  {
+    "projectName": "8-bit fantasy adventure music pack",
+    "author": "Marllon Silva (xDeviruchi)",
+    "license": "CC BY-SA 4.0",
+    "projectDescription": "This music pack contains 10 loopable tracks with over 15 minutes of legit 8-Bit/NES Style Chiptune Music",
+    "url": "https://xdeviruchi.itch.io/8-bit-fantasy-adventure-music-pack"
   }
 ]

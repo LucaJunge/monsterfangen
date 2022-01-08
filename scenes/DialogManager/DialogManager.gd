@@ -16,9 +16,11 @@ func _ready():
 	pass # Replace with function body.
 
 func start_dialog(dialog_file: String):
+	# display the next line if a dialog has been started
 	if(dialog_started):
 		next_line()
 	else:
+		# create a new file
 		var file = File.new()
 		file.open(dialog_file, File.READ)
 		var json = JSON.parse(file.get_as_text())
@@ -50,7 +52,7 @@ func next_line():
 		return
 	
 	# get new first entry and display it
-	dialog_text.set_text(next_line["c"] + ": " + next_line["m"])
+	dialog_text.set_text(next_line)
 	
 	# play animation
 	# bug: currently shorter texts are played slower than longer texts, because of the animation length
@@ -60,5 +62,6 @@ func next_line():
 # on animation finished -> enable action button
 func on_dialog_text_finished(animation_name):
 	if animation_name == "draw_text":
+		# wait for 200ms to close the dialog / display the next line
 		action_button.disabled = false
 	
