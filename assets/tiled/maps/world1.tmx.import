@@ -2,19 +2,19 @@
 
 importer="vnen.tiled_importer"
 type="PackedScene"
-path="res://.import/world1.tmx-b99dacd218a748064c9485d5d81ecc29.scn"
+path="res://.import/world1.tmx-77a0e156e7b7b85717ba564b3bf1600a.scn"
 
 [deps]
 
-source_file="res://assets/tiled/world1.tmx"
-dest_files=[ "res://.import/world1.tmx-b99dacd218a748064c9485d5d81ecc29.scn" ]
+source_file="res://assets/tiled/maps/world1.tmx"
+dest_files=[ "res://.import/world1.tmx-77a0e156e7b7b85717ba564b3bf1600a.scn" ]
 
 [params]
 
 custom_properties=true
-tile_metadata=true
+tile_metadata=false
 uv_clip=true
-image_flags=3
+image_flags=7
 collision_layer=1
 embed_internal_images=false
 save_tiled_properties=false

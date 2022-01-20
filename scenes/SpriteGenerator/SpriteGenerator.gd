@@ -1,19 +1,33 @@
 extends Node2D
+
+onready var cell = preload("res://scenes/SpriteGenerator/Cell.tscn")
+onready var sprite_node = get_node("Sprite")
+onready var final_array = []
+
 var birth_limit = 5
 var death_limit = 4
 var ca_steps = 4
 var number_of_colors = 12
+var image = Image.new()
+var image_texture = ImageTexture.new()
 
 var red_value = 0.8
 var green_value = 0.8
 var blue_value = 0.8
 var cmin = 0.15
-var cmax = 0.8 
+var cmax = 0.8
 
 var noise
 var noise2
 
 func _ready():
+	#randomize()
+	#seed(0)
+	
+	# prepare image sprite
+	image.create(45, 45, false, Image.FORMAT_RGBAH)
+	image.lock()
+	
 	init_noise()
 	var size = Vector2(45, 45)
 
@@ -38,6 +52,18 @@ func _ready():
 	
 	var group = draw_monster(all_groups)
 	 
+	# construct the sprite from image data
+	image.unlock()
+	image_texture.create_from_image(image)
+	sprite_node.texture = image_texture
+	#set_pixel ( int x, int y, Color color )
+	
+	#image_texture.
+	#sprite_node.add_child(image_texture)
+	# Image Texture erstellen
+	# dann daten rein
+	# danach sprite.texture = image_texture
+	
 	# add elements to the colors array
 	#for horizontal in 20:
 	#	var vertical = VBoxContainer.new()
@@ -102,11 +128,11 @@ func step(map):
 	var dup = map.duplicate(true)
 	for x in range(0, map.size()):
 		for y in range(0, map[x].size()):
-			var cell = dup[x][y]
+			var _cell = dup[x][y]
 			var n = get_neighbours(map, Vector2(x, y))
-			if(cell && n < death_limit):
+			if(_cell && n < death_limit):
 				dup[x][y] = false
-			elif !cell && n > birth_limit:
+			elif !_cell && n > birth_limit:
 				dup[x][y] = true
 	return dup
 
@@ -127,16 +153,16 @@ func get_neighbour_value(map, pos):
 	
 	return map[pos.x][pos.y]
 
-func generate_colorscheme(number_of_colors):
+func generate_colorscheme(_number_of_colors):
 	var a = Vector3(rand_range(0.0, 0.5), rand_range(0.0, 0.5), rand_range(0.0, 0.5))
 	var b = Vector3(rand_range(0.1, 0.6), rand_range(0.1, 0.6), rand_range(0.1, 0.6))
 	var c = Vector3(rand_range(cmin, cmax), rand_range(cmin, cmax), rand_range(cmin, cmax))
 	var d = Vector3(rand_range(0.0, 1.0), rand_range(0.0, 1.0), rand_range(0.0, 1.0))
 	
 	var colors = PoolColorArray()
-	var n = float(number_of_colors - 1.0)
+	var n = float(_number_of_colors - 1.0)
 	
-	for i in range(0, number_of_colors, 1):
+	for i in range(0, _number_of_colors, 1):
 		var color = Vector3()
 		color.x = (a.x + b.x * cos(PI * 2 * (c.x * float(i / n) + d.x))) + (i / n) * red_value
 		color.y = (a.y + b.y * cos(PI * 2 * (c.y * float(i / n) + d.y))) + (i / n) * green_value
@@ -189,7 +215,7 @@ func flood_fill(map, groups, colorscheme, eye_colorscheme, n_colors, is_negative
 	var checked_map = []
 	for x in range(0, map.size()):
 		var arr = []
-		for y in range(0, map[x].size()):
+		for _y in range(0, map[x].size()):
 			arr.append(false)
 		checked_map.append(arr)
 	
@@ -321,29 +347,41 @@ func get_color(map, pos, is_negative, right, left, down, up, colorscheme, eye_co
 		col = eye_colorscheme[n2]
 	return col
 
+# GroupDrawer
 func draw_monster(all_groups):
 	var groups = []
 	var negative_groups = []
-	var draw_size = 4
-	var movement = false
-	var is_eye = false
-	var eye_cutoff = 0.0
-	var average = Vector2()
-	var sprite = get_node("Viewport/Sprite")
-	#onready var cell_drawer = preload("res://SpriteGenerator/CellDrawer.tscn")
+	var draw_size = 10
+	var movement = true
+	
+	groups = all_groups.groups
+	negative_groups = all_groups.negative_groups
 	
 	var largest = 0
 	for g in groups:
 		largest = max(largest, g.arr.size())
-
+	
+	print(largest) # should not be 0
+	
 	# for every row?
 	for i in range(groups.size() - 1, -1, -1):
 		var g = groups[i].arr
-		#if g.size >= largest * 0.25:
-		for c in g:
-			print("draw rect")
-			sprite.draw_rect(Rect2(c.position.x*draw_size, c.position.y*draw_size, draw_size, draw_size), c.color)
-	
+		if g.size() >= largest * 0.25:
+				var _cell = cell.instance()
+				_cell.set_cells(g)
+				
+				sprite_node.add_child(_cell)
+				
+				# instead, set color directly... slower...
+				#for c in g:
+					#draw_rect(Rect2(c.position.x*draw_size, c.position.y*draw_size, draw_size, draw_size), c.color)
+					#image.set_pixel(c.position.x, c.position.y, c.color)
+					#pass
+		else:
+			groups.erase(g)
+			
+	for c in sprite_node.get_children():
+		c.draw_size = draw_size
 
 # Helper functions
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="16" tileheight="16" infinite="1" nextlayerid="20" nextobjectid="34">
+ <tileset firstgid="1" source="../tilemaps/kenney_rpg_urban_pack.tsx"/>
+ <objectgroup id="19" name="SmallHouse1" offsetx="5.75" offsety="36.75">
+  <object id="14" x="7.10543e-15" y="16" width="64" height="48"/>
+  <object id="15" gid="99" x="0" y="64" width="16" height="16"/>
+  <object id="16" gid="100" x="32" y="64" width="16" height="16"/>
+  <object id="17" gid="100" x="16" y="64" width="16" height="16"/>
+  <object id="18" gid="101" x="48" y="64" width="16" height="16"/>
+  <object id="19" gid="74" x="48" y="48" width="16" height="16"/>
+  <object id="20" gid="73" x="32" y="48" width="16" height="16"/>
+  <object id="21" gid="73" x="16" y="48" width="16" height="16"/>
+  <object id="22" gid="72" x="0" y="48" width="16" height="16"/>
+  <object id="23" gid="18" x="0" y="32" width="16" height="16"/>
+  <object id="24" gid="19" x="16" y="32" width="16" height="16"/>
+  <object id="25" gid="19" x="32" y="32" width="16" height="16"/>
+  <object id="26" gid="20" x="48" y="32" width="16" height="16"/>
+  <object id="27" gid="284" x="16" y="64" width="16" height="16"/>
+  <object id="28" gid="336" x="32" y="64" width="16" height="16"/>
+  <object id="30" gid="147" x="0" y="16" width="16" height="16"/>
+  <object id="31" gid="149" x="48" y="16" width="16" height="16"/>
+  <object id="32" gid="148" x="16" y="16" width="16" height="16"/>
+  <object id="33" gid="148" x="32" y="16" width="16" height="16"/>
+ </objectgroup>
+</map>
