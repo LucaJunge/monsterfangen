@@ -7,4 +7,6 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_LinkButton_button_up():
-	OS.shell_open(url)
+	var error_code = OS.shell_open(url)
+	if error_code != 0:
+		print("ERROR: ", error_code)

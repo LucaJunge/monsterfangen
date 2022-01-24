@@ -28,7 +28,9 @@ func start_game(player_name: String):
 	PlayerData.savegame_timestamp_created = OS.get_system_time_secs()
 	
 	# change the scene to the SceneManager
-	get_tree().change_scene("res://scenes/SceneManager/SceneManager.tscn")
+	var error_code = get_tree().change_scene("res://scenes/SceneManager/SceneManager.tscn")
+	if error_code != 0:
+		print("ERROR: ", error_code)
 
 func validate_input(input: String):
 	var regex = RegEx.new()

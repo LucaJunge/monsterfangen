@@ -19,11 +19,14 @@ func _ready():
 	# connect all menu overlay buttons and loading signals...
 	menu_overlay.connect("exit_button_pressed", self, "exit_optionsmenu")
 	menu_overlay.connect("save_button_pressed", self, "save_optionsmenu")
-	connect("update_ui", menu_overlay, "update_ui")
+	var error_code = connect("update_ui", menu_overlay, "update_ui")
+	if error_code != 0:
+		print("ERROR: ", error_code)
 	menu_button.connect("menu_button_pressed", self, "open_optionsmenu")
 	actions_button.connect("action_pressed_event", player, "interact")
-	$ScreenTransition/AnimationPlayer.connect("animation_finished", self, "on_screen_transition_finished")
-	
+	var error_code2 = $ScreenTransition/AnimationPlayer.connect("animation_finished", self, "on_screen_transition_finished")
+	if error_code2 != 0:
+		print("ERROR: ", error_code)	
 	# finally, load the game
 	load_game()
 
@@ -98,7 +101,7 @@ func load_game():
 	# For our example, we will accomplish this by deleting saveable objects.
 	
 	# currently only the player is in save_nodes
-	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	var _save_nodes = get_tree().get_nodes_in_group("Persist")
 	
 	#print(save_nodes)
 	#for node in save_nodes:

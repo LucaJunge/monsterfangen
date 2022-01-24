@@ -38,4 +38,6 @@ func list_licenses():
 
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://scenes/MainMenu/MainMenu.tscn")
+	var error_code = get_tree().change_scene("res://scenes/MainMenu/MainMenu.tscn")
+	if error_code != 0:
+		print("ERROR: ", error_code)
