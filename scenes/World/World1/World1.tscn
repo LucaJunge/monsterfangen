@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/tilemaps/another_tileset.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Buildings/Houses/SimpleHouse1.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/Tree/Tree.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/House/House.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/HealBed/HealBed.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Buildings/Houses/SimpleHouse2.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -789,8 +790,28 @@ level_range_max = 7
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="SimpleHouse1" parent="YSort" instance=ExtResource( 2 )]
+[node name="Buildings" type="Node2D" parent="YSort"]
+
+[node name="SimpleHouse1" parent="YSort/Buildings" instance=ExtResource( 2 )]
 position = Vector2( 144, 112 )
+
+[node name="SimpleHouse4" parent="YSort/Buildings" instance=ExtResource( 2 )]
+position = Vector2( -16, -240 )
+
+[node name="SimpleHouse5" parent="YSort/Buildings" instance=ExtResource( 2 )]
+position = Vector2( -96, -240 )
+
+[node name="SimpleHouse6" parent="YSort/Buildings" instance=ExtResource( 2 )]
+position = Vector2( 176, -272 )
+
+[node name="SimpleHouse7" parent="YSort/Buildings" instance=ExtResource( 2 )]
+position = Vector2( -256, -256 )
+
+[node name="SimpleHouse2" parent="YSort/Buildings" instance=ExtResource( 9 )]
+position = Vector2( -16, 176 )
+
+[node name="SimpleHouse3" parent="YSort/Buildings" instance=ExtResource( 9 )]
+position = Vector2( 112, 224 )
 
 [node name="Sign" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 80, -16 )
