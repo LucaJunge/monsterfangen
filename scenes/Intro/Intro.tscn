@@ -13,7 +13,6 @@ size = 30
 font_data = ExtResource( 1 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 3
 atlas = ExtResource( 4 )
 region = Rect2( 386, 1, 12, 16 )
 
@@ -67,9 +66,9 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer"]
-margin_top = 71.0
+margin_top = 68.0
 margin_right = 300.0
-margin_bottom = 628.0
+margin_bottom = 631.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
@@ -127,13 +126,13 @@ __meta__ = {
 [node name="LabelName" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 444.0
 margin_right = 300.0
-margin_bottom = 459.0
+margin_bottom = 462.0
 text = "Choose your name"
 
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 479.0
+margin_top = 482.0
 margin_right = 300.0
-margin_bottom = 512.0
+margin_bottom = 515.0
 custom_fonts/font = SubResource( 4 )
 align = 1
 max_length = 8
@@ -143,9 +142,9 @@ __meta__ = {
 }
 
 [node name="StartGameButton" type="Button" parent="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 532.0
+margin_top = 535.0
 margin_right = 300.0
-margin_bottom = 557.0
+margin_bottom = 563.0
 text = "Start your adventure"
 
 [connection signal="button_up" from="CanvasLayer/Control/Panel/MarginContainer/CenterContainer/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_button_up"]

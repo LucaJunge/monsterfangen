@@ -37,6 +37,9 @@ var percent_moved_to_next_tile = 0.0
 # all the sounds, the player can make, currently only footsteps
 var sounds = []
 
+var inventory_resource = load("res://Inventory/Inventory.gd")
+#var inventory = inventory_resource.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_tree.active = true

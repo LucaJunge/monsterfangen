@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Item/ItemResource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Life Potion"
+description = "This heals"
+max_stack_size = 99
+type = 1

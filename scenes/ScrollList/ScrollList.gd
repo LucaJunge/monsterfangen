@@ -17,7 +17,7 @@ var types = [
 	"dreamy"
 ]
 onready var list_container = $VBoxContainer/ScrollContainer/MarginContainer/GridContainer
-onready var scroll_list_element = preload("res://scenes/ScrollListElement/ScrollListElement.tscn")
+	onready var scroll_list_element = preload("res://scenes/ScrollListElement/ScrollListElement.tscn")
 onready var scroll_bar = $VBoxContainer/ScrollContainer.get_v_scrollbar()
 
 var last_position = Vector2(0, 0)
