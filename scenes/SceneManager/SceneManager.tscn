@@ -96,7 +96,7 @@ margin_bottom = -16.0
 
 [node name="Joystick" parent="UI" instance=ExtResource( 6 )]
 anchor_top = 1.0
-anchor_right = 0.0
+anchor_bottom = 1.0
 margin_left = 16.0
 margin_top = -221.0
 margin_right = 144.0

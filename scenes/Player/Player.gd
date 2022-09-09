@@ -7,6 +7,8 @@ signal player_has_entered_signal
 export var walk_speed = 5.0
 const TILE_SIZE = 16
 
+var player: Player setget set_player
+
 onready var animation_tree = $AnimationTree
 onready var anim_state = animation_tree.get("parameters/playback")
 onready var blocking_ray = $BlockingRayCast2D
@@ -37,7 +39,7 @@ var percent_moved_to_next_tile = 0.0
 # all the sounds, the player can make, currently only footsteps
 var sounds = []
 
-var inventory_resource = load("res://Inventory/Inventory.gd")
+#var inventory_resource = load("res://Inventory/Inventory.gd")
 #var inventory = inventory_resource.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -57,6 +59,9 @@ func _ready():
 	
 	# Set camera position on load
 	$Camera2D.position = Vector2(0, 0)
+
+func set_player(new_player: Player) -> void:
+	player = new_player
 
 func _physics_process(delta):
 	# no physics need to be calculated when the player is currently turning, so just return
@@ -234,19 +239,20 @@ func load_sounds():
 #	if !$AudioStreamPlayer.playing:
 #		$AudioStreamPlayer.play()
 
-func triggerEncounter(monster_to_spawn: int = 0):
-	anim_state.travel("Idle")
-	$Camera2D.clear_current()
-	stop_input = true
-	will_encounter = false
-	var enemy_monster = Monster.new(Rules.monsterDictionary[str(monster_to_spawn)])
-	var enemy_level = ceil(rand_range(encounter_level_range.min, encounter_level_range.max-0.1))
-	enemy_monster.set_level(enemy_level)
+func triggerEncounter(_monster_to_spawn: int = 0):
+	pass
+	#anim_state.travel("Idle")
+	#$Camera2D.clear_current()
+	#stop_input = true
+	#will_encounter = false
+	#var enemy_monster = Monster.new(Rules.monsterDictionary[str(monster_to_spawn)])
+	#var enemy_level = ceil(rand_range(encounter_level_range.min, encounter_level_range.max-0.1))
+	#enemy_monster.set_level(enemy_level)
 	#print(enemy_monster.level)
-	Rules.nextMonster = enemy_monster
-	PlayerData.playerPosition = position
-	PlayerData.playerDirection = input_direction
-	get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Encounter/Encounter.tscn", false)
+	#Rules.nextMonster = enemy_monster
+	#PlayerData.playerPosition = position
+	#PlayerData.playerDirection = input_direction
+	#get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Encounter/Encounter.tscn", false)
 	
 func set_spawn_direction(direction: Vector2):
 	animation_tree.set("parameters/Idle/blend_position", direction)

@@ -24,29 +24,23 @@ anchor_bottom = 1.0
 margin_top = -800.236
 margin_right = 400.0
 margin_bottom = -0.235962
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -40.0
-margin_right = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_top = 595.0
+margin_right = -298.0
+margin_bottom = -6.10352e-05
 
 [node name="Joystick" parent="Control/VBoxContainer" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 27.0
-size_flags_stretch_ratio = 3.0
+margin_right = 102.0
+margin_bottom = 100.0
+size_flags_horizontal = 1
 
 [node name="MenuButton" parent="Control/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 31.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_top = 104.0
+margin_right = 102.0
+margin_bottom = 205.0
+size_flags_horizontal = 1

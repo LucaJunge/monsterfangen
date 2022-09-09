@@ -1,5 +1,5 @@
 extends Node
-class_name Monster, "res://assets/interface/monster.png"
+class_name MonsterOld, "res://assets/interface/monster.png"
 
 #var variable = value setget setterfunc, getterfunc
 

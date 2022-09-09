@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/ItemData.gd" type="Script" id=1]
+[ext_resource path="res://assets/items/potion.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+unique_id = "potion"
+display_name = "Potion"
+description = "A potion that heals your monster"
+icon = ExtResource( 2 )
+buy_price = 50
+sell_price = 25
+sellable = true

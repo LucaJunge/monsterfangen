@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/ItemData.gd" type="Script" id=1]
+[ext_resource path="res://assets/items/potion.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+unique_id = "monsterball"
+display_name = "Monsterball"
+description = "A monsterball"
+icon = ExtResource( 2 )
+buy_price = 15
+sell_price = 7
+sellable = true

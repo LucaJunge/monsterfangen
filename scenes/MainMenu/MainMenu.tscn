@@ -158,8 +158,8 @@ flat = true
 [node name="Licenses" parent="MainMenuCanvas" instance=ExtResource( 6 )]
 visible = false
 
-[connection signal="button_up" from="MainMenuCanvas/MainMenuPanel/MarginContainer/VBoxContainer/StartNewGameButton" to="." method="_on_StartNewGameButton_button_up"]
-[connection signal="button_up" from="MainMenuCanvas/MainMenuPanel/MarginContainer/VBoxContainer/LoadGameButton" to="." method="_on_LoadGameButton_button_up"]
-[connection signal="button_up" from="MainMenuCanvas/MainMenuPanel/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_button_up"]
-[connection signal="button_up" from="MainMenuCanvas/MainMenuPanel/MarginContainer/VBoxContainer/Exit" to="." method="_on_Exit_button_up"]
-[connection signal="button_up" from="MainMenuCanvas/MainMenuPanel/MarginContainer/VBoxContainer/Licenses" to="." method="_on_Licenses_button_up"]
+[connection signal="pressed" from="MainMenuCanvas/MainMenuPanel/MarginContainer/VBoxContainer/StartNewGameButton" to="." method="_on_StartNewGameButton_pressed"]
+[connection signal="pressed" from="MainMenuCanvas/MainMenuPanel/MarginContainer/VBoxContainer/LoadGameButton" to="." method="_on_LoadGameButton_pressed"]
+[connection signal="pressed" from="MainMenuCanvas/MainMenuPanel/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="MainMenuCanvas/MainMenuPanel/MarginContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="MainMenuCanvas/MainMenuPanel/MarginContainer/VBoxContainer/Licenses" to="." method="_on_Licenses_pressed"]

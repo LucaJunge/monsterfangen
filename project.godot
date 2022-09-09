@@ -12,22 +12,58 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Inventory",
 "language": "GDScript",
-"path": "res://scenes/Inventory/Inventory.gd"
+"path": "res://resources/Inventory.gd"
+}, {
+"base": "Resource",
+"class": "ItemData",
+"language": "GDScript",
+"path": "res://resources/ItemData.gd"
 }, {
 "base": "Resource",
 "class": "ItemResource",
 "language": "GDScript",
 "path": "res://scenes/Item/ItemResource.gd"
 }, {
-"base": "Node",
+"base": "Resource",
 "class": "Monster",
 "language": "GDScript",
+"path": "res://resources/MonsterData.gd"
+}, {
+"base": "Node",
+"class": "MonsterOld",
+"language": "GDScript",
 "path": "res://scenes/Monster/Monster.gd"
+}, {
+"base": "Reference",
+"class": "MonsterType",
+"language": "GDScript",
+"path": "res://resources/MonsterType.gd"
+}, {
+"base": "Resource",
+"class": "Party",
+"language": "GDScript",
+"path": "res://resources/Party.gd"
+}, {
+"base": "Resource",
+"class": "Player",
+"language": "GDScript",
+"path": "res://resources/Player.gd"
+}, {
+"base": "Reference",
+"class": "SaveGame",
+"language": "GDScript",
+"path": "res://resources/SaveGame.gd"
 } ]
 _global_script_class_icons={
 "Inventory": "",
+"ItemData": "",
 "ItemResource": "",
-"Monster": "res://assets/interface/monster.png"
+"Monster": "",
+"MonsterOld": "res://assets/interface/monster.png",
+"MonsterType": "",
+"Party": "",
+"Player": "",
+"SaveGame": ""
 }
 
 [application]
@@ -45,7 +81,7 @@ config/icon="res://assets/logo/logo-square.png"
 Rules="*res://globals/Rules.gd"
 PlayerData="*res://globals/PlayerData.gd"
 Utils="*res://globals/Utils.gd"
-ItemDatabase="*res://globals/ItemDatabase.gd"
+ItemDatabase="*res://autoloads/ItemDatabase.gd"
 
 [display]
 

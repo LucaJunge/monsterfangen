@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/MonsterData.gd" type="Script" id=1]
+[ext_resource path="res://assets/interface/massive_crisp_cabbage.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+unique_id = "treey"
+display_name = "Treey"
+nickname = ""
+description = "Treey is a monster"
+icon = ExtResource( 2 )
+type = 4
+base_attack = 5
+base_health = 1
+base_defense = 3
+base_tempo = 10
+base_xp = 25
