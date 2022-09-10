@@ -1,7 +1,6 @@
 extends Node
 
 # Maps unique IDs of items to ItemData instances.
-# Why do we do that?
 var ITEMS := {}
 
 func _ready() -> void:

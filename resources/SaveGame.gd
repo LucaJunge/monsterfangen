@@ -31,7 +31,7 @@ func write_savegame() -> void:
 		},
 		"inventory": inventory.items,
 		"map_name": map_name,
-		"party": party.party,
+		"party": iterate_party(party.party),
 		"player": {
 			"display_name": player.display_name,
 			"money": player.money
@@ -41,6 +41,17 @@ func write_savegame() -> void:
 	var json_string := JSON.print(data)
 	_file.store_string(json_string)
 	_file.close()
+	
+func iterate_party(party) -> Dictionary:
+	var all_monsters_dict := {}
+	var index = 0
+	for monster in party:
+		var current = inst2dict(monster)
+		all_monsters_dict[index] = current
+		index += 1
+	
+	print_debug(all_monsters_dict)
+	return all_monsters_dict
 
 func load_savegame() -> void:
 	var error := _file.open(SAVE_GAME_PATH, File.READ)
@@ -68,7 +79,8 @@ func load_savegame() -> void:
 	party = Party.new()
 	
 	for index in data.party:
-		party.add_member(index, data.party[index])
+		var monster = Monster.new(data.party[index].unique_id, data.party[index])
+		party.add_member(index, monster)
 	
 	inventory = Inventory.new()
 	inventory.items = data.inventory

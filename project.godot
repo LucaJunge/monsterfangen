@@ -24,8 +24,13 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Item/ItemResource.gd"
 }, {
-"base": "Resource",
+"base": "MonsterData",
 "class": "Monster",
+"language": "GDScript",
+"path": "res://resources/Monster.gd"
+}, {
+"base": "Resource",
+"class": "MonsterData",
 "language": "GDScript",
 "path": "res://resources/MonsterData.gd"
 }, {
@@ -59,6 +64,7 @@ _global_script_class_icons={
 "ItemData": "",
 "ItemResource": "",
 "Monster": "",
+"MonsterData": "",
 "MonsterOld": "res://assets/interface/monster.png",
 "MonsterType": "",
 "Party": "",
@@ -78,10 +84,11 @@ config/icon="res://assets/logo/logo-square.png"
 
 [autoload]
 
-Rules="*res://globals/Rules.gd"
-PlayerData="*res://globals/PlayerData.gd"
-Utils="*res://globals/Utils.gd"
+Rules="res://globals/Rules.gd"
+PlayerData="res://globals/PlayerData.gd"
+Utils="res://globals/Utils.gd"
 ItemDatabase="*res://autoloads/ItemDatabase.gd"
+MonsterDatabase="*res://autoloads/MonsterDatabase.gd"
 
 [display]
 

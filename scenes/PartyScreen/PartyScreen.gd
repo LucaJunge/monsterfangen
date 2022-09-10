@@ -11,17 +11,18 @@ func _on_back_button_button_up():
 	visible = false
 
 func update_ui():
+	pass
 	# for each node in playerParty
 	#print(PlayerData.playerParty.size()-1)
-	for i in range(PlayerData.playerParty.size()):
+	#for i in range(PlayerData.playerParty.size()):
 		#print(i)
 
-		var current_monster_panel = monster_panel_container.get_child(i)
-		current_monster_panel.set_info(
-			PlayerData.playerParty[i]["sprite"],
-			PlayerData.playerParty[i]["monster_name"],
-			PlayerData.playerParty[i]["level"],
-			"",
-			PlayerData.playerParty[i]["current_health"],
-			PlayerData.playerParty[i]["health"])
+		#var current_monster_panel = monster_panel_container.get_child(i)
+		#current_monster_panel.set_info(
+		#	PlayerData.playerParty[i]["sprite"],
+		#	PlayerData.playerParty[i]["monster_name"],
+		#	PlayerData.playerParty[i]["level"],
+		#	"",
+		#	PlayerData.playerParty[i]["current_health"],
+		#	PlayerData.playerParty[i]["health"])
 		#print("loaded " + PlayerData.playerParty[i].monster_name)

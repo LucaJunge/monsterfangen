@@ -24,6 +24,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="SaveButton" type="Button" parent="UILayer/Panel/HBoxContainer"]
+unique_name_in_owner = true
 margin_right = 41.0
 margin_bottom = 40.0
 text = "Save"

@@ -1,9 +1,9 @@
 extends Node2D
 
 # Exports
-export (String, FILE) var encounterScene = ""
 export (int, 1, 100) var level_range_min = 1
 export (int, 1, 100) var level_range_max = 5
+export (float, 0.0, 1.0) var encounterRate = 0.1
 
 onready var anim_player = $AnimationPlayer
 
@@ -18,10 +18,15 @@ func _on_Area2D_body_entered(body):
 	anim_player.play("Step")
 	
 	# if the grass should trigger an encounter
-	if randomNumber < Rules.encounterRate:
-		# save the playerPosition so we can place the player on the same spot after chaning back from the encounter scene to the world
-		PlayerData.playerPosition = body.position
+	if randomNumber < 0.1:
+		pass
+		# save the playerPosition so we can place the player on the same spot after changing back from the encounter scene to the world
+		#PlayerData.playerPosition = body.position
 		
 		# send the body (the player) the "signal" to trigger an encounter with range info
-		body.encounter_level_range = {"min": level_range_min, "max": level_range_max}
-		body.will_encounter = true
+		#var monster = MonsterDatabase.get_monster_data("treey").new()
+		#monster.level = 5
+		#print(monster.unique_id)
+		#print(monster.base_attack)
+		#body.prepareEncounter(monster)
+		#body.encounter_level_range = {"min": level_range_min, "max": level_range_max}

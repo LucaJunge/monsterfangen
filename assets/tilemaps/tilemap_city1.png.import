@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tilemap_packed.png-028beff2332c686dfcae10d546642d33.stex"
+path="res://.import/tilemap_city1.png-024234f94f5f5b875174b692c55bf393.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemaps/tilemap_packed.png"
-dest_files=[ "res://.import/tilemap_packed.png-028beff2332c686dfcae10d546642d33.stex" ]
+source_file="res://assets/tilemaps/tilemap_city1.png"
+dest_files=[ "res://.import/tilemap_city1.png-024234f94f5f5b875174b692c55bf393.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

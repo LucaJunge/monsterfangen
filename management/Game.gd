@@ -1,7 +1,6 @@
 extends Node2D
 
 var _save := SaveGame.new()
-var monster := preload("res://resources/monsters/treey.tres")
 
 onready var _player := $SceneManager/CurrentScene/World/Player
 onready var _menu_button := $UILayer/UI/Control/VBoxContainer/MenuButton
@@ -27,7 +26,9 @@ func _create_or_load_save() -> void:
 		# add starting items
 		_save.inventory.add_item("potion", 1)
 		_save.inventory.add_item("monsterball", 5)
-		_save.party.add_member("0", inst2dict(monster))
+		
+		var monster: Monster = Monster.new("treey", {})
+		_save.party.add_member("0", monster)
 		
 		_save.map_name = "map_1"
 		_save.global_position = _player.global_position

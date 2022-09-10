@@ -32,7 +32,7 @@ var moving = false
 var will_encounter: bool = false
 var encounter_level_range = {"min": 1, "max": 5}
 
-onready var playerName = PlayerData.playerName
+onready var playerName = "PlayerData.playerName"
 
 var percent_moved_to_next_tile = 0.0
 
@@ -47,11 +47,11 @@ func _ready():
 	animation_tree.active = true
 	
 	# set player position on load
-	position = PlayerData.playerPosition
+	position = Vector2(0, 0)
 	
 	initial_position = position
 	
-	set_spawn_direction(PlayerData.playerDirection)
+	set_spawn_direction(Vector2(0, 1))
 	
 	# load all possible sounds
 	# BUG: also currently imports the .import metadata files...
@@ -240,11 +240,12 @@ func load_sounds():
 #		$AudioStreamPlayer.play()
 
 func triggerEncounter(_monster_to_spawn: int = 0):
-	pass
-	#anim_state.travel("Idle")
-	#$Camera2D.clear_current()
-	#stop_input = true
-	#will_encounter = false
+	anim_state.travel("Idle")
+	$Camera2D.clear_current()
+	stop_input = true
+	will_encounter = false
+	#var enemy_monster := MonsterDatabase.get_monster_data("treey")
+	#print(enemy_monster)
 	#var enemy_monster = Monster.new(Rules.monsterDictionary[str(monster_to_spawn)])
 	#var enemy_level = ceil(rand_range(encounter_level_range.min, encounter_level_range.max-0.1))
 	#enemy_monster.set_level(enemy_level)
@@ -261,5 +262,6 @@ func set_spawn_direction(direction: Vector2):
 
 # Heals all monsters in the playerParty
 func heal():
-	for monster in PlayerData.playerParty:
-		monster.current_health = monster.health
+	pass
+	#for monster in PlayerData.playerParty:
+	#	monster.current_health = monster.health
