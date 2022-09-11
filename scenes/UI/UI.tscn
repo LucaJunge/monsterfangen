@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/OptionsMenu/OptionsMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/MenuButton/MenuButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/UI/UI.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Joystick/Joystick.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -11,36 +12,42 @@ border_color = Color( 0.235294, 0.235294, 0.235294, 0.705882 )
 [node name="UI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 3 )
 
 [node name="MenuOverlay" parent="." instance=ExtResource( 1 )]
 visible = false
+mouse_filter = 1
 custom_styles/panel = SubResource( 1 )
 
-[node name="Control" type="Control" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -800.236
-margin_right = 400.0
-margin_bottom = -0.235962
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 595.0
-margin_right = -298.0
-margin_bottom = -6.10352e-05
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+mouse_filter = 2
 
-[node name="Joystick" parent="Control/VBoxContainer" instance=ExtResource( 4 )]
-margin_right = 102.0
-margin_bottom = 100.0
+[node name="Control" type="Control" parent="MarginContainer"]
+margin_right = 360.0
+margin_bottom = 760.0
+
+[node name="MenuButton" parent="MarginContainer/Control" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_bottom = 0.0
+margin_left = -50.0
+margin_bottom = 50.0
 size_flags_horizontal = 1
 
-[node name="MenuButton" parent="Control/VBoxContainer" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 104.0
-margin_right = 102.0
-margin_bottom = 205.0
+[node name="Joystick" parent="MarginContainer/Control" instance=ExtResource( 4 )]
+unique_name_in_owner = true
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -150.0
+margin_right = 150.0
+margin_bottom = 0.0
 size_flags_horizontal = 1

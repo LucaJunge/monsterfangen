@@ -2,11 +2,12 @@ extends Node2D
 
 func _on_StartNewGameButton_pressed():
 	print("Start New Game")
-	#var error_code = get_tree().change_scene("res://scenes/Intro/Intro.tscn")
-	#var error_code = get_tree().change_scene("res://scenes/Intro/Intro.tscn")
-	var error_code = get_tree().change_scene("res://management/Game.tscn")
-	if error_code != 0:
-		print("ERROR: ", error_code)
+	
+	#var scene_loaded = get_tree().change_scene("res://scenes/Intro/Intro.tscn")
+	var scene_loaded = get_tree().change_scene("res://management/Game.tscn")
+
+	if scene_loaded != OK:
+		print_debug("Error loading scene: ", scene_loaded)
 		
 func _on_LoadGameButton_pressed():
 	# show saved games selection screen
@@ -17,9 +18,10 @@ func _on_LoadGameButton_pressed():
 func _on_OptionsButton_pressed():
 		# show options menu
 	#get_tree().change_scene("res://scenes/Options/Options.tscn")
-	var error_code = get_tree().change_scene("res://scenes/ScrollList/ScrollList.tscn")
-	if error_code != 0:
-		print("ERROR: ", error_code)
+	#var error_code = get_tree().change_scene("res://scenes/ScrollList/ScrollList.tscn")
+	#if error_code != 0:
+	#	print("ERROR: ", error_code)
+	pass
 
 func _on_Exit_pressed():
 	get_tree().quit()

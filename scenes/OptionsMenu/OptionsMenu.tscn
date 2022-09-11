@@ -10,23 +10,23 @@ bg_color = Color( 0.823529, 0.898039, 1, 0 )
 border_color = Color( 0.235294, 0.235294, 0.235294, 0.705882 )
 
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0, 0, 0.705882 )
+bg_color = Color( 0.956863, 0.333333, 0.333333, 1 )
 border_color = Color( 0, 0, 0, 0.784314 )
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0, 0, 0, 0.705882 )
+bg_color = Color( 0.784314, 0.219608, 0.219608, 1 )
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0, 0, 0, 0.705882 )
+bg_color = Color( 0.956863, 0.333333, 0.333333, 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0, 0, 0, 0.705882 )
+bg_color = Color( 0.784314, 0.219608, 0.219608, 1 )
 
 [sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0, 0, 0, 0.705882 )
+bg_color = Color( 0.956863, 0.333333, 0.333333, 1 )
 
 [sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0, 0, 0, 0.705882 )
+bg_color = Color( 0.784314, 0.219608, 0.219608, 1 )
 
 [sub_resource type="Animation" id=8]
 length = 0.3
@@ -35,7 +35,7 @@ tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -60,8 +60,6 @@ tracks/1/keys = {
 [node name="OptionsMenu" type="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
-mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 4 )
@@ -109,7 +107,6 @@ margin_right = 95.0
 margin_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 1, 1, 1, 0.352941 )
 custom_fonts/font = ExtResource( 1 )
 text = "Party"
 align = 2
@@ -146,7 +143,6 @@ margin_right = 95.0
 margin_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 1, 1, 1, 0.352941 )
 custom_fonts/font = ExtResource( 1 )
 text = "Items"
 align = 2
@@ -183,7 +179,6 @@ margin_right = 95.0
 margin_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 1, 1, 1, 0.352941 )
 custom_fonts/font = ExtResource( 1 )
 text = "Save"
 align = 2
@@ -228,7 +223,6 @@ margin_right = 95.0
 margin_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 1, 1, 1, 0.352941 )
 custom_fonts/font = ExtResource( 1 )
 text = "Player"
 align = 2
@@ -265,7 +259,6 @@ margin_right = 95.0
 margin_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 1, 1, 1, 0.352941 )
 custom_fonts/font = ExtResource( 1 )
 text = "Options"
 align = 2
@@ -302,7 +295,6 @@ margin_right = 95.0
 margin_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 1, 1, 1, 0.352941 )
 custom_fonts/font = ExtResource( 1 )
 text = "Exit"
 align = 2

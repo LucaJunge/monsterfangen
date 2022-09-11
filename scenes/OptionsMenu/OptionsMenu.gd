@@ -23,6 +23,7 @@ func update_ui():
 
 func _on_Exit_button_up():
 	#$AnimationPlayer.play("SlideIn")
+	print_debug("onexitup")
 	emit_signal("exit_button_pressed")
 
 func emit_exit_signal():

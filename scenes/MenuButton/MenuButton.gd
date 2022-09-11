@@ -1,6 +1,5 @@
 extends Control
-
-# The cog symbol in the scene manager in the bottom right
+# MenuButton.gd
 
 signal menu_button_pressed
 

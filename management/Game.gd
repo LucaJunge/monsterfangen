@@ -1,15 +1,14 @@
 extends Node2D
+# Game.gd
 
 var _save := SaveGame.new()
 
 onready var _player := $SceneManager/CurrentScene/World/Player
-onready var _menu_button := $UILayer/UI/Control/VBoxContainer/MenuButton
 onready var _ui_save_panel := $UILayer/Panel
 
 func _ready() -> void:
 	# connect signals to ui
 	
-	_menu_button.connect("menu_button_pressed", self, "open_menu")
 	_ui_save_panel.connect("reload_requested", self, "_create_or_load_save")
 	_ui_save_panel.connect("save_requested", self, "_save_game")
 	
@@ -44,6 +43,3 @@ func _create_or_load_save() -> void:
 func _save_game() -> void:
 	_save.global_position = _player.global_position
 	_save.write_savegame()
-
-func open_menu() -> void:
-	print("herlo")

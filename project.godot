@@ -77,9 +77,10 @@ _global_script_class_icons={
 config/name="monsterfangen"
 config/description="An open-source mobile game made with Godot."
 run/main_scene="res://scenes/MainMenu/MainMenu.tscn"
+boot_splash/show_image=false
 boot_splash/image="res://assets/logo/logo-bootsplash.png"
 boot_splash/use_filter=false
-boot_splash/bg_color=Color( 0.890196, 0.964706, 0.960784, 1 )
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://assets/logo/logo-square.png"
 
 [autoload]
@@ -101,10 +102,6 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/vnen.tiled_importer/plugin.cfg" )
-
-[global]
-
-color=false
 
 [input]
 
