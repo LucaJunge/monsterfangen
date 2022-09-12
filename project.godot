@@ -85,11 +85,12 @@ config/icon="res://assets/logo/logo-square.png"
 
 [autoload]
 
-Rules="res://globals/Rules.gd"
-PlayerData="res://globals/PlayerData.gd"
-Utils="res://globals/Utils.gd"
 ItemDatabase="*res://autoloads/ItemDatabase.gd"
 MonsterDatabase="*res://autoloads/MonsterDatabase.gd"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
 
 [display]
 

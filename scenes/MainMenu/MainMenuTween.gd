@@ -19,4 +19,5 @@ func _ready() -> void:
 	interpolate_property(options, "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 1), duration, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, delay)
 	delay += delay_add
 	interpolate_property(exit, "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 1), duration, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, delay)
+	
 	start()

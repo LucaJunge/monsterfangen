@@ -1,32 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://theme/fonts/OptionsMenuFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/ui/backgrounds/list_bg.png" type="Texture" id=1]
 [ext_resource path="res://scenes/OptionsMenu/OptionsMenu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/PartyScreen/PartyScreen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://theme/monsterfangen_default.tres" type="Theme" id=4]
+[ext_resource path="res://scenes/UI/Options/OptionsGrid.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.823529, 0.898039, 1, 0 )
+bg_color = Color( 1, 1, 1, 1 )
 border_color = Color( 0.235294, 0.235294, 0.235294, 0.705882 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.956863, 0.333333, 0.333333, 1 )
-border_color = Color( 0, 0, 0, 0.784314 )
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.784314, 0.219608, 0.219608, 1 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.956863, 0.333333, 0.333333, 1 )
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.784314, 0.219608, 0.219608, 1 )
-
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.956863, 0.333333, 0.333333, 1 )
-
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.784314, 0.219608, 0.219608, 1 )
 
 [sub_resource type="Animation" id=8]
 length = 0.3
@@ -66,251 +48,31 @@ theme = ExtResource( 4 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 200.0
-margin_bottom = 800.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 0
-
-[node name="PartyScreen" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 266.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 2 )
-custom_styles/disabled = SubResource( 2 )
-custom_styles/normal = SubResource( 2 )
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/PartyScreen"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -95.0
-margin_top = -128.0
-margin_right = 95.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
-text = "Party"
-align = 2
-valign = 2
-autowrap = true
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Items" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 266.0
-margin_right = 200.0
-margin_bottom = 533.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 3 )
-custom_styles/normal = SubResource( 3 )
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Items"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -95.0
-margin_top = -128.0
-margin_right = 95.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
-text = "Items"
-align = 2
-valign = 2
-autowrap = true
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Save" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 533.0
-margin_right = 200.0
-margin_bottom = 800.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 4 )
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Save"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -95.0
-margin_top = -128.0
-margin_right = 95.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
-text = "Save"
-align = 2
-valign = 2
-autowrap = true
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 200.0
-margin_right = 400.0
-margin_bottom = 800.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 0
-
-[node name="Player" type="Button" parent="HBoxContainer/VBoxContainer2"]
-margin_right = 200.0
-margin_bottom = 266.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 5 )
-clip_text = true
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/Player"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -95.0
-margin_top = -128.0
-margin_right = 95.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
-text = "Player"
-align = 2
-valign = 2
-autowrap = true
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Options" type="Button" parent="HBoxContainer/VBoxContainer2"]
-margin_top = 266.0
-margin_right = 200.0
-margin_bottom = 533.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 6 )
-custom_styles/normal = SubResource( 6 )
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/Options"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -95.0
-margin_top = -128.0
-margin_right = 95.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
-text = "Options"
-align = 2
-valign = 2
-autowrap = true
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Exit" type="Button" parent="HBoxContainer/VBoxContainer2"]
-margin_top = 533.0
-margin_right = 200.0
-margin_bottom = 800.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/disabled = SubResource( 7 )
-custom_styles/normal = SubResource( 7 )
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/Exit"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -95.0
-margin_top = -128.0
-margin_right = 95.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
-text = "Exit"
-align = 2
-valign = 2
-autowrap = true
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+[node name="OptionsGrid" parent="MarginContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 360.0
+margin_bottom = 760.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SlideIn = SubResource( 8 )
 
 [node name="PartyScreen" parent="." instance=ExtResource( 3 )]
 visible = false
-
-[connection signal="button_up" from="HBoxContainer/VBoxContainer/PartyScreen" to="." method="_on_PartyScreen_button_up"]
-[connection signal="button_up" from="HBoxContainer/VBoxContainer/Save" to="." method="_on_Save_button_up"]
-[connection signal="button_up" from="HBoxContainer/VBoxContainer2/Exit" to="." method="_on_Exit_button_up"]

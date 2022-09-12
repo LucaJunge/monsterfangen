@@ -42,10 +42,10 @@ func write_savegame() -> void:
 	_file.store_string(json_string)
 	_file.close()
 	
-func iterate_party(party) -> Dictionary:
+func iterate_party(_party) -> Dictionary:
 	var all_monsters_dict := {}
 	var index = 0
-	for monster in party:
+	for monster in _party:
 		var current = inst2dict(monster)
 		all_monsters_dict[index] = current
 		index += 1

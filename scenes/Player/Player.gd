@@ -7,6 +7,7 @@ signal player_has_entered_signal
 export var walk_speed = 5.0
 const TILE_SIZE = 16
 
+# Resources of the player
 var player: Player setget set_player
 
 onready var animation_tree = $AnimationTree
@@ -35,12 +36,6 @@ var encounter_level_range = {"min": 1, "max": 5}
 onready var playerName = "PlayerData.playerName"
 
 var percent_moved_to_next_tile = 0.0
-
-# all the sounds, the player can make, currently only footsteps
-var sounds = []
-
-#var inventory_resource = load("res://Inventory/Inventory.gd")
-#var inventory = inventory_resource.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -175,9 +170,9 @@ func move(delta):
 	
 	# first check if there is a scene transition in the next tile
 	if scene_transition_ray.is_colliding():
-		
-		# walk into the tile to trigger a scene transition
+
 		percent_moved_to_next_tile += walk_speed * delta
+		
 		if percent_moved_to_next_tile >= 1.0:
 			position = initial_position + (TILE_SIZE * input_direction)
 			percent_moved_to_next_tile = 0.0
@@ -210,35 +205,6 @@ func move(delta):
 	else:
 		moving = false
 
-# save function for the player, what should be persisted?
-func save():
-	var save_dict = {
-		"filename": get_filename(),
-		"parent": get_parent().get_path(),
-		"playerName": playerName,
-		"pos_x": position.x, # Vector 2 is not supported by JSON
-		"pos_y": position.y,
-		"facing_direction": facing_direction
-	}
-	return save_dict
-
-func load_sounds():
-	var sound_directory = Directory.new()
-	sound_directory.open("res://sounds/footstep")
-	sound_directory.list_dir_begin(true)
-	
-	var sound = sound_directory.get_next()
-	while sound != "":
-		sounds.append(load("res://sounds/footstep/" + sound))
-		sound = sound_directory.get_next()
-	
-	#print(sounds)
-
-#func play_footstep_sound():
-#	$AudioStreamPlayer.stream = sounds[randi()%4]
-#	if !$AudioStreamPlayer.playing:
-#		$AudioStreamPlayer.play()
-
 func triggerEncounter(_monster_to_spawn: int = 0):
 	anim_state.travel("Idle")
 	$Camera2D.clear_current()
@@ -259,9 +225,3 @@ func set_spawn_direction(direction: Vector2):
 	animation_tree.set("parameters/Idle/blend_position", direction)
 	animation_tree.set("parameters/Walk/blend_position", direction)
 	animation_tree.set("parameters/Turn/blend_position", direction)
-
-# Heals all monsters in the playerParty
-func heal():
-	pass
-	#for monster in PlayerData.playerParty:
-	#	monster.current_health = monster.health

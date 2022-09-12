@@ -1,18 +1,12 @@
 [gd_resource type="Theme" load_steps=10 format=2]
 
-[ext_resource path="res://assets/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://theme/fonts/default_font_shadow.tres" type="DynamicFont" id=1]
 [ext_resource path="res://theme/button_normal_style.tres" type="StyleBox" id=2]
 [ext_resource path="res://theme/button_hover_style.tres" type="StyleBox" id=3]
 [ext_resource path="res://theme/button_pressed_style.tres" type="StyleBox" id=4]
 [ext_resource path="res://theme/button_disabled_style.tres" type="StyleBox" id=5]
 [ext_resource path="res://theme/button_focus_style.tres" type="StyleBox" id=6]
-
-[sub_resource type="DynamicFont" id=3]
-size = 20
-outline_color = Color( 1, 1, 1, 0.396078 )
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 1 )
+[ext_resource path="res://theme/fonts/default_font.tres" type="DynamicFont" id=7]
 
 [sub_resource type="DynamicFontData" id=2]
 font_path = "res://assets/fonts/OpenSans-VariableFont_wdth,wght.ttf"
@@ -28,9 +22,10 @@ Button/colors/font_color_disabled = Color( 1, 1, 1, 0.392157 )
 Button/colors/font_color_focus = Color( 0, 0, 0, 1 )
 Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
 Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
-Button/fonts/font = SubResource( 3 )
+Button/fonts/font = ExtResource( 7 )
 Button/styles/disabled = ExtResource( 5 )
 Button/styles/focus = ExtResource( 6 )
 Button/styles/hover = ExtResource( 3 )
 Button/styles/normal = ExtResource( 2 )
 Button/styles/pressed = ExtResource( 4 )
+Label/fonts/font = ExtResource( 1 )

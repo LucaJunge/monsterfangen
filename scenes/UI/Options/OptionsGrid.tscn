@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/UI/CircleButton/CircleButton.tscn" type="PackedScene" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+columns = 2
+
+[node name="CircleButton" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 41.0
+margin_right = 174.0
+margin_bottom = 223.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="CircleButton2" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_top = 41.0
+margin_right = 376.0
+margin_bottom = 223.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="CircleButton3" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 309.0
+margin_right = 174.0
+margin_bottom = 491.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="CircleButton4" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_top = 309.0
+margin_right = 376.0
+margin_bottom = 491.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="CircleButton5" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 577.0
+margin_right = 174.0
+margin_bottom = 759.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="CircleButton6" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_top = 577.0
+margin_right = 376.0
+margin_bottom = 759.0
+size_flags_horizontal = 6
+size_flags_vertical = 6

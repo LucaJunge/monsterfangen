@@ -8,5 +8,5 @@ func _ready() -> void:
 	
 
 func open_menu() -> void:
-	#$MenuOverlay.visible = true
+	$MenuOverlay.visible = true
 	pass
