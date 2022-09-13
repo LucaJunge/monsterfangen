@@ -77,3 +77,5 @@ anims/SlideIn = SubResource( 8 )
 
 [node name="PartyScreen" parent="." instance=ExtResource( 3 )]
 visible = false
+
+[connection signal="exit_button_pressed" from="MarginContainer/OptionsGrid" to="." method="_on_OptionsGrid_exit_button_pressed"]

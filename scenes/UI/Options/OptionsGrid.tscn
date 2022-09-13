@@ -1,19 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://theme/monsterfangen_default.tres" type="Theme" id=1]
-[ext_resource path="res://assets/ui/icons/save_icon.png" type="Texture" id=2]
-[ext_resource path="res://assets/ui/icons/load_icon.png" type="Texture" id=3]
-[ext_resource path="res://assets/ui/buttons/circleButton_bg.png" type="Texture" id=4]
-[ext_resource path="res://assets/ui/icons/exit_icon.png" type="Texture" id=5]
-[ext_resource path="res://assets/ui/icons/party_icon.png" type="Texture" id=6]
-[ext_resource path="res://assets/ui/icons/player_icon.png" type="Texture" id=7]
-[ext_resource path="res://assets/ui/icons/items_icon.png" type="Texture" id=8]
 [ext_resource path="res://scenes/UI/Options/OptionsGrid.gd" type="Script" id=9]
+[ext_resource path="res://scenes/UI/CircleButton/CircleButton.tscn" type="PackedScene" id=10]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchor_right = 1.0
@@ -21,313 +16,74 @@ anchor_bottom = 1.0
 mouse_filter = 2
 columns = 2
 
-[node name="PartyButton" type="VBoxContainer" parent="GridContainer"]
+[node name="PartyButton" parent="GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 24.0
 margin_top = 41.0
 margin_right = 174.0
 margin_bottom = 223.0
-rect_min_size = Vector2( 150, 182 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme = ExtResource( 1 )
+label = "PARTY"
+icon_path = "res://assets/ui/icons/party_icon.png"
+icon_color = Color( 0.878431, 0.713726, 0.0666667, 1 )
 
-[node name="CenterContainer" type="CenterContainer" parent="GridContainer/PartyButton"]
-margin_right = 150.0
-margin_bottom = 150.0
-
-[node name="PartyButton" type="Button" parent="GridContainer/PartyButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-flat = true
-icon_align = 1
-
-[node name="Background" type="TextureRect" parent="GridContainer/PartyButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 1
-
-[node name="Icon" type="TextureRect" parent="GridContainer/PartyButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 6 )
-expand = true
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/PartyButton"]
-margin_top = 154.0
-margin_right = 150.0
-margin_bottom = 182.0
-custom_constants/separation = 0
-
-[node name="PartyButtonLabel" type="Label" parent="GridContainer/PartyButton/VBoxContainer"]
-margin_right = 150.0
-margin_bottom = 28.0
-rect_min_size = Vector2( 150, 28 )
-text = "PARTY"
-align = 1
-valign = 1
-
-[node name="PlayerButton" type="VBoxContainer" parent="GridContainer"]
+[node name="PlayerButton" parent="GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 226.0
 margin_top = 41.0
 margin_right = 376.0
 margin_bottom = 223.0
-rect_min_size = Vector2( 150, 182 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme = ExtResource( 1 )
+label = "PLAYER"
+icon_color = Color( 0.239216, 0.501961, 0.0901961, 1 )
 
-[node name="CenterContainer" type="CenterContainer" parent="GridContainer/PlayerButton"]
-margin_right = 150.0
-margin_bottom = 150.0
-
-[node name="PlayerButton" type="Button" parent="GridContainer/PlayerButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-flat = true
-icon_align = 1
-
-[node name="Background" type="TextureRect" parent="GridContainer/PlayerButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 1
-
-[node name="Icon" type="TextureRect" parent="GridContainer/PlayerButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/PlayerButton"]
-margin_top = 154.0
-margin_right = 150.0
-margin_bottom = 182.0
-custom_constants/separation = 0
-
-[node name="PlayerButtonLabel" type="Label" parent="GridContainer/PlayerButton/VBoxContainer"]
-margin_right = 150.0
-margin_bottom = 28.0
-rect_min_size = Vector2( 150, 28 )
-text = "PLAYER"
-align = 1
-valign = 1
-
-[node name="ItemsButton" type="VBoxContainer" parent="GridContainer"]
+[node name="ItemsButton" parent="GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 24.0
 margin_top = 309.0
 margin_right = 174.0
 margin_bottom = 491.0
-rect_min_size = Vector2( 150, 182 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme = ExtResource( 1 )
+label = "ITEMS"
+icon_path = "res://assets/ui/icons/items_icon.png"
+icon_color = Color( 0.533333, 0.317647, 0.0901961, 1 )
 
-[node name="CenterContainer" type="CenterContainer" parent="GridContainer/ItemsButton"]
-margin_right = 150.0
-margin_bottom = 150.0
-
-[node name="ItemsButton" type="Button" parent="GridContainer/ItemsButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-flat = true
-icon_align = 1
-
-[node name="Background" type="TextureRect" parent="GridContainer/ItemsButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 1
-
-[node name="Icon" type="TextureRect" parent="GridContainer/ItemsButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/ItemsButton"]
-margin_top = 154.0
-margin_right = 150.0
-margin_bottom = 182.0
-custom_constants/separation = 0
-
-[node name="ItemsButtonLabel" type="Label" parent="GridContainer/ItemsButton/VBoxContainer"]
-margin_right = 150.0
-margin_bottom = 28.0
-rect_min_size = Vector2( 150, 28 )
-text = "ITEMS"
-align = 1
-valign = 1
-
-[node name="ExitButton" type="VBoxContainer" parent="GridContainer"]
+[node name="ExitButton" parent="GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 226.0
 margin_top = 309.0
 margin_right = 376.0
 margin_bottom = 491.0
-rect_min_size = Vector2( 150, 182 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme = ExtResource( 1 )
+label = "EXIT"
+icon_path = "res://assets/ui/icons/exit_icon.png"
+icon_color = Color( 0.180392, 0.180392, 0.180392, 1 )
 
-[node name="CenterContainer" type="CenterContainer" parent="GridContainer/ExitButton"]
-margin_right = 150.0
-margin_bottom = 150.0
-
-[node name="ExitButton" type="Button" parent="GridContainer/ExitButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-action_mode = 0
-flat = true
-icon_align = 1
-
-[node name="Background" type="TextureRect" parent="GridContainer/ExitButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 1
-
-[node name="Icon" type="TextureRect" parent="GridContainer/ExitButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/ExitButton"]
-margin_top = 154.0
-margin_right = 150.0
-margin_bottom = 182.0
-custom_constants/separation = 0
-
-[node name="ExitButtonLabel" type="Label" parent="GridContainer/ExitButton/VBoxContainer"]
-margin_right = 150.0
-margin_bottom = 28.0
-rect_min_size = Vector2( 150, 28 )
-text = "EXIT"
-align = 1
-valign = 1
-
-[node name="SaveButton" type="VBoxContainer" parent="GridContainer"]
+[node name="SaveButton" parent="GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 24.0
 margin_top = 577.0
 margin_right = 174.0
 margin_bottom = 759.0
-rect_min_size = Vector2( 150, 182 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme = ExtResource( 1 )
+label = "SAVE"
+icon_path = "res://assets/ui/icons/save_icon.png"
+icon_color = Color( 0.215686, 0.439216, 0.235294, 1 )
 
-[node name="CenterContainer" type="CenterContainer" parent="GridContainer/SaveButton"]
-margin_right = 150.0
-margin_bottom = 150.0
-
-[node name="SaveButton" type="Button" parent="GridContainer/SaveButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-flat = true
-icon_align = 1
-
-[node name="Background" type="TextureRect" parent="GridContainer/SaveButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 1
-
-[node name="Icon" type="TextureRect" parent="GridContainer/SaveButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/SaveButton"]
-margin_top = 154.0
-margin_right = 150.0
-margin_bottom = 182.0
-custom_constants/separation = 0
-
-[node name="SaveButtonLabel" type="Label" parent="GridContainer/SaveButton/VBoxContainer"]
-margin_right = 150.0
-margin_bottom = 28.0
-rect_min_size = Vector2( 150, 28 )
-text = "SAVE"
-align = 1
-valign = 1
-
-[node name="LoadButton" type="VBoxContainer" parent="GridContainer"]
+[node name="LoadButton" parent="GridContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 226.0
 margin_top = 577.0
 margin_right = 376.0
 margin_bottom = 759.0
-rect_min_size = Vector2( 150, 182 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme = ExtResource( 1 )
+label = "LOAD"
+icon_path = "res://assets/ui/icons/load_icon.png"
+icon_color = Color( 0.203922, 0.25098, 0.509804, 1 )
 
-[node name="CenterContainer" type="CenterContainer" parent="GridContainer/LoadButton"]
-margin_right = 150.0
-margin_bottom = 150.0
-
-[node name="LoadButton" type="Button" parent="GridContainer/LoadButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-flat = true
-icon_align = 1
-
-[node name="Background" type="TextureRect" parent="GridContainer/LoadButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 1
-
-[node name="Icon" type="TextureRect" parent="GridContainer/LoadButton/CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/LoadButton"]
-margin_top = 154.0
-margin_right = 150.0
-margin_bottom = 182.0
-custom_constants/separation = 0
-
-[node name="LoadButtonLabel" type="Label" parent="GridContainer/LoadButton/VBoxContainer"]
-margin_right = 150.0
-margin_bottom = 28.0
-rect_min_size = Vector2( 150, 28 )
-text = "LOAD"
-align = 1
-valign = 1
-
-[connection signal="pressed" from="GridContainer/ExitButton/CenterContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="button_pressed" from="GridContainer/PartyButton" to="." method="_on_PartyButton_button_pressed"]
+[connection signal="button_pressed" from="GridContainer/PlayerButton" to="." method="_on_PlayerButton_button_pressed"]
+[connection signal="button_pressed" from="GridContainer/ItemsButton" to="." method="_on_ItemsButton_button_pressed"]
+[connection signal="button_pressed" from="GridContainer/ExitButton" to="." method="_on_ExitButton_button_pressed"]
+[connection signal="button_pressed" from="GridContainer/SaveButton" to="." method="_on_SaveButton_button_pressed"]
+[connection signal="button_pressed" from="GridContainer/LoadButton" to="." method="_on_LoadButton_button_pressed"]

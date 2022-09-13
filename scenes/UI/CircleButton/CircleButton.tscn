@@ -1,8 +1,41 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://theme/monsterfangen_default.tres" type="Theme" id=1]
 [ext_resource path="res://assets/ui/buttons/circleButton_bg.png" type="Texture" id=2]
-[ext_resource path="res://assets/ui/buttons/massiveMultiplayer.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/icons/player_icon.png" type="Texture" id=3]
+[ext_resource path="res://scenes/UI/CircleButton/CircleButton.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "click"
+length = 0.16
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
 
 [node name="CircleButton" type="VBoxContainer"]
 anchor_right = 0.375
@@ -13,22 +46,22 @@ rect_min_size = Vector2( 150, 182 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 theme = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/click = SubResource( 2 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 150.0
 margin_bottom = 150.0
-
-[node name="Button" type="Button" parent="CenterContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-flat = true
-icon_align = 1
+rect_pivot_offset = Vector2( 75, 75 )
 
 [node name="Background" type="TextureRect" parent="CenterContainer"]
 margin_right = 150.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 150, 150 )
+mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
@@ -38,9 +71,19 @@ modulate = Color( 0.768627, 0.156863, 0.2, 1 )
 margin_right = 150.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 150, 150 )
+mouse_filter = 2
 texture = ExtResource( 3 )
 expand = true
-stretch_mode = 4
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="CenterContainer"]
+margin_right = 150.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 150, 150 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
+icon_align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_top = 154.0
@@ -56,3 +99,5 @@ rect_min_size = Vector2( 150, 28 )
 text = "LABEL"
 align = 1
 valign = 1
+
+[connection signal="pressed" from="CenterContainer/Button" to="." method="_on_Button_pressed"]

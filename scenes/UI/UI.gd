@@ -8,5 +8,7 @@ func _ready() -> void:
 	
 
 func open_menu() -> void:
-	$MenuOverlay.visible = true
-	pass
+	SceneTransition.change_overlay($OptionsMenu, "fade")
+
+func _on_OptionsMenu_options_closed():
+	SceneTransition.change_overlay($OptionsMenu, "fade")
