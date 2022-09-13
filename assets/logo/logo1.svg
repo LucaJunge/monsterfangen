@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="500mm"
+   height="500mm"
+   viewBox="0 0 500 500"
+   version="1.1"
+   id="svg2637"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="logo1.svg"
+   inkscape:export-filename="C:\Users\Luca\repos\privat\monsterfangen\assets\logo\logo1.png"
+   inkscape:export-xdpi="76.199997"
+   inkscape:export-ydpi="76.199997"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2639"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.25732565"
+     inkscape:cx="751.96546"
+     inkscape:cy="990.96223"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g5150"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-page="true"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="500,250"
+       orientation="0,-1"
+       id="guide4689" />
+    <sodipodi:guide
+       position="250,500"
+       orientation="1,0"
+       id="guide4691" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2634">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5156">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5152" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop5154" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5156"
+       id="linearGradient5158"
+       x1="123.57178"
+       y1="250.00002"
+       x2="376.42822"
+       y2="250.00002"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Background"
+     sodipodi:insensitive="true"
+     style="display:none">
+    <rect
+       style="fill:#000000;fill-opacity:0.304054;fill-rule:evenodd;stroke-width:0.264583"
+       id="rect4167"
+       width="500"
+       height="500"
+       x="0"
+       y="0" />
+  </g>
+  <g
+     inkscape:label="Border 2"
+     inkscape:groupmode="layer"
+     id="g5902"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <text
+       xml:space="preserve"
+       style="font-size:420.84px;line-height:1.25;font-family:Creepster;-inkscape-font-specification:Creepster;display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:25;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="116.19167"
+       y="410.85135"
+       id="text5900-9"><tspan
+         sodipodi:role="line"
+         id="tspan5898-0"
+         style="font-size:420.84px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:25;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="116.19167"
+         y="410.85135">M</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:420.84px;line-height:1.25;font-family:Creepster;-inkscape-font-specification:Creepster;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="110.9"
+       y="405.55969"
+       id="text5900"><tspan
+         sodipodi:role="line"
+         id="tspan5898"
+         style="font-size:420.84px;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="110.9"
+         y="405.55969">M</tspan></text>
+  </g>
+  <g
+     inkscape:label="Border 1"
+     inkscape:groupmode="layer"
+     id="g5150"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <text
+       xml:space="preserve"
+       style="font-size:420.84px;line-height:1.25;font-family:Creepster;-inkscape-font-specification:Creepster;fill:#c42833;fill-opacity:1;stroke:#c42833;stroke-width:12;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="110.9"
+       y="400.55969"
+       id="text5148"><tspan
+         sodipodi:role="line"
+         id="tspan5146"
+         style="font-size:420.84px;fill:#c42833;fill-opacity:1;stroke:#c42833;stroke-width:12;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="110.9"
+         y="400.55969">M</tspan></text>
+  </g>
+  <g
+     inkscape:label="Base"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <text
+       xml:space="preserve"
+       style="font-size:420.84px;line-height:1.25;font-family:Creepster;-inkscape-font-specification:Creepster;fill:#e3313d;fill-opacity:1;stroke:none;stroke-width:0.631259"
+       x="110.9"
+       y="400.55969"
+       id="text13290"><tspan
+         sodipodi:role="line"
+         id="tspan13288"
+         style="font-size:420.84px;fill:#e3313d;fill-opacity:1;stroke:none;stroke-width:0.631259"
+         x="110.9"
+         y="400.55969">M</tspan></text>
+  </g>
+</svg>

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kenney_rpg_urban.png-cc1a3bc9c092ab6926b32d9fbc6f2c20.stex"
+path="res://.import/logo1.svg-570db270feea1f005be614ecb3dbd035.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiled/tilemaps/kenney_rpg_urban.png"
-dest_files=[ "res://.import/kenney_rpg_urban.png-cc1a3bc9c092ab6926b32d9fbc6f2c20.stex" ]
+source_file="res://assets/logo/logo1.svg"
+dest_files=[ "res://.import/logo1.svg-570db270feea1f005be614ecb3dbd035.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

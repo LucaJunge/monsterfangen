@@ -1,14 +1,8 @@
 extends Node2D
 
 func _on_StartNewGameButton_pressed():
-	print("Start New Game")
-	
-	#var scene_loaded = get_tree().change_scene("res://scenes/Intro/Intro.tscn")
-	var scene_loaded = get_tree().change_scene("res://management/Game.tscn")
+	SceneTransition.change_scene("res://management/Game.tscn", "horizontal_bars")
 
-	if scene_loaded != OK:
-		print_debug("Error loading scene: ", scene_loaded)
-		
 func _on_LoadGameButton_pressed():
 	# show saved games selection screen
 	var error_code = get_tree().change_scene("res://scenes/SavedGames/SavedGames.tscn")
@@ -27,4 +21,4 @@ func _on_Exit_pressed():
 	get_tree().quit()
 
 func _on_Licenses_pressed():
-		$MainMenuCanvas/Licenses.visible = true
+	$MainMenuCanvas/Licenses.visible = true

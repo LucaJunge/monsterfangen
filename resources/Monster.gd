@@ -7,7 +7,7 @@ func _init(_unique_id = "", current_values: Dictionary = {}) -> void:
 	# get the base class from the tres resources
 	var base_monster = MonsterDatabase.get_monster_data(_unique_id)
 	unique_id = base_monster.unique_id
-	print_debug(_unique_id)
+	#print_debug(_unique_id)
 
 	display_name = base_monster.display_name
 	nickname = base_monster.nickname

@@ -77,16 +77,15 @@ _global_script_class_icons={
 config/name="monsterfangen"
 config/description="An open-source mobile game made with Godot."
 run/main_scene="res://scenes/MainMenu/MainMenu.tscn"
-boot_splash/show_image=false
-boot_splash/image="res://assets/logo/logo-bootsplash.png"
-boot_splash/use_filter=false
-boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://assets/logo/logo-square.png"
+boot_splash/image="res://assets/logo/logo1.png"
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
+config/icon="res://assets/logo/logo1.png"
 
 [autoload]
 
 ItemDatabase="*res://autoloads/ItemDatabase.gd"
 MonsterDatabase="*res://autoloads/MonsterDatabase.gd"
+SceneTransition="*res://autoloads/SceneTransition.tscn"
 
 [debug]
 
