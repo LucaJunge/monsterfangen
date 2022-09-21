@@ -1,8 +1,12 @@
 extends Panel
 
 signal options_closed
-# Called when the node enters the scene tree for the first time.
+signal save_requested
+
+onready var options_grid = $MarginContainer/OptionsGrid
+
 func _ready():
+	options_grid.connect("save_requested", self, "emit_signal", ["save_requested"])
 	pass
 
 func _on_OptionsGrid_exit_button_pressed():

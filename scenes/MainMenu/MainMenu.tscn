@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/logo/logo1.png" type="Texture" id=1]
 [ext_resource path="res://scenes/MainMenu/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/MainMenu/MainMenuTween.gd" type="Script" id=3]
 [ext_resource path="res://assets/ui/backgrounds/list_bg.png" type="Texture" id=4]
-[ext_resource path="res://assets/music/juhani_junkala_chiptune_adventures_stage_select.mp3" type="AudioStream" id=5]
 [ext_resource path="res://scenes/Licenses/Licenses.tscn" type="PackedScene" id=6]
 [ext_resource path="res://theme/monsterfangen_default.tres" type="Theme" id=7]
 
@@ -23,11 +22,6 @@ script = ExtResource( 2 )
 
 [node name="MainMenuTween" type="Tween" parent="."]
 script = ExtResource( 3 )
-
-[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-volume_db = -20.0
-autoplay = true
 
 [node name="MainMenuCanvas" type="CanvasLayer" parent="."]
 

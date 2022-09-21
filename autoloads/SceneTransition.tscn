@@ -125,6 +125,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 1.0, 0.0, 0.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("horizontal_bars/Upper:anchor_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("horizontal_bars/Lower:anchor_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "horizontal_bars_out"
@@ -153,6 +177,30 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("horizontal_bars/Upper:anchor_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("horizontal_bars/Lower:anchor_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.0 ]
 }
 
 [sub_resource type="StyleBoxFlat" id=4]

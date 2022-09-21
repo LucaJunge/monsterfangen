@@ -1,6 +1,7 @@
 extends Control
 
 signal exit_button_pressed
+signal save_requested
 
 func _ready() -> void:
 	pass
@@ -22,6 +23,8 @@ func _on_ExitButton_button_pressed():
 
 
 func _on_SaveButton_button_pressed():
+	# sends the save_requested signal to the OptionsMenu
+	emit_signal("save_requested")
 	print_debug("game saves")
 
 

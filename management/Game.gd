@@ -4,13 +4,13 @@ extends Node2D
 var _save := SaveGame.new()
 
 onready var _player := $SceneManager/CurrentScene/World/Player
-onready var _ui_save_panel := $UILayer/Panel
+onready var _ui := $UILayer/UI
 
 func _ready() -> void:
 	# connect signals to ui
 	
-	_ui_save_panel.connect("reload_requested", self, "_create_or_load_save")
-	_ui_save_panel.connect("save_requested", self, "_save_game")
+	_ui.connect("reload_requested", self, "_create_or_load_save")
+	_ui.connect("save_requested", self, "_save_game")
 	
 	# And the start of the game or when pressing the load button, we call this
 	# function. It loads the save data if it exists, otherwise, it creates a 
@@ -41,5 +41,6 @@ func _create_or_load_save() -> void:
 	#_ui_inventory.inventory = _save.inventory
 	
 func _save_game() -> void:
+	print("saves game")
 	_save.global_position = _player.global_position
 	_save.write_savegame()

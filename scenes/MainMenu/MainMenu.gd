@@ -1,5 +1,10 @@
 extends Node2D
 
+func _ready() -> void:
+	# how to play music via the AudioManager
+	var music = load("res://assets/music/juhani_junkala_chiptune_adventures_stage_select.mp3")
+	AudioManager.play(music)
+
 func _on_StartNewGameButton_pressed():
 	SceneTransition.change_scene("res://management/Game.tscn", "horizontal_bars")
 

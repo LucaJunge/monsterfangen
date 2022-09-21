@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://resources/ItemData.gd"
 }, {
-"base": "Resource",
-"class": "ItemResource",
-"language": "GDScript",
-"path": "res://scenes/Item/ItemResource.gd"
-}, {
 "base": "MonsterData",
 "class": "Monster",
 "language": "GDScript",
@@ -58,18 +53,23 @@ _global_script_classes=[ {
 "class": "SaveGame",
 "language": "GDScript",
 "path": "res://resources/SaveGame.gd"
+}, {
+"base": "Resource",
+"class": "SoundFile",
+"language": "GDScript",
+"path": "res://resources/SoundFile.gd"
 } ]
 _global_script_class_icons={
 "Inventory": "",
 "ItemData": "",
-"ItemResource": "",
 "Monster": "",
 "MonsterData": "",
 "MonsterOld": "res://assets/interface/monster.png",
 "MonsterType": "",
 "Party": "",
 "Player": "",
-"SaveGame": ""
+"SaveGame": "",
+"SoundFile": ""
 }
 
 [application]
@@ -86,6 +86,7 @@ config/icon="res://assets/logo/logo1.png"
 ItemDatabase="*res://autoloads/ItemDatabase.gd"
 MonsterDatabase="*res://autoloads/MonsterDatabase.gd"
 SceneTransition="*res://autoloads/SceneTransition.tscn"
+AudioManager="*res://autoloads/AudioManager.tscn"
 
 [debug]
 
