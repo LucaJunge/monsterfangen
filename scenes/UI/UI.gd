@@ -5,6 +5,7 @@ signal reload_requested
 
 onready var _menu_button = get_node("%MenuButton")
 onready var options_menu = get_node("OptionsMenu")
+onready var click = load("res://assets/sounds/click.wav")
 
 func _ready() -> void:
 	print(_menu_button)
@@ -14,6 +15,9 @@ func _ready() -> void:
 	options_menu.connect("options_closed", self, "close_menu")
 
 func open_menu() -> void:
+	
+	AudioManager.play(click)
+	#AudioManager.play_direct("click")
 	SceneTransition.change_overlay($OptionsMenu, "horizontal_bars")
 
 func close_menu() -> void:

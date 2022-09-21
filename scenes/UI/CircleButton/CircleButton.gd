@@ -2,6 +2,8 @@ extends VBoxContainer
 
 signal button_pressed
 
+onready var click = load("res://assets/sounds/click.wav")
+
 export var label : String = "NO_LABEL"
 export (String, FILE, "*.png,*.svg") var icon_path = "res://assets/ui/icons/player_icon.png"
 export (Color) var icon_color = Color(0, 1, 0)
@@ -12,6 +14,7 @@ func _ready() -> void:
 	$CenterContainer/Icon.modulate = icon_color
 
 func _on_Button_pressed():
+	AudioManager.play(click)
 	$AnimationPlayer.play("click")
 	yield($AnimationPlayer, "animation_finished")
 	emit_signal("button_pressed")

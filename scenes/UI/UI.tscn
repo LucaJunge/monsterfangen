@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/OptionsMenu/OptionsMenu.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/MenuButton/MenuButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/UI/MenuButton/MenuButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/UI/UI.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Joystick/Joystick.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/UI/InteractionButton/InteractionButton.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.823529, 0.898039, 1, 0 )
@@ -29,6 +30,7 @@ mouse_filter = 2
 [node name="Control" type="Control" parent="MarginContainer"]
 margin_right = 360.0
 margin_bottom = 760.0
+mouse_filter = 2
 
 [node name="MenuButton" parent="MarginContainer/Control" instance=ExtResource( 2 )]
 unique_name_in_owner = true
@@ -38,13 +40,28 @@ margin_left = -50.0
 margin_bottom = 50.0
 size_flags_horizontal = 1
 
-[node name="Joystick" parent="MarginContainer/Control" instance=ExtResource( 4 )]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -150.0
+margin_top = -254.0
 margin_right = 150.0
-margin_bottom = 0.0
+alignment = 1
+
+[node name="InteractionButton" parent="MarginContainer/Control/VBoxContainer" instance=ExtResource( 5 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 25.0
+margin_right = 125.0
+margin_bottom = 100.0
+size_flags_horizontal = 4
+
+[node name="Joystick" parent="MarginContainer/Control/VBoxContainer" instance=ExtResource( 4 )]
+unique_name_in_owner = true
+margin_top = 104.0
+margin_right = 150.0
+margin_bottom = 254.0
+rect_min_size = Vector2( 150, 150 )
 size_flags_horizontal = 1
 
 [node name="OptionsMenu" parent="." instance=ExtResource( 1 )]

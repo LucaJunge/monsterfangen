@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://resources/Dialog.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "The mysterious Healing Box"
+dialog_lines = [ "Hello there!", "I am the mysterious Healing Box! Nice to meet you!", "I will heal your monsters for free", "Just wait a bit...", "There you go! Have fun!" ]

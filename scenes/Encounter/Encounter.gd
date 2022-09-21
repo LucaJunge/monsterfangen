@@ -25,7 +25,7 @@ onready var hit_sound = preload("res://assets/sounds/hit.wav")
 var timer_time = 2.0
 
 # who is the player monster? currently always [0] in the array
-onready var player_monster = PlayerData.playerParty[0]
+#onready var player_monster = PlayerData.playerParty[0]
 
 # manage the current encounter state
 var current_state = null

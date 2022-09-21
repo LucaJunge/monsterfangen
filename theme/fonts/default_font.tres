@@ -4,7 +4,6 @@
 
 [resource]
 size = 20
-outline_color = Color( 1, 1, 1, 0.396078 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )

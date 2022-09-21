@@ -13,7 +13,7 @@ func _ready():
 		level_range_max = level_range_min
 	pass
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	var randomNumber = rand_range(0.0, 1.0)
 	anim_player.play("Step")
 	

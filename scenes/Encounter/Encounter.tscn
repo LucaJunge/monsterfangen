@@ -10,9 +10,9 @@
 [ext_resource path="res://theme/fonts/Heading1.tres" type="DynamicFont" id=8]
 [ext_resource path="res://theme/fonts/Heading2.tres" type="DynamicFont" id=9]
 [ext_resource path="res://assets/interface/sour_bottle.png" type="Texture" id=10]
-[ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://assets/fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://assets/music/fight_by_magic_spark.mp3" type="AudioStream" id=12]
-[ext_resource path="res://theme/monsterfangen.tres" type="Theme" id=13]
+[ext_resource path="res://theme/monsterfangen_default.tres" type="Theme" id=13]
 
 [sub_resource type="Animation" id=20]
 resource_name = "die_player"
@@ -198,6 +198,12 @@ shadow_color = Color( 0, 0, 0, 0.254902 )
 shadow_size = 2
 shadow_offset = Vector2( 1, 1 )
 
+[sub_resource type="DynamicFont" id=12]
+size = 25
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.172549 )
+font_data = ExtResource( 11 )
+
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.8, 0.65098, 0.545098, 1 )
 border_width_left = 3
@@ -227,12 +233,6 @@ corner_radius_bottom_left = 2
 shadow_color = Color( 0, 0, 0, 0.254902 )
 shadow_size = 2
 shadow_offset = Vector2( 1, 1 )
-
-[sub_resource type="DynamicFont" id=12]
-size = 25
-outline_size = 2
-outline_color = Color( 0, 0, 0, 0.172549 )
-font_data = ExtResource( 11 )
 
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.490196, 0.592157, 0.690196, 1 )
@@ -376,7 +376,7 @@ size_flags_vertical = 3
 
 [node name="EnemyName" type="Label" parent="CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemyInfo"]
 margin_right = 188.0
-margin_bottom = 24.0
+margin_bottom = 2.0
 custom_fonts/font = ExtResource( 8 )
 text = "EnemyName"
 __meta__ = {
@@ -384,16 +384,16 @@ __meta__ = {
 }
 
 [node name="EnemyLevel" type="Label" parent="CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemyInfo"]
-margin_top = 28.0
+margin_top = 6.0
 margin_right = 188.0
-margin_bottom = 45.0
+margin_bottom = 8.0
 custom_fonts/font = ExtResource( 9 )
 text = "EnemyLevel"
 
 [node name="EnemyHealth" type="ProgressBar" parent="CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/EnemyMarginContainer/EnemyContainer/EnemyInfo"]
-margin_top = 49.0
+margin_top = 12.0
 margin_right = 188.0
-margin_bottom = 54.0
+margin_bottom = 17.0
 rect_min_size = Vector2( 0, 5 )
 step = 1.0
 percent_visible = false
@@ -480,29 +480,29 @@ size_flags_vertical = 3
 
 [node name="PlayerName" type="Label" parent="CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo"]
 margin_right = 188.0
-margin_bottom = 24.0
+margin_bottom = 2.0
 custom_fonts/font = ExtResource( 8 )
 text = "PlayerName"
 
 [node name="PlayerLevel" type="Label" parent="CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo"]
-margin_top = 28.0
+margin_top = 6.0
 margin_right = 188.0
-margin_bottom = 45.0
+margin_bottom = 8.0
 custom_fonts/font = ExtResource( 9 )
 text = "PlayerLevel"
 
 [node name="PlayerHealth" type="ProgressBar" parent="CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo"]
-margin_top = 49.0
+margin_top = 12.0
 margin_right = 188.0
-margin_bottom = 54.0
+margin_bottom = 17.0
 rect_min_size = Vector2( 0, 5 )
 step = 1.0
 percent_visible = false
 
 [node name="PlayerHealthText" type="Label" parent="CanvasLayer/EncounterUI/VSplitContainer/MonsterContainer/PlayerMarginContainer/PlayerContainer/PlayerInfo"]
-margin_top = 58.0
+margin_top = 21.0
 margin_right = 188.0
-margin_bottom = 75.0
+margin_bottom = 23.0
 custom_fonts/font = ExtResource( 9 )
 text = "??? / ???"
 align = 1
@@ -519,7 +519,7 @@ size_flags_vertical = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer"]
 margin_right = 400.0
-margin_bottom = 56.0
+margin_bottom = 90.0
 rect_min_size = Vector2( 0, 56 )
 custom_styles/panel = SubResource( 2 )
 
@@ -527,11 +527,11 @@ custom_styles/panel = SubResource( 2 )
 margin_left = 10.0
 margin_top = 5.0
 margin_right = 390.0
-margin_bottom = 51.0
+margin_bottom = 85.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "MISSING_TXT
 MISSING_TXT"
 fit_content_height = true
@@ -541,7 +541,7 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer"]
-margin_top = 60.0
+margin_top = 94.0
 margin_right = 400.0
 margin_bottom = 294.0
 size_flags_horizontal = 3
@@ -560,7 +560,7 @@ __meta__ = {
 
 [node name="FightButtonMarginContainer" type="MarginContainer" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer"]
 margin_right = 400.0
-margin_bottom = 135.0
+margin_bottom = 160.0
 size_flags_horizontal = 3
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
@@ -571,7 +571,7 @@ custom_constants/margin_bottom = 5
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 380.0
-margin_bottom = 130.0
+margin_bottom = 155.0
 columns = 2
 
 [node name="FightButton2" type="Button" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/FightButtonMarginContainer/AttacksContainer"]
@@ -579,8 +579,8 @@ visible = false
 margin_right = 178.0
 margin_bottom = 103.0
 size_flags_horizontal = 3
-custom_styles/normal = ExtResource( 4 )
 custom_fonts/font = SubResource( 5 )
+custom_styles/normal = ExtResource( 4 )
 text = "FIGHT"
 
 [node name="FightButton3" type="Button" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/FightButtonMarginContainer/AttacksContainer"]
@@ -589,8 +589,8 @@ margin_left = 182.0
 margin_right = 360.0
 margin_bottom = 110.0
 size_flags_horizontal = 3
-custom_styles/normal = ExtResource( 4 )
 custom_fonts/font = SubResource( 6 )
+custom_styles/normal = ExtResource( 4 )
 text = "FIGHT"
 
 [node name="FightButton4" type="Button" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/FightButtonMarginContainer/AttacksContainer"]
@@ -599,8 +599,8 @@ margin_top = 114.0
 margin_right = 178.0
 margin_bottom = 224.0
 size_flags_horizontal = 3
-custom_styles/normal = ExtResource( 4 )
 custom_fonts/font = SubResource( 6 )
+custom_styles/normal = ExtResource( 4 )
 text = "FIGHT"
 
 [node name="FightButton5" type="Button" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/FightButtonMarginContainer/AttacksContainer"]
@@ -610,27 +610,27 @@ margin_top = 114.0
 margin_right = 360.0
 margin_bottom = 224.0
 size_flags_horizontal = 3
-custom_styles/normal = ExtResource( 4 )
 custom_fonts/font = SubResource( 6 )
+custom_styles/normal = ExtResource( 4 )
 text = "FIGHT"
 
 [node name="FightButton" type="Button" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/FightButtonMarginContainer"]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 380.0
-margin_bottom = 130.0
+margin_bottom = 155.0
 size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
 custom_styles/hover = SubResource( 7 )
 custom_styles/pressed = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = ExtResource( 4 )
-custom_fonts/font = SubResource( 6 )
 text = "FIGHT"
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer"]
-margin_top = 145.0
+margin_top = 170.0
 margin_right = 400.0
-margin_bottom = 234.0
+margin_bottom = 246.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 20
@@ -642,47 +642,47 @@ custom_constants/margin_bottom = 15
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 380.0
-margin_bottom = 74.0
+margin_bottom = 61.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 15
 
 [node name="BagButton" type="Button" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/MarginContainer/OtherButtonsContainer"]
 margin_right = 110.0
-margin_bottom = 54.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 12 )
 custom_styles/hover = SubResource( 10 )
 custom_styles/pressed = SubResource( 11 )
 custom_styles/disabled = SubResource( 10 )
 custom_styles/normal = ExtResource( 1 )
-custom_fonts/font = SubResource( 12 )
 text = "BAG"
 
 [node name="RunButton" type="Button" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/MarginContainer/OtherButtonsContainer"]
 margin_left = 125.0
 margin_right = 235.0
-margin_bottom = 54.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 12 )
 custom_styles/hover = SubResource( 13 )
 custom_styles/pressed = SubResource( 14 )
 custom_styles/disabled = SubResource( 13 )
 custom_styles/normal = ExtResource( 5 )
-custom_fonts/font = SubResource( 12 )
 text = "RUN"
 
 [node name="TeamButton" type="Button" parent="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/MarginContainer/OtherButtonsContainer"]
 margin_left = 250.0
 margin_right = 360.0
-margin_bottom = 54.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 12 )
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/disabled = SubResource( 15 )
 custom_styles/normal = ExtResource( 6 )
-custom_fonts/font = SubResource( 12 )
 text = "TEAM"
 
 [connection signal="button_up" from="CanvasLayer/EncounterUI/VSplitContainer/ButtonContainer/Panel/ButtonsContainer/FightButtonMarginContainer/FightButton" to="." method="_on_FightButton_button_up"]

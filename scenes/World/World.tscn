@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/tilemaps/Tilemap.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/TallGrass/TallGrass.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Entrance/Entrance.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/HealBed/HealBed.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/dialogs/hello_world.tres" type="Resource" id=6]
 
 [node name="World" type="Node2D"]
 
@@ -59,3 +61,9 @@ __meta__ = {
 
 [node name="Entrance" parent="Entrances" instance=ExtResource( 4 )]
 position = Vector2( -48, -112 )
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="StaticBody2D" parent="Interactables" instance=ExtResource( 5 )]
+position = Vector2( 16, 80 )
+dialog = ExtResource( 6 )

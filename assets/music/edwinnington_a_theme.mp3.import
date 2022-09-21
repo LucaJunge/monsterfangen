@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/edwinnington_a_theme.mp3-8c970d738d03a95e1b3a7585150c8613.mp3str"
+
+[deps]
+
+source_file="res://assets/music/edwinnington_a_theme.mp3"
+dest_files=[ "res://.import/edwinnington_a_theme.mp3-8c970d738d03a95e1b3a7585150c8613.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -28,8 +28,6 @@ func transition_horizontal_bars(target: String):
 	get_tree().change_scene(target)
 	$AnimationPlayer.play("horizontal_bars_out")
 	
-	
-	
 func overlay_fade(target: Node) -> void:
 	$AnimationPlayer.play("fade_in")
 	yield($AnimationPlayer, "animation_finished")

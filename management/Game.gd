@@ -16,6 +16,8 @@ func _ready() -> void:
 	# function. It loads the save data if it exists, otherwise, it creates a 
 	# new save file.
 	_create_or_load_save()
+	var game_theme = load("res://assets/music/edwinnington_a_theme.mp3")
+	var _theme_player = AudioManager.play_loop(game_theme)
 	
 
 func _create_or_load_save() -> void:

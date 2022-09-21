@@ -16,6 +16,9 @@ onready var blocking_ray = $BlockingRayCast2D
 onready var scene_transition_ray = $SceneTransitionRayCast2D
 onready var interaction_ray = $InteractionRayCast2D
 
+# The F button
+onready var interact_button := get_node("/root/Game/UILayer/UI/%InteractionButton")
+
 onready var interaction_ray_line2d = $InteractionRayLine2D
 
 # the animation states the player can be in
@@ -51,6 +54,9 @@ func _ready():
 	# load all possible sounds
 	# BUG: also currently imports the .import metadata files...
 	#load_sounds()
+	
+	# connect the interaction button to interact method
+	interact_button.connect("interact_pressed", self, "interact")
 	
 	# Set camera position on load
 	$Camera2D.position = Vector2(0, 0)

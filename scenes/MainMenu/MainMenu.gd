@@ -1,26 +1,21 @@
 extends Node2D
 
+onready var main_theme: AudioStreamPlayer
+
 func _ready() -> void:
 	# how to play music via the AudioManager
-	var music = load("res://assets/music/juhani_junkala_chiptune_adventures_stage_select.mp3")
-	AudioManager.play(music)
+	var main_theme_res = load("res://assets/music/juhani_junkala_chiptune_adventures_stage_select.mp3")
+	main_theme = AudioManager.play(main_theme_res, -15.0)
 
 func _on_StartNewGameButton_pressed():
+	AudioManager.fade_out(main_theme)
 	SceneTransition.change_scene("res://management/Game.tscn", "horizontal_bars")
 
 func _on_LoadGameButton_pressed():
-	# show saved games selection screen
-	var error_code = get_tree().change_scene("res://scenes/SavedGames/SavedGames.tscn")
-	if error_code != 0:
-		print("ERROR: ", error_code)
+	SceneTransition.change_scene("res://scenes/SavedGames/SavedGames.tscn")
 
 func _on_OptionsButton_pressed():
-		# show options menu
-	#get_tree().change_scene("res://scenes/Options/Options.tscn")
-	#var error_code = get_tree().change_scene("res://scenes/ScrollList/ScrollList.tscn")
-	#if error_code != 0:
-	#	print("ERROR: ", error_code)
-	pass
+	SceneTransition.change_scene("res://scenes/Options/Options.tscn")
 
 func _on_Exit_pressed():
 	get_tree().quit()

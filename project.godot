@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
+"class": "Dialog",
+"language": "GDScript",
+"path": "res://resources/Dialog.gd"
+}, {
+"base": "Resource",
 "class": "Inventory",
 "language": "GDScript",
 "path": "res://resources/Inventory.gd"
@@ -60,6 +65,7 @@ _global_script_classes=[ {
 "path": "res://resources/SoundFile.gd"
 } ]
 _global_script_class_icons={
+"Dialog": "",
 "Inventory": "",
 "ItemData": "",
 "Monster": "",
@@ -83,6 +89,7 @@ config/icon="res://assets/logo/logo1.png"
 
 [autoload]
 
+DialogManager="*res://autoloads/DialogManager.tscn"
 ItemDatabase="*res://autoloads/ItemDatabase.gd"
 MonsterDatabase="*res://autoloads/MonsterDatabase.gd"
 SceneTransition="*res://autoloads/SceneTransition.tscn"
@@ -103,6 +110,10 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/vnen.tiled_importer/plugin.cfg" )
+
+[gui]
+
+theme/custom="res://theme/monsterfangen_default.tres"
 
 [input]
 
