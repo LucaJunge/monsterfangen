@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://autoloads/SceneTransition.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/grass_1.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/grass_2.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -64,6 +66,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [ 1.0 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("EncounterGrass/Control1/Grass1:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -500, 400 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("EncounterGrass/Control2/Grass2:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 500, 400 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
@@ -95,6 +121,47 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "foliage"
+length = 1.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("EncounterGrass/Control1/Grass1:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -500, 400 ), Vector2( 500, 400 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("EncounterGrass/Control2/Grass2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 500, 400 ), Vector2( -500, 400 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("fade:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.35, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -223,6 +290,7 @@ __meta__ = {
 anims/RESET = SubResource( 2 )
 anims/fade_in = SubResource( 1 )
 anims/fade_out = SubResource( 3 )
+anims/foliage = SubResource( 7 )
 anims/horizontal_bars_in = SubResource( 5 )
 anims/horizontal_bars_out = SubResource( 6 )
 
@@ -247,3 +315,44 @@ mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
+
+[node name="EncounterGrass" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Control1" type="Control" parent="EncounterGrass"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Grass1" type="TextureRect" parent="EncounterGrass/Control1"]
+modulate = Color( 0.227451, 0.568627, 0.282353, 1 )
+anchor_top = 0.5
+anchor_bottom = 1.0
+margin_left = -500.0
+margin_right = -100.0
+mouse_filter = 2
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Control2" type="Control" parent="EncounterGrass"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Grass2" type="TextureRect" parent="EncounterGrass/Control2"]
+modulate = Color( 0.227451, 0.568627, 0.282353, 1 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_right = 500.002
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6

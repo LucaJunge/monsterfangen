@@ -65,10 +65,9 @@ tracks/2/keys = {
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 1, 0.84 )
 texture = ExtResource( 1 )
 centered = false
-offset = Vector2( 0, 4.454 )
+offset = Vector2( 0, 1 )
 hframes = 27
 vframes = 18
 frame = 238
