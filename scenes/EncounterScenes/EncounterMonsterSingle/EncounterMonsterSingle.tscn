@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/ui/buttons/fight_icon.svg" type="Texture" id=1]
 [ext_resource path="res://assets/ui/buttons/run_icon.svg" type="Texture" id=2]
 [ext_resource path="res://assets/ui/buttons/bag_icon.svg" type="Texture" id=3]
 [ext_resource path="res://assets/ui/buttons/monster_icon.svg" type="Texture" id=4]
 [ext_resource path="res://assets/interface/sour_bottle.png" type="Texture" id=5]
+[ext_resource path="res://assets/backgrounds/cave_inside_169x98.png" type="Texture" id=6]
+[ext_resource path="res://scenes/EncounterScenes/EncounterMonsterSingle/EncounterMonsterSingle.gd" type="Script" id=7]
 
-[node name="EncounterMonsterSingle" type="Control"]
+[node name="EncounterMonsterSingle" type="CanvasLayer"]
+script = ExtResource( 7 )
+
+[node name="Panel" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 7
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 anchor_left = 0.05
@@ -38,6 +46,7 @@ size_flags_vertical = 3
 [node name="EnemyMonsterName" type="Label" parent="MarginContainer2/MonsterContainer/EnemyMonster"]
 margin_right = 360.0
 margin_bottom = 45.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Enemy Monster"
 align = 2
 
@@ -45,6 +54,7 @@ align = 2
 margin_top = 49.0
 margin_right = 360.0
 margin_bottom = 94.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "100/100"
 align = 2
 
@@ -65,12 +75,14 @@ size_flags_vertical = 2
 [node name="YourMonsterName" type="Label" parent="MarginContainer2/MonsterContainer/YourMonster"]
 margin_right = 360.0
 margin_bottom = 45.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Your Monster"
 
 [node name="YourMonsterHealth" type="Label" parent="MarginContainer2/MonsterContainer/YourMonster"]
 margin_top = 49.0
 margin_right = 360.0
 margin_bottom = 94.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "100/100"
 
 [node name="YourMonsterIcon" type="TextureRect" parent="MarginContainer2/MonsterContainer/YourMonster"]
@@ -144,3 +156,5 @@ text = "Run"
 icon = ExtResource( 2 )
 icon_align = 2
 expand_icon = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RunButton" to="." method="_on_RunButton_pressed"]

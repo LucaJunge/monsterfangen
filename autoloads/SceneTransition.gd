@@ -13,6 +13,8 @@ func change_overlay(overlay_to_close: Node, type: String = "fade" ) -> void:
 		_overlay_fade(overlay_to_close)
 	elif type == "horizontal_bars":
 		_overlay_horizontal_bars(overlay_to_close)
+	elif type == "foliage":
+		_overlay_foliage(overlay_to_close)
 	else:
 		print_debug("SceneTransition type %s does not exist" % type)
 
@@ -39,6 +41,12 @@ func _overlay_horizontal_bars(target: Node):
 	yield($AnimationPlayer, "animation_finished")
 	target.visible = !target.visible
 	$AnimationPlayer.play("horizontal_bars_out")
+
+func _overlay_foliage(target: Node):
+	$AnimationPlayer.play("foliage_in")
+	yield($AnimationPlayer, "animation_finished")
+	target.visible = !target.visible
+	$AnimationPlayer.play("foliage_out")
 
 func debug_animation(animation: String) -> void:
 	$AnimationPlayer.play(animation)

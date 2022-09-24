@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://resources/ItemData.gd"
 }, {
+"base": "Resource",
+"class": "ItemResource",
+"language": "GDScript",
+"path": "res://scenes/Items/ItemResource.gd"
+}, {
 "base": "MonsterData",
 "class": "Monster",
 "language": "GDScript",
@@ -68,6 +73,7 @@ _global_script_class_icons={
 "Dialog": "",
 "Inventory": "",
 "ItemData": "",
+"ItemResource": "",
 "Monster": "",
 "MonsterData": "",
 "MonsterOld": "res://assets/interface/monster.png",
@@ -84,7 +90,7 @@ config/name="monsterfangen"
 config/description="An open-source mobile game made with Godot."
 run/main_scene="res://scenes/MainMenu/MainMenu.tscn"
 boot_splash/image="res://assets/logo/logo1.png"
-boot_splash/bg_color=Color( 1, 1, 1, 1 )
+boot_splash/bg_color=Color( 0.0901961, 0.0196078, 0.0196078, 1 )
 config/icon="res://assets/logo/logo1.png"
 
 [autoload]

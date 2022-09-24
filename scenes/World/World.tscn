@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/tilemaps/Tilemap.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/Entrance/Entrance.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/HealBed/HealBed.tscn" type="PackedScene" id=5]
 [ext_resource path="res://resources/dialogs/hello_world.tres" type="Resource" id=6]
+[ext_resource path="res://resources/monsters/treey.tres" type="Resource" id=7]
 
 [node name="World" type="Node2D"]
 
@@ -19,21 +20,27 @@ tile_data = PoolIntArray( -917503, 3, 0, -917502, 3, 2, -786439, 1, 0, -786438, 
 
 [node name="TallGrass" parent="TallGrasses" instance=ExtResource( 3 )]
 position = Vector2( 48, -48 )
+available_monsters = [ ExtResource( 7 ) ]
 
 [node name="TallGrass2" parent="TallGrasses" instance=ExtResource( 3 )]
 position = Vector2( 64, -48 )
+available_monsters = [ ExtResource( 7 ) ]
 
 [node name="TallGrass3" parent="TallGrasses" instance=ExtResource( 3 )]
 position = Vector2( 80, -48 )
+available_monsters = [ ExtResource( 7 ) ]
 
 [node name="TallGrass4" parent="TallGrasses" instance=ExtResource( 3 )]
 position = Vector2( 80, -32 )
+available_monsters = [ ExtResource( 7 ) ]
 
 [node name="TallGrass5" parent="TallGrasses" instance=ExtResource( 3 )]
 position = Vector2( 64, -32 )
+available_monsters = [ ExtResource( 7 ) ]
 
 [node name="TallGrass6" parent="TallGrasses" instance=ExtResource( 3 )]
 position = Vector2( 48, -32 )
+available_monsters = [ ExtResource( 7 ) ]
 
 [node name="OnGroundBehindPlayer" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )

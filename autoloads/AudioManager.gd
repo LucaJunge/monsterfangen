@@ -2,6 +2,7 @@ extends Node
 
 export (Array, Resource) var sound_files
 
+var current_music: AudioStreamPlayer
 #onready var click_sound = load("res://assets/sounds/click.wav")
 #onready var direct_player = AudioStreamPlayer.new()
 
@@ -14,7 +15,6 @@ func _ready() -> void:
 	
 func play(stream: AudioStream, volume_db: float = 0.0) -> AudioStreamPlayer:
 	var audio_stream_player: AudioStreamPlayer = AudioStreamPlayer.new()
-	
 	audio_stream_player.bus = "Master"
 	audio_stream_player.stream = stream
 	audio_stream_player.volume_db = volume_db
@@ -27,7 +27,7 @@ func play(stream: AudioStream, volume_db: float = 0.0) -> AudioStreamPlayer:
 	
 func play_loop(stream: AudioStream, volume_db: float = 0.0) -> AudioStreamPlayer:
 	var audio_stream_player: AudioStreamPlayer = AudioStreamPlayer.new()
-	
+	current_music = audio_stream_player
 	audio_stream_player.bus = "Master"
 	audio_stream_player.stream = stream
 	audio_stream_player.stream.loop = true
@@ -39,6 +39,10 @@ func play_loop(stream: AudioStream, volume_db: float = 0.0) -> AudioStreamPlayer
 	audio_stream_player.connect("finished", audio_stream_player, "queue_free")
 	self.add_child(audio_stream_player)
 	return audio_stream_player
+
+func stop() -> void:
+	if current_music:
+		current_music.stop()
 	
 func fade_out(stream: AudioStreamPlayer, duration: float = 2.0) -> void:
 	var fade_tween := Tween.new()
