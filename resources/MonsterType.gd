@@ -2,6 +2,7 @@ class_name MonsterType
 extends Reference
 
 enum Type {
+	NONE,
 	NORMAL,
 	FIRE,
 	WATER,

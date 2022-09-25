@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/MonsterData.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/Cold Toothbrush.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+unique_id = "vaportalon"
+display_name = "Vaportalon"
+nickname = ""
+description = "Vaportalon"
+icon = ExtResource( 2 )
+primary_type = 13
+secondary_type = 14
+base_attack = 123
+base_health = 80
+base_defense = 75
+base_tempo = 35
+base_xp = 160

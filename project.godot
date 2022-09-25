@@ -76,7 +76,7 @@ _global_script_class_icons={
 "ItemResource": "",
 "Monster": "",
 "MonsterData": "",
-"MonsterOld": "res://assets/interface/monster.png",
+"MonsterOld": "",
 "MonsterType": "",
 "Party": "",
 "Player": "",

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/MonsterData.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/Crisp Sweet Amulet.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+unique_id = "sparkpaw"
+display_name = "Sparkpaw"
+nickname = ""
+description = "Sparkpaw"
+icon = ExtResource( 2 )
+primary_type = 8
+secondary_type = 5
+base_attack = 95
+base_health = 95
+base_defense = 65
+base_tempo = 125
+base_xp = 100

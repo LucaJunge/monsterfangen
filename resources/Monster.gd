@@ -13,7 +13,8 @@ func _init(_unique_id = "", current_values: Dictionary = {}) -> void:
 	nickname = base_monster.nickname
 	description = base_monster.description
 	icon = base_monster.icon
-	type = base_monster.type
+	primary_type = base_monster.primary_type
+	secondary_type = base_monster.secondary_type
 
 	# base values
 	base_attack = base_monster.base_attack
@@ -24,23 +25,40 @@ func _init(_unique_id = "", current_values: Dictionary = {}) -> void:
 	
 	# overwrite current values
 	
+	#TODO: if current_values exist, use them, else generate them
+	# from base values!
+	
 	if(current_values.has("health")):
 		health = current_values["health"]
+	else:
+		health = base_health
 		
 	if(current_values.has("attack")):
 		attack = current_values["attack"]
+	else:
+		attack = base_attack
 		
 	if(current_values.has("xp")):
 		xp = current_values["xp"]
+	else:
+		xp = base_xp
 		
 	if(current_values.has("defense")):
 		defense = current_values["defense"]
+	else:
+		defense = base_defense
 		
 	if(current_values.has("tempo")):
 		tempo = current_values["tempo"]
+	else:
+		tempo = base_tempo
 		
 	if(current_values.has("level")):
 		level = current_values["level"]
+	else:
+		level = 42
 		
 	if(current_values.has("current_health")):
 		current_health = current_values["current_health"]
+	else:
+		current_health = base_health

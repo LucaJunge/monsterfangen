@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/MonsterData.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/Crusty Dandelion.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+unique_id = "doomlops"
+display_name = "Doomlops"
+nickname = ""
+description = "Doomlops"
+icon = ExtResource( 2 )
+primary_type = 10
+secondary_type = 0
+base_attack = 75
+base_health = 130
+base_defense = 84
+base_tempo = 45
+base_xp = 63

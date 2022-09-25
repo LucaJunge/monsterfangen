@@ -7,7 +7,8 @@ export var display_name := ""
 export var nickname := ""
 export var description := ""
 export var icon: Texture
-export (MonsterType.Type) var type := MonsterType.Type.NORMAL
+export (MonsterType.Type) var primary_type := MonsterType.Type.NORMAL
+export (MonsterType.Type) var secondary_type := MonsterType.Type.NONE
 
 # base values
 export var base_attack := 1

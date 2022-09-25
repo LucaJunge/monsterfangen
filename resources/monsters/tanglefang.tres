@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/MonsterData.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/Bitter Grape.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+unique_id = "tanglefang"
+display_name = "Tanglefang"
+nickname = ""
+description = "Tanglefang"
+icon = ExtResource( 2 )
+primary_type = 4
+secondary_type = 0
+base_attack = 85
+base_health = 75
+base_defense = 55
+base_tempo = 100
+base_xp = 100

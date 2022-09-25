@@ -32,7 +32,9 @@ func _on_Area2D_body_entered(_body):
 		
 		var monster = _get_monster()
 		var encounter_scene = encounter_overlay.instance()
+		encounter_scene.init(monster, _body.party.party[0])
 		get_node("/root/").add_child(encounter_scene)
+		
 		AudioManager.stop()
 		AudioManager.play_loop(encounter_music)
 		# TODO: Grass Animation should animate the anchors, not the rect_position
