@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/MonsterData.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/Cheesy Paper Corn.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+unique_id = "bigpickles"
+display_name = "Bigpickles"
+nickname = ""
+description = "Bigpickles"
+icon = ExtResource( 2 )
+primary_type = 4
+secondary_type = 7
+base_attack = 47
+base_health = 120
+base_defense = 153
+base_tempo = 56
+base_xp = 160

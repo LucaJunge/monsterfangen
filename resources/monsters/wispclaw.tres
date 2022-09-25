@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/MonsterData.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/Destructive Sweet Celery.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+unique_id = "wispclaw"
+display_name = "Wispclaw"
+nickname = ""
+description = "Wispclaw"
+icon = ExtResource( 2 )
+primary_type = 12
+secondary_type = 14
+base_attack = 95
+base_health = 60
+base_defense = 75
+base_tempo = 110
+base_xp = 73

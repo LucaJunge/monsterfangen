@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/MonsterData.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/Dumpling.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+unique_id = "acidly"
+display_name = "Acidly"
+nickname = ""
+description = "Acidly"
+icon = ExtResource( 2 )
+primary_type = 7
+secondary_type = 0
+base_attack = 40
+base_health = 100
+base_defense = 115
+base_tempo = 55
+base_xp = 81

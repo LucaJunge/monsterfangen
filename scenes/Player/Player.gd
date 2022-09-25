@@ -9,6 +9,7 @@ const TILE_SIZE = 16
 
 # Resources of the player
 var player: Player setget set_player
+var party: Party setget set_party
 
 onready var animation_tree = $AnimationTree
 onready var anim_state = animation_tree.get("parameters/playback")
@@ -63,6 +64,9 @@ func _ready():
 
 func set_player(new_player: Player) -> void:
 	player = new_player
+
+func set_party(new_party: Party) -> void:
+	party = new_party
 
 func _physics_process(delta):
 	# no physics need to be calculated when the player is currently turning, so just return

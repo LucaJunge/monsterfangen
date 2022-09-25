@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/MonsterData.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/Fresh Orb.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+unique_id = "diddlejeeper"
+display_name = "Diddlejeeper"
+nickname = ""
+description = "Diddlejeeper"
+icon = ExtResource( 2 )
+primary_type = 14
+secondary_type = 9
+base_attack = 85
+base_health = 80
+base_defense = 90
+base_tempo = 80
+base_xp = 80
