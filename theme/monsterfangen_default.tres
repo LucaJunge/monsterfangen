@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=2]
+[gd_resource type="Theme" load_steps=16 format=2]
 
 [ext_resource path="res://assets/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://theme/buttons/button_normal_style.tres" type="StyleBox" id=2]
@@ -43,6 +43,16 @@ corner_radius_bottom_left = 20
 shadow_color = Color( 0, 0, 0, 0.156863 )
 shadow_size = 7
 
+[sub_resource type="DynamicFont" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.129412, 0.129412, 0.129412, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.215686, 0.898039, 0.0980392, 1 )
+
 [sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = SubResource( 2 )
@@ -66,3 +76,6 @@ LabelOptions/base_type = "Label"
 LabelOptions/colors/font_color = Color( 0, 0, 0, 1 )
 LabelOptions/fonts/font = SubResource( 6 )
 Panel/styles/panel = SubResource( 3 )
+ProgressBar/fonts/font = SubResource( 7 )
+ProgressBar/styles/bg = SubResource( 8 )
+ProgressBar/styles/fg = SubResource( 9 )

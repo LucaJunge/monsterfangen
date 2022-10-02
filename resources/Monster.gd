@@ -81,8 +81,8 @@ func _set_statusvalues(level: int):
 func _set_current_xp():
 	xp = int(pow(level, 3))
 
-func _needed_xp_for_levelup():
-	var needed_xp_for_levelup = int(pow(level+1, 3))
+func _needed_xp_for_levelup(_level: int = level):
+	var needed_xp_for_levelup = int(pow(_level+1, 3))
 	return needed_xp_for_levelup
 
 func _level_up():

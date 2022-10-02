@@ -39,13 +39,23 @@ func init(_enemy_monster: Monster, _your_monster: Monster) -> void:
 
 func _set_enemy_monster(enemy_monster: Monster) -> void:
 	get_node("%EnemyMonsterName").text = enemy_monster.display_name
-	get_node("%EnemyMonsterHealthLabel").text = str(enemy_monster.health) + " / " + str(enemy_monster.health)
+	get_node("%EnemyMonsterHealthLabel").text = str(enemy_monster.current_health) + " / " + str(enemy_monster.health)
 	get_node("%EnemyMonsterIcon").texture = enemy_monster.icon
+	get_node("%EnemyMonsterLevel").text = "Lv. " + str(enemy_monster.level)
+	get_node("%EnemyMonsterHealthbar").max_value = enemy_monster.health
+	get_node("%EnemyMonsterHealthbar").value = enemy_monster.current_health
+	
 
 func _set_your_monster(your_monster: Monster) -> void:
 	get_node("%YourMonsterName").text = your_monster.display_name
-	get_node("%YourMonsterHealthLabel").text = str(your_monster.health) + " / " + str(your_monster.health)
+	get_node("%YourMonsterHealthLabel").text = str(your_monster.current_health) + " / " + str(your_monster.health)
 	get_node("%YourMonsterIcon").texture = your_monster.icon
+	get_node("%YourMonsterLevel").text = "Lv. " + str(your_monster.level)
+	get_node("%YourMonsterHealthbar").max_value = your_monster.health
+	get_node("%YourMonsterHealthbar").value = your_monster.current_health
+	get_node("%YourMonsterExp").min_value = your_monster._needed_xp_for_levelup(your_monster.level - 1)
+	get_node("%YourMonsterExp").max_value = your_monster._needed_xp_for_levelup()
+	get_node("%YourMonsterExp").value = your_monster.xp
 
 func _handle_state(new_state):
 	current_state = new_state
@@ -88,6 +98,7 @@ func _handle_state(new_state):
 
 			AudioManager.play(hit_sound)
 			your_monster.take_damage(damage)
+			_set_your_monster(your_monster)
 
 			# TODO: update ui here...
 
@@ -102,7 +113,7 @@ func _handle_state(new_state):
 
 			var xp = your_monster.calculate_gained_xp(enemy_monster)
 			your_monster.add_xp(xp)
-
+			_set_your_monster(your_monster)
 			yield(get_tree().create_timer(timer_time), "timeout")
 
 			_exit_scene()
@@ -152,7 +163,7 @@ func _on_FightButton_pressed():
 	
 	print_debug(damage)
 	enemy_monster.take_damage(damage)
-	
+	_set_enemy_monster(enemy_monster)
 	disable_buttons(true)
 	
 	# update the lifebar with the new value
