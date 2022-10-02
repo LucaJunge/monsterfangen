@@ -28,7 +28,7 @@ func _create_or_load_save() -> void:
 		_save.inventory.add_item("potion", 1)
 		_save.inventory.add_item("monsterball", 5)
 		
-		var monster: Monster = Monster.new("treey", {})
+		var monster: Monster = Monster.new("treey", {}, 10)
 		_save.party.add_member("0", monster)
 		
 		_save.map_name = "map_1"
