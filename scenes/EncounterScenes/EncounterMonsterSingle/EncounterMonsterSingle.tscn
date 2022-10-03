@@ -13,14 +13,14 @@
 [node name="EncounterMonsterSingle" type="CanvasLayer"]
 script = ExtResource( 7 )
 
-[node name="Panel" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 7
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="MonsterMarginContainer" type="MarginContainer" parent="."]
 anchor_left = 0.05
 anchor_right = 0.95
 anchor_bottom = 0.5
@@ -34,30 +34,30 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="MonsterContainer" type="VBoxContainer" parent="MarginContainer2"]
+[node name="MonsterContainer" type="VBoxContainer" parent="MonsterMarginContainer"]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 380.0
 margin_bottom = 380.0
 
-[node name="EnemyMonsterContainer" type="HBoxContainer" parent="MarginContainer2/MonsterContainer"]
+[node name="EnemyMonsterContainer" type="HBoxContainer" parent="MonsterMarginContainer/MonsterContainer"]
 margin_right = 360.0
 margin_bottom = 178.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer"]
+[node name="InfoContainer" type="VBoxContainer" parent="MonsterMarginContainer/MonsterContainer/EnemyMonsterContainer"]
 margin_right = 206.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 size_flags_stretch_ratio = 1.5
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MonsterMarginContainer/MonsterContainer/EnemyMonsterContainer/InfoContainer"]
 margin_right = 206.0
 margin_bottom = 38.0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MonsterMarginContainer/MonsterContainer/EnemyMonsterContainer/InfoContainer/PanelContainer"]
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 205.0
@@ -68,7 +68,7 @@ custom_constants/margin_top = 5
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 5
 
-[node name="EnemyInfoContainer" type="VBoxContainer" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer/PanelContainer/MarginContainer"]
+[node name="EnemyInfoContainer" type="VBoxContainer" parent="MonsterMarginContainer/MonsterContainer/EnemyMonsterContainer/InfoContainer/PanelContainer/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 199.0
@@ -76,18 +76,128 @@ margin_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer/PanelContainer/MarginContainer/EnemyInfoContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MonsterMarginContainer/MonsterContainer/EnemyMonsterContainer/InfoContainer/PanelContainer/MarginContainer/EnemyInfoContainer"]
 margin_right = 194.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer/PanelContainer/MarginContainer/EnemyInfoContainer/HBoxContainer"]
-margin_right = 194.0
+[node name="EnemyMonsterName" type="Label" parent="MonsterMarginContainer/MonsterContainer/EnemyMonsterContainer/InfoContainer/PanelContainer/MarginContainer/EnemyInfoContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 87.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
+theme_type_variation = "LabelEncounterName"
+text = "Name"
 
-[node name="EnemyMonsterName" type="Label" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer/PanelContainer/MarginContainer/EnemyInfoContainer/HBoxContainer/HBoxContainer"]
+[node name="EnemyMonsterLevel" type="Label" parent="MonsterMarginContainer/MonsterContainer/EnemyMonsterContainer/InfoContainer/PanelContainer/MarginContainer/EnemyInfoContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 107.0
+margin_right = 194.0
+margin_bottom = 17.0
+size_flags_horizontal = 11
+theme_type_variation = "LabelEncounterName"
+text = "Lv. 0"
+align = 2
+
+[node name="EnemyMonsterHealthbar" type="ProgressBar" parent="MonsterMarginContainer/MonsterContainer/EnemyMonsterContainer/InfoContainer/PanelContainer/MarginContainer/EnemyInfoContainer"]
+unique_name_in_owner = true
+margin_top = 21.0
+margin_right = 194.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+step = 1.0
+value = 50.0
+
+[node name="EnemyMonsterIconContainer" type="VBoxContainer" parent="MonsterMarginContainer/MonsterContainer/EnemyMonsterContainer"]
+margin_left = 210.0
+margin_right = 360.0
+margin_bottom = 178.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MonsterMarginContainer/MonsterContainer/EnemyMonsterContainer/EnemyMonsterIconContainer"]
+margin_right = 150.0
+margin_bottom = 150.0
+size_flags_horizontal = 7
+
+[node name="EnemyMonsterIcon" type="TextureRect" parent="MonsterMarginContainer/MonsterContainer/EnemyMonsterContainer/EnemyMonsterIconContainer/CenterContainer"]
+unique_name_in_owner = true
+margin_right = 150.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 150, 150 )
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="PlayerMonsterContainer" type="HBoxContainer" parent="MonsterMarginContainer/MonsterContainer"]
+margin_top = 182.0
+margin_right = 360.0
+margin_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerMonsterIconContainer" type="VBoxContainer" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer"]
+margin_right = 150.0
+margin_bottom = 178.0
+size_flags_horizontal = 3
+size_flags_vertical = 11
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/PlayerMonsterIconContainer"]
+margin_top = 28.0
+margin_right = 150.0
+margin_bottom = 178.0
+size_flags_horizontal = 7
+
+[node name="PlayerMonsterIcon" type="TextureRect" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/PlayerMonsterIconContainer/CenterContainer"]
+unique_name_in_owner = true
+margin_right = 150.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 150, 150 )
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="InfoContainer" type="VBoxContainer" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer"]
+margin_left = 154.0
+margin_top = 119.0
+margin_right = 360.0
+margin_bottom = 178.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+size_flags_stretch_ratio = 1.5
+
+[node name="PanelContainer" type="PanelContainer" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/InfoContainer"]
+margin_right = 206.0
+margin_bottom = 59.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/InfoContainer/PanelContainer"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 205.0
+margin_bottom = 58.0
+size_flags_vertical = 3
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="PlayerInfoContainer" type="VBoxContainer" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/InfoContainer/PanelContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 199.0
+margin_bottom = 52.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/InfoContainer/PanelContainer/MarginContainer/PlayerInfoContainer"]
+margin_right = 194.0
+margin_bottom = 17.0
+
+[node name="PlayerMonsterName" type="Label" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/InfoContainer/PanelContainer/MarginContainer/PlayerInfoContainer/HBoxContainer"]
 unique_name_in_owner = true
 margin_right = 95.0
 margin_bottom = 17.0
@@ -95,7 +205,7 @@ size_flags_horizontal = 3
 theme_type_variation = "LabelEncounterName"
 text = "Name"
 
-[node name="EnemyMonsterLevel" type="Label" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer/PanelContainer/MarginContainer/EnemyInfoContainer/HBoxContainer/HBoxContainer"]
+[node name="PlayerMonsterLevel" type="Label" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/InfoContainer/PanelContainer/MarginContainer/PlayerInfoContainer/HBoxContainer"]
 unique_name_in_owner = true
 margin_left = 99.0
 margin_right = 194.0
@@ -105,156 +215,38 @@ theme_type_variation = "LabelEncounterName"
 text = "Lv. 0"
 align = 2
 
-[node name="EnemyMonsterHealthContainer" type="HBoxContainer" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer/PanelContainer/MarginContainer/EnemyInfoContainer"]
+[node name="PlayerMonsterHealthbar" type="ProgressBar" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/InfoContainer/PanelContainer/MarginContainer/PlayerInfoContainer"]
+unique_name_in_owner = true
 margin_top = 21.0
 margin_right = 194.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
+step = 1.0
+value = 50.0
 
-[node name="EnemyMonsterHealthbar" type="ProgressBar" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer/PanelContainer/MarginContainer/EnemyInfoContainer/EnemyMonsterHealthContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/InfoContainer/PanelContainer/MarginContainer/PlayerInfoContainer"]
+margin_top = 30.0
+margin_right = 194.0
+margin_bottom = 47.0
+
+[node name="PlayerMonsterHealthLabel" type="Label" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/InfoContainer/PanelContainer/MarginContainer/PlayerInfoContainer/HBoxContainer3"]
 unique_name_in_owner = true
+margin_right = 95.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+theme_type_variation = "LabelEncounterName"
+text = "?? / ??"
+
+[node name="PlayerMonsterExp" type="ProgressBar" parent="MonsterMarginContainer/MonsterContainer/PlayerMonsterContainer/InfoContainer/PanelContainer/MarginContainer/PlayerInfoContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_left = 99.0
 margin_right = 194.0
 margin_bottom = 5.0
-size_flags_horizontal = 3
+size_flags_horizontal = 11
 step = 1.0
 value = 50.0
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer/PanelContainer/MarginContainer/EnemyInfoContainer"]
-visible = false
-margin_top = 58.0
-margin_right = 262.0
-margin_bottom = 103.0
-
-[node name="EnemyMonsterHealthLabel" type="Label" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer/PanelContainer/MarginContainer/EnemyInfoContainer/HBoxContainer3"]
-unique_name_in_owner = true
-margin_right = 89.0
-margin_bottom = 45.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "?? / ??"
-
-[node name="EnemyMonsterExp" type="ProgressBar" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer/PanelContainer/MarginContainer/EnemyInfoContainer/HBoxContainer3"]
-margin_left = 93.0
-margin_right = 262.0
-margin_bottom = 5.0
-size_flags_horizontal = 3
-step = 1.0
-value = 50.0
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer"]
-margin_left = 210.0
-margin_right = 360.0
-margin_bottom = 178.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer2"]
-margin_right = 150.0
-margin_bottom = 178.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-
-[node name="EnemyMonsterIcon" type="TextureRect" parent="MarginContainer2/MonsterContainer/EnemyMonsterContainer/VBoxContainer2/CenterContainer"]
-margin_top = 14.0
-margin_right = 150.0
-margin_bottom = 164.0
-rect_min_size = Vector2( 150, 150 )
-size_flags_horizontal = 7
-size_flags_vertical = 3
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 1
-
-[node name="YourMonsterContainer" type="HBoxContainer" parent="MarginContainer2/MonsterContainer"]
-margin_top = 182.0
-margin_right = 360.0
-margin_bottom = 360.0
-size_flags_vertical = 3
-
-[node name="YourMonsterIcon" type="TextureRect" parent="MarginContainer2/MonsterContainer/YourMonsterContainer"]
-unique_name_in_owner = true
-margin_left = 12.0
-margin_top = 84.0
-margin_right = 106.0
-margin_bottom = 178.0
-rect_min_size = Vector2( 94, 94 )
-size_flags_horizontal = 6
-size_flags_vertical = 10
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 5
-
-[node name="YourMonsterInfoContainer" type="VBoxContainer" parent="MarginContainer2/MonsterContainer/YourMonsterContainer"]
-margin_left = 122.0
-margin_right = 360.0
-margin_bottom = 178.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MonsterContainer/YourMonsterContainer/YourMonsterInfoContainer"]
-margin_right = 238.0
-margin_bottom = 45.0
-size_flags_horizontal = 3
-custom_constants/separation = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MonsterContainer/YourMonsterContainer/YourMonsterInfoContainer/HBoxContainer"]
-margin_right = 238.0
-margin_bottom = 45.0
-size_flags_horizontal = 3
-
-[node name="YourMonsterName" type="Label" parent="MarginContainer2/MonsterContainer/YourMonsterContainer/YourMonsterInfoContainer/HBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-margin_right = 117.0
-margin_bottom = 45.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Name"
-
-[node name="YourMonsterLevel" type="Label" parent="MarginContainer2/MonsterContainer/YourMonsterContainer/YourMonsterInfoContainer/HBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-margin_left = 121.0
-margin_right = 238.0
-margin_bottom = 45.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Lv. 0"
-align = 2
-
-[node name="YourMonsterHealthContainer" type="HBoxContainer" parent="MarginContainer2/MonsterContainer/YourMonsterContainer/YourMonsterInfoContainer"]
-margin_top = 49.0
-margin_right = 238.0
-margin_bottom = 54.0
-size_flags_horizontal = 3
-
-[node name="YourMonsterHealthbar" type="ProgressBar" parent="MarginContainer2/MonsterContainer/YourMonsterContainer/YourMonsterInfoContainer/YourMonsterHealthContainer"]
-unique_name_in_owner = true
-margin_right = 238.0
-margin_bottom = 5.0
-size_flags_horizontal = 3
-step = 1.0
-value = 50.0
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer2/MonsterContainer/YourMonsterContainer/YourMonsterInfoContainer"]
-margin_top = 58.0
-margin_right = 238.0
-margin_bottom = 103.0
-
-[node name="YourMonsterHealthLabel" type="Label" parent="MarginContainer2/MonsterContainer/YourMonsterContainer/YourMonsterInfoContainer/HBoxContainer3"]
-unique_name_in_owner = true
-margin_right = 89.0
-margin_bottom = 45.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "?? / ??"
-
-[node name="YourMonsterExp" type="ProgressBar" parent="MarginContainer2/MonsterContainer/YourMonsterContainer/YourMonsterInfoContainer/HBoxContainer3"]
-unique_name_in_owner = true
-margin_left = 93.0
-margin_right = 238.0
-margin_bottom = 5.0
-size_flags_horizontal = 3
-step = 1.0
-value = 50.0
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="UIMarginContainer" type="MarginContainer" parent="."]
 anchor_left = 0.05
 anchor_top = 0.5
 anchor_right = 0.95
@@ -269,7 +261,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+[node name="ButtonContainer" type="GridContainer" parent="UIMarginContainer"]
 margin_left = 20.0
 margin_top = 165.0
 margin_right = 380.0
@@ -279,7 +271,7 @@ custom_constants/vseparation = 15
 custom_constants/hseparation = 15
 columns = 2
 
-[node name="FightButton" type="Button" parent="MarginContainer/GridContainer"]
+[node name="FightButton" type="Button" parent="UIMarginContainer/ButtonContainer"]
 unique_name_in_owner = true
 margin_right = 173.0
 margin_bottom = 100.0
@@ -291,7 +283,7 @@ icon = ExtResource( 1 )
 icon_align = 2
 expand_icon = true
 
-[node name="MonsterButton" type="Button" parent="MarginContainer/GridContainer"]
+[node name="MonsterButton" type="Button" parent="UIMarginContainer/ButtonContainer"]
 unique_name_in_owner = true
 margin_left = 188.0
 margin_right = 360.0
@@ -304,7 +296,7 @@ icon = ExtResource( 4 )
 icon_align = 2
 expand_icon = true
 
-[node name="BagButton" type="Button" parent="MarginContainer/GridContainer"]
+[node name="BagButton" type="Button" parent="UIMarginContainer/ButtonContainer"]
 unique_name_in_owner = true
 margin_top = 115.0
 margin_right = 173.0
@@ -317,7 +309,7 @@ icon = ExtResource( 3 )
 icon_align = 2
 expand_icon = true
 
-[node name="RunButton" type="Button" parent="MarginContainer/GridContainer"]
+[node name="RunButton" type="Button" parent="UIMarginContainer/ButtonContainer"]
 unique_name_in_owner = true
 margin_left = 188.0
 margin_top = 115.0
@@ -373,7 +365,7 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "EMPTY ERROR"
 scroll_active = false
 
-[connection signal="pressed" from="MarginContainer/GridContainer/FightButton" to="." method="_on_FightButton_pressed"]
-[connection signal="pressed" from="MarginContainer/GridContainer/MonsterButton" to="." method="_on_MonsterButton_pressed"]
-[connection signal="pressed" from="MarginContainer/GridContainer/BagButton" to="." method="_on_BagButton_pressed"]
-[connection signal="pressed" from="MarginContainer/GridContainer/RunButton" to="." method="_on_RunButton_pressed"]
+[connection signal="pressed" from="UIMarginContainer/ButtonContainer/FightButton" to="." method="_on_FightButton_pressed"]
+[connection signal="pressed" from="UIMarginContainer/ButtonContainer/MonsterButton" to="." method="_on_MonsterButton_pressed"]
+[connection signal="pressed" from="UIMarginContainer/ButtonContainer/BagButton" to="." method="_on_BagButton_pressed"]
+[connection signal="pressed" from="UIMarginContainer/ButtonContainer/RunButton" to="." method="_on_RunButton_pressed"]

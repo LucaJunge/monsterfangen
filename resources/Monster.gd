@@ -118,7 +118,12 @@ func attack(enemy_monster: Monster):
 	#print_debug(str(damage) + " : " + str(damage_2))
 	return damage
 	
-func take_damage(amount):
+func take_damage(amount: int):
 	current_health -= amount
 	if(current_health < 0):
 		current_health = 0
+
+func heal(amount: int):
+	current_health += amount
+	if(current_health > health):
+		current_health = health

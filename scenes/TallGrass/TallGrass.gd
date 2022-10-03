@@ -33,7 +33,7 @@ func _on_Area2D_body_entered(_body):
 		var monster = _get_monster()
 		var encounter_scene = encounter_overlay.instance()
 		get_node("/root/").add_child(encounter_scene)
-		encounter_scene.init(monster, _body.party.party[0])
+		encounter_scene.init(monster, _body.party.members[0])
 		
 		AudioManager.stop()
 		AudioManager.play_loop(encounter_music)

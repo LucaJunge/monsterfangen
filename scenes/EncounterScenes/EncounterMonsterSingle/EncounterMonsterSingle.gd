@@ -11,7 +11,7 @@ onready var bag_button = get_node("%BagButton")
 onready var run_button = get_node("%RunButton")
 
 var enemy_monster: Monster = null
-var your_monster: Monster = null
+var player_monster: Monster = null
 
 var timer_time: float = 2.0
 
@@ -29,33 +29,32 @@ func _ready():
 	self.visible = false
 
 # initializes the scene on a triggered encounter (e.g. from a tall grass node)
-func init(_enemy_monster: Monster, _your_monster: Monster) -> void:
+func init(_enemy_monster: Monster, _player_monster: Monster) -> void:
 	enemy_monster = _enemy_monster
-	your_monster = _your_monster
+	player_monster = _player_monster
 	_set_enemy_monster(enemy_monster)
-	_set_your_monster(your_monster)
+	_set_player_monster(player_monster)
 	_handle_state(BATTLE_STATES.INIT)
 
 
 func _set_enemy_monster(enemy_monster: Monster) -> void:
 	get_node("%EnemyMonsterName").text = enemy_monster.display_name
-	get_node("%EnemyMonsterHealthLabel").text = str(enemy_monster.current_health) + " / " + str(enemy_monster.health)
 	get_node("%EnemyMonsterIcon").texture = enemy_monster.icon
 	get_node("%EnemyMonsterLevel").text = "Lv. " + str(enemy_monster.level)
 	get_node("%EnemyMonsterHealthbar").max_value = enemy_monster.health
 	get_node("%EnemyMonsterHealthbar").value = enemy_monster.current_health
 	
 
-func _set_your_monster(your_monster: Monster) -> void:
-	get_node("%YourMonsterName").text = your_monster.display_name
-	get_node("%YourMonsterHealthLabel").text = str(your_monster.current_health) + " / " + str(your_monster.health)
-	get_node("%YourMonsterIcon").texture = your_monster.icon
-	get_node("%YourMonsterLevel").text = "Lv. " + str(your_monster.level)
-	get_node("%YourMonsterHealthbar").max_value = your_monster.health
-	get_node("%YourMonsterHealthbar").value = your_monster.current_health
-	get_node("%YourMonsterExp").min_value = your_monster._needed_xp_for_levelup(your_monster.level - 1)
-	get_node("%YourMonsterExp").max_value = your_monster._needed_xp_for_levelup()
-	get_node("%YourMonsterExp").value = your_monster.xp
+func _set_player_monster(player_monster: Monster) -> void:
+	get_node("%PlayerMonsterName").text = player_monster.display_name
+	get_node("%PlayerMonsterHealthLabel").text = str(player_monster.current_health) + " / " + str(player_monster.health)
+	get_node("%PlayerMonsterIcon").texture = player_monster.icon
+	get_node("%PlayerMonsterLevel").text = "Lv. " + str(player_monster.level)
+	get_node("%PlayerMonsterHealthbar").max_value = player_monster.health
+	get_node("%PlayerMonsterHealthbar").value = player_monster.current_health
+	get_node("%PlayerMonsterExp").min_value = player_monster._needed_xp_for_levelup(player_monster.level - 1)
+	get_node("%PlayerMonsterExp").max_value = player_monster._needed_xp_for_levelup()
+	get_node("%PlayerMonsterExp").value = player_monster.xp
 
 func _handle_state(new_state):
 	current_state = new_state
@@ -73,7 +72,7 @@ func _handle_state(new_state):
 		BATTLE_STATES.PLAYER:
 			disable_buttons(false)
 
-			if your_monster.current_health <= 0:
+			if player_monster.current_health <= 0:
 				_handle_state(BATTLE_STATES.LOSE)
 				return # is this correct? otherwise the text will be set to the statement below (l. 123)
 			
@@ -92,13 +91,13 @@ func _handle_state(new_state):
 			yield(get_tree().create_timer(timer_time), "timeout")
 
 			# let the enemy attack you
-			var damage = enemy_monster.attack(your_monster)
+			var damage = enemy_monster.attack(player_monster)
 			print_debug("ebeny", damage)
 			get_node("%DialogText").text = "%s attacked you!" % enemy_monster.display_name
 
 			AudioManager.play(hit_sound)
-			your_monster.take_damage(damage)
-			_set_your_monster(your_monster)
+			player_monster.take_damage(damage)
+			_set_player_monster(player_monster)
 
 			# TODO: update ui here...
 
@@ -111,9 +110,9 @@ func _handle_state(new_state):
 
 			yield(get_tree().create_timer(timer_time), "timeout")
 
-			var xp = your_monster.calculate_gained_xp(enemy_monster)
-			your_monster.add_xp(xp)
-			_set_your_monster(your_monster)
+			var xp = player_monster.calculate_gained_xp(enemy_monster)
+			player_monster.add_xp(xp)
+			_set_player_monster(player_monster)
 			yield(get_tree().create_timer(timer_time), "timeout")
 
 			_exit_scene()
@@ -155,9 +154,9 @@ func _on_RunButton_pressed() -> void:
 		_handle_state(BATTLE_STATES.ENEMY)
 
 func _on_FightButton_pressed():
-	var damage = your_monster.attack(enemy_monster)
+	var damage = player_monster.attack(enemy_monster)
 	
-	var text = "%s attacked the wild %s" % [your_monster.display_name, enemy_monster.display_name]
+	var text = "%s attacked the wild %s" % [player_monster.display_name, enemy_monster.display_name]
 	get_node("%DialogText").text = text
 	AudioManager.play(hit_sound)
 	
