@@ -163,7 +163,7 @@ func interact():
 	#print(interaction_ray.cast_to)
 	if interactable and interactable.has_method("interact"):
 		#stop_input = true
-		interactable.interact()
+		interactable.interact(self)
 		# how to enable input again? ;(
 	
 func move(delta):

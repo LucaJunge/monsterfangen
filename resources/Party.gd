@@ -1,10 +1,10 @@
 class_name Party
 extends Resource
 
-var party: Array = Array()
+var members: Array = Array()
 
 func add_member(_position: String, monster: Monster):
-	party.append(monster)
+	members.append(monster)
 	
 #func swap_member()
 

@@ -31,7 +31,7 @@ func write_savegame() -> void:
 		},
 		"inventory": inventory.items,
 		"map_name": map_name,
-		"party": iterate_party(party.party),
+		"party": iterate_party(party.members),
 		"player": {
 			"display_name": player.display_name,
 			"money": player.money

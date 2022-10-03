@@ -32,8 +32,8 @@ func _on_Area2D_body_entered(_body):
 		
 		var monster = _get_monster()
 		var encounter_scene = encounter_overlay.instance()
-		encounter_scene.init(monster, _body.party.party[0])
 		get_node("/root/").add_child(encounter_scene)
+		encounter_scene.init(monster, _body.party.members[0])
 		
 		AudioManager.stop()
 		AudioManager.play_loop(encounter_music)
@@ -42,5 +42,6 @@ func _on_Area2D_body_entered(_body):
 		
 func _get_monster() -> Monster:
 	var monster_resource = available_monsters[randi() % available_monsters.size()]
-	var monster = Monster.new(monster_resource.unique_id)
+	var random_level = int(round(rand_range(level_range_min, level_range_max)))
+	var monster = Monster.new(monster_resource.unique_id, {}, random_level)
 	return monster

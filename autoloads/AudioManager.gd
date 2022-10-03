@@ -58,8 +58,3 @@ func destroy_fade(_object, _key, stream_player: AudioStreamPlayer, fade_tween: T
 	#print_debug("destroy stream")
 	stream_player.queue_free()
 	self.remove_child(fade_tween)
-
-func play_direct(_id):
-	#print("play")
-	pass
-	#direct_player.play()

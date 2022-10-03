@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=2]
+[gd_resource type="Theme" load_steps=19 format=2]
 
 [ext_resource path="res://assets/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://theme/buttons/button_normal_style.tres" type="StyleBox" id=2]
@@ -24,6 +24,13 @@ shadow_size = 7
 size = 32
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFontData" id=10]
+font_path = "res://assets/fonts/OpenSans-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=11]
+size = 12
+font_data = SubResource( 10 )
+
 [sub_resource type="DynamicFontData" id=2]
 font_path = "res://assets/fonts/OpenSans-Bold.ttf"
 
@@ -42,6 +49,24 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_color = Color( 0, 0, 0, 0.156863 )
 shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.666667, 0.666667, 0.666667, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.129412, 0.129412, 0.129412, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.215686, 0.898039, 0.0980392, 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -62,7 +87,14 @@ Button/styles/normal = ExtResource( 2 )
 Button/styles/pressed = ExtResource( 4 )
 Label/colors/font_color = Color( 0, 0, 0, 1 )
 Label/fonts/font = SubResource( 4 )
+LabelEncounterName/base_type = "Label"
+LabelEncounterName/colors/font_color = Color( 0, 0, 0, 1 )
+LabelEncounterName/fonts/font = SubResource( 11 )
 LabelOptions/base_type = "Label"
 LabelOptions/colors/font_color = Color( 0, 0, 0, 1 )
 LabelOptions/fonts/font = SubResource( 6 )
 Panel/styles/panel = SubResource( 3 )
+PanelContainer/styles/panel = SubResource( 12 )
+ProgressBar/fonts/font = SubResource( 7 )
+ProgressBar/styles/bg = SubResource( 8 )
+ProgressBar/styles/fg = SubResource( 9 )
