@@ -38,6 +38,4 @@ func list_licenses():
 
 
 func _on_BackButton_pressed():
-	var error_code = get_tree().change_scene("res://scenes/MainMenu/MainMenu.tscn")
-	if error_code != 0:
-		print("ERROR: ", error_code)
+	SceneTransition.change_overlay(self, "fade")

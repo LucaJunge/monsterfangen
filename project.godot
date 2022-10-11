@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://resources/ItemData.gd"
 }, {
-"base": "Resource",
-"class": "ItemResource",
-"language": "GDScript",
-"path": "res://scenes/Items/ItemResource.gd"
-}, {
 "base": "MonsterData",
 "class": "Monster",
 "language": "GDScript",
@@ -38,11 +33,6 @@ _global_script_classes=[ {
 "class": "MonsterData",
 "language": "GDScript",
 "path": "res://resources/MonsterData.gd"
-}, {
-"base": "Node",
-"class": "MonsterOld",
-"language": "GDScript",
-"path": "res://scenes/Monster/Monster.gd"
 }, {
 "base": "Reference",
 "class": "MonsterType",
@@ -73,10 +63,8 @@ _global_script_class_icons={
 "Dialog": "",
 "Inventory": "",
 "ItemData": "",
-"ItemResource": "",
 "Monster": "",
 "MonsterData": "",
-"MonsterOld": "",
 "MonsterType": "",
 "Party": "",
 "Player": "",

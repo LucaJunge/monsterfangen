@@ -33,34 +33,35 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 380.0
-margin_bottom = 192.0
+margin_bottom = 223.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="BackButton" type="Button" parent="ScrollContainer/MarginContainer/LicenseList"]
 margin_right = 360.0
 margin_bottom = 48.0
-theme = ExtResource( 3 )
+theme_type_variation = "PartyPanel"
 text = "Back"
 
 [node name="Intro" type="Label" parent="ScrollContainer/MarginContainer/LicenseList"]
 margin_top = 52.0
 margin_right = 360.0
-margin_bottom = 142.0
+margin_bottom = 173.0
+theme_type_variation = "LabelOptions"
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "The following projects and resources were used in the game and are listed somewhat in order of appearance."
 autowrap = true
 
 [node name="HSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/LicenseList"]
-margin_top = 146.0
+margin_top = 177.0
 margin_right = 360.0
-margin_bottom = 148.0
+margin_bottom = 179.0
 custom_constants/separation = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/MarginContainer/LicenseList"]
-margin_top = 152.0
+margin_top = 183.0
 margin_right = 360.0
-margin_bottom = 172.0
+margin_bottom = 203.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 10
 custom_constants/margin_left = 5

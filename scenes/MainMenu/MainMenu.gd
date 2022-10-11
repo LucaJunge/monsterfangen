@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var main_theme: AudioStreamPlayer
+onready var licenses = get_node("%Licenses")
 
 func _ready() -> void:
 	# how to play music via the AudioManager
@@ -21,4 +22,4 @@ func _on_Exit_pressed():
 	get_tree().quit()
 
 func _on_Licenses_pressed():
-	$MainMenuCanvas/Licenses.visible = true
+	SceneTransition.change_overlay(licenses, "fade")

@@ -10,9 +10,10 @@ size_flags_horizontal = 3
 
 [node name="LicenseName" type="Label" parent="."]
 margin_right = 340.0
-margin_bottom = 14.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_type_variation = "LabelOptions"
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "ProjectName"
 __meta__ = {
@@ -20,11 +21,12 @@ __meta__ = {
 }
 
 [node name="LicenseDescription" type="Label" parent="."]
-margin_top = 18.0
+margin_top = 32.0
 margin_right = 340.0
-margin_bottom = 66.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_type_variation = "LabelOptions"
 custom_colors/font_color = Color( 0.564706, 0.564706, 0.564706, 1 )
 text = "This is the project description that describes one of the used open-source softwares that contributed to the game."
 autowrap = true
@@ -33,17 +35,17 @@ __meta__ = {
 }
 
 [node name="LinkButton" type="Button" parent="."]
-margin_top = 70.0
-margin_right = 116.0
-margin_bottom = 90.0
+margin_top = 157.0
+margin_right = 184.0
+margin_bottom = 205.0
 size_flags_horizontal = 0
 text = "Show in browser"
 script = ExtResource( 1 )
 
 [node name="HSeparator" type="HSeparator" parent="."]
-margin_top = 94.0
+margin_top = 209.0
 margin_right = 340.0
-margin_bottom = 124.0
+margin_bottom = 239.0
 custom_constants/separation = 30
 
 [connection signal="button_up" from="LinkButton" to="LinkButton" method="_on_LinkButton_button_up"]
