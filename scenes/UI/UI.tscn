@@ -27,44 +27,57 @@ margin_right = -20.0
 margin_bottom = -20.0
 mouse_filter = 2
 
-[node name="Control" type="Control" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_top = 515.0
 margin_right = 360.0
 margin_bottom = 760.0
-mouse_filter = 2
+size_flags_vertical = 8
 
-[node name="MenuButton" parent="MarginContainer/Control" instance=ExtResource( 2 )]
-unique_name_in_owner = true
-anchor_left = 1.0
-anchor_bottom = 0.0
-margin_left = -50.0
-margin_bottom = 50.0
-size_flags_horizontal = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -254.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 margin_right = 150.0
+margin_bottom = 245.0
+custom_constants/separation = 20
 alignment = 1
 
-[node name="InteractionButton" parent="MarginContainer/Control/VBoxContainer" instance=ExtResource( 5 )]
+[node name="InteractionButton" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 5 )]
 unique_name_in_owner = true
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 25.0
-margin_right = 125.0
-margin_bottom = 100.0
+margin_left = 37.0
+margin_right = 112.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
 size_flags_horizontal = 4
 
-[node name="Joystick" parent="MarginContainer/Control/VBoxContainer" instance=ExtResource( 4 )]
+[node name="Joystick" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
 unique_name_in_owner = true
-margin_top = 104.0
+margin_top = 95.0
 margin_right = 150.0
-margin_bottom = 254.0
+margin_bottom = 245.0
 rect_min_size = Vector2( 150, 150 )
-size_flags_horizontal = 1
+size_flags_horizontal = 0
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+margin_left = 154.0
+margin_right = 281.0
+margin_bottom = 245.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="MenuButton" parent="MarginContainer/HBoxContainer" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 285.0
+margin_top = 170.0
+margin_right = 360.0
+margin_bottom = 245.0
+rect_min_size = Vector2( 75, 75 )
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [node name="OptionsMenu" parent="." instance=ExtResource( 1 )]
+unique_name_in_owner = true
 visible = false
 mouse_filter = 2
 custom_styles/panel = SubResource( 1 )

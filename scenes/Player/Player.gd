@@ -4,20 +4,28 @@ signal player_moving_signal
 signal player_stopped_signal
 signal player_has_entered_signal
 
+# general
 export var walk_speed = 5.0
 const TILE_SIZE = 16
+var stop_moving: bool = false
 
 # Resources of the player
 var player: Player setget set_player
 var party: Party setget set_party
 
+# Encounter related
+var enemy_monster : Monster = null
+var encounter_scene: Node = null
+var encounter_music: AudioStream = null
+
+# 
 onready var animation_tree = $AnimationTree
 onready var anim_state = animation_tree.get("parameters/playback")
 onready var blocking_ray = $BlockingRayCast2D
 onready var scene_transition_ray = $SceneTransitionRayCast2D
 onready var interaction_ray = $InteractionRayCast2D
 
-# The F button
+# The interact button
 onready var interact_button := get_node("/root/Game/UILayer/UI/%InteractionButton")
 
 onready var interaction_ray_line2d = $InteractionRayLine2D
@@ -33,9 +41,8 @@ var facing_direction = FacingDirection.DOWN
 var initial_position: Vector2 = Vector2(0, 0)
 var input_direction: Vector2 = Vector2(0, 0)
 var stop_input: bool = false
-var moving = false
+var moving: bool = false
 var will_encounter: bool = false
-var encounter_level_range = {"min": 1, "max": 5}
 
 onready var playerName = "PlayerData.playerName"
 
@@ -51,10 +58,6 @@ func _ready():
 	initial_position = position
 	
 	set_spawn_direction(Vector2(0, 1))
-	
-	# load all possible sounds
-	# BUG: also currently imports the .import metadata files...
-	#load_sounds()
 	
 	# connect the interaction button to interact method
 	interact_button.connect("interact_pressed", self, "interact")
@@ -168,13 +171,19 @@ func interact():
 	
 func move(delta):
 	
-	# cast the ray into half of the next block
+	# if the player should not move, return immediately
+	if stop_moving:
+		anim_state.travel("Idle")
+		return
+	
+	# get the position where to scan for a collision
 	var desired_step: Vector2 = input_direction * TILE_SIZE / 2
 	
-	# cast a ray to the half of the block in front
+	# cast a ray to the half of the block in front for moving
 	blocking_ray.cast_to = desired_step
 	blocking_ray.force_raycast_update()
 	
+		# cast a ray to the half of the block in front for entering another scene
 	scene_transition_ray.cast_to = desired_step
 	scene_transition_ray.force_raycast_update()
 	
@@ -191,23 +200,34 @@ func move(delta):
 			$Camera2D.clear_current()
 			emit_signal("player_has_entered_signal")
 			emit_signal("player_stopped_signal")
+				
 		else:
 			# gradually interpolate the position until percent_moved_to_next_tile is 1.0
 			position = initial_position + (TILE_SIZE * input_direction * percent_moved_to_next_tile)
 	
 	# if no collision is found, move
 	elif !blocking_ray.is_colliding():
+		
 		if percent_moved_to_next_tile == 0:
+			# player starts to move
 			emit_signal("player_moving_signal")
-				
+		
+		# advance the player a delta amount into the next tile
 		percent_moved_to_next_tile += walk_speed * delta
+		
+		# reset the percentage if the player reached the new tile
 		if percent_moved_to_next_tile >= 1.0:
 			position = initial_position + (TILE_SIZE * input_direction)
 			percent_moved_to_next_tile = 0.0
 			moving = false
+			
+			# player finished the movement to the next tile
 			emit_signal("player_stopped_signal")
+			
+			# trigger an encounter, if it should happen
 			if will_encounter:
-				triggerEncounter(0)
+				print_debug("ENCOUNTER")
+				encounter()
 
 		else:
 			# gradually interpolate the position until percent_moved_to_next_tile is 1.0
@@ -215,21 +235,30 @@ func move(delta):
 	else:
 		moving = false
 
-func triggerEncounter(_monster_to_spawn: int = 0):
-	anim_state.travel("Idle")
-	$Camera2D.clear_current()
-	stop_input = true
+func prepare_encounter(_enemy_monster: Monster, _encounter_scene: Node, _encounter_music: AudioStream):
+	will_encounter = true
+	enemy_monster = _enemy_monster
+	encounter_scene = _encounter_scene
+	encounter_music = _encounter_music
+	pass
+	
+func encounter():
+	stop_moving = true
+	AudioManager.stop()
+	AudioManager.play_loop(encounter_music)
+	
+	get_node("/root/").add_child(encounter_scene)
+	encounter_scene.init(enemy_monster, party.members[0])
+	
+	# TODO: Grass Animation should animate the anchors, not the rect_position
+	SceneTransition.change_overlay(encounter_scene, "foliage")
+
+func disable_movement():
+	stop_moving = true
+
+func enable_movement():
+	stop_moving = false
 	will_encounter = false
-	#var enemy_monster := MonsterDatabase.get_monster_data("treey")
-	#print(enemy_monster)
-	#var enemy_monster = Monster.new(Rules.monsterDictionary[str(monster_to_spawn)])
-	#var enemy_level = ceil(rand_range(encounter_level_range.min, encounter_level_range.max-0.1))
-	#enemy_monster.set_level(enemy_level)
-	#print(enemy_monster.level)
-	#Rules.nextMonster = enemy_monster
-	#PlayerData.playerPosition = position
-	#PlayerData.playerDirection = input_direction
-	#get_node(NodePath("/root/SceneManager")).transition_to_scene("res://scenes/Encounter/Encounter.tscn", false)
 	
 func set_spawn_direction(direction: Vector2):
 	animation_tree.set("parameters/Idle/blend_position", direction)

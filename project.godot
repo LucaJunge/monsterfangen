@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Dialog",
 "language": "GDScript",
-"path": "res://resources/Dialog.gd"
+"path": "res://resources/dialog_types/Dialog.gd"
 }, {
 "base": "Resource",
 "class": "Inventory",

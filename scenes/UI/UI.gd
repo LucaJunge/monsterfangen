@@ -4,7 +4,7 @@ signal save_requested
 signal reload_requested
 
 onready var _menu_button = get_node("%MenuButton")
-onready var options_menu = get_node("OptionsMenu")
+onready var options_menu = get_node("%OptionsMenu")
 onready var click = load("res://assets/sounds/click.wav")
 
 func _ready() -> void:

@@ -43,6 +43,102 @@ available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
 position = Vector2( 48, -32 )
 available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
 
+[node name="TallGrass7" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 96, -48 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass8" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 112, -48 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass9" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 128, -48 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass10" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 128, -32 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass11" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 112, -32 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass12" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 96, -32 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass13" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 96, -80 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass14" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 112, -80 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass15" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 128, -80 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass16" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 128, -64 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass17" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 112, -64 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass18" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 96, -64 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass19" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 96, -112 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass20" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 112, -112 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass21" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 128, -112 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass22" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 128, -96 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass23" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 112, -96 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass24" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 96, -96 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass25" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 96, -144 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass26" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 112, -144 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass27" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 128, -144 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass28" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 128, -128 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass29" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 112, -128 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="TallGrass30" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 96, -128 )
+available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
+
 [node name="OnGroundBehindPlayer" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )

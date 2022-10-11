@@ -140,6 +140,8 @@ func _exit_scene() -> void:
 	SceneTransition.change_overlay(self, "fade")
 	AudioManager.stop()
 	AudioManager.play_loop(main_theme)
+	var player = get_node("/root/Game/SceneManager/CurrentScene/World/Player")
+	player.enable_movement()
 	
 func _on_RunButton_pressed() -> void:
 	if rand_range(0.0, 1.0) > 0.5:
