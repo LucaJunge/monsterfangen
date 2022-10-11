@@ -2,7 +2,10 @@ extends VBoxContainer
 
 signal button_pressed
 
+var disabled setget _disabled_set
+
 onready var click = load("res://assets/sounds/click.wav")
+onready var button = get_node("%Button")
 
 export var label : String = "NO_LABEL"
 export (String, FILE, "*.png,*.svg") var icon_path = "res://assets/ui/icons/player_icon.png"
@@ -18,3 +21,6 @@ func _on_Button_pressed():
 	$AnimationPlayer.play("click")
 	yield($AnimationPlayer, "animation_finished")
 	emit_signal("button_pressed")
+
+func _disabled_set(value: bool):
+	button.disabled = value

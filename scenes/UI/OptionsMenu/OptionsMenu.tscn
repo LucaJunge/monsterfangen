@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://theme/monsterfangen_default.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/UI/OptionsGrid/OptionsGrid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/UI/OptionsMenu/OptionsMenu.gd" type="Script" id=3]
+[ext_resource path="res://assets/ui/backgrounds/list_bg.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_color = Color( 0.235294, 0.235294, 0.235294, 0.705882 )
+
+[node name="OptionsMenu" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -3.05176e-05
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OptionsGrid" parent="MarginContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 359.0
+margin_bottom = 760.0
+mouse_filter = 1
+
+[connection signal="exit_button_pressed" from="MarginContainer/OptionsGrid" to="." method="_on_OptionsGrid_exit_button_pressed"]
