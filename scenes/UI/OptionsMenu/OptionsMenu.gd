@@ -1,12 +1,39 @@
 extends Panel
 
-signal options_closed
+signal close_options
 signal save_requested
+signal exit_button_pressed
+signal open_party_menu
 
-onready var options_grid = $MarginContainer/OptionsGrid
+var was_clicked: bool = false
+
+onready var party_button = get_node("%PartyButton")
+onready var player_button = get_node("%PlayerButton")
+onready var items_button = get_node("%ItemsButton")
+onready var exit_button = get_node("%ExitButton")
+onready var save_button = get_node("%SaveButton")
+onready var load_button = get_node("%LoadButton")
+
 
 func _ready():
-	options_grid.connect("save_requested", self, "emit_signal", ["save_requested"])
+	self.visible = false
 
-func _on_OptionsGrid_exit_button_pressed():
-	emit_signal("options_closed")
+func _on_PartyButton_button_pressed():
+	emit_signal("open_party_menu")
+
+
+func _on_ExitButton_button_pressed():
+	emit_signal("close_options")
+
+
+func _on_SaveButton_button_pressed():
+	emit_signal("save_requested")
+
+
+func disable_all():
+	party_button.disabled = true
+	player_button.disabled = true
+	items_button.disabled = true
+	exit_button.disabled = true
+	save_button.disabled = true
+	load_button.disabled = true

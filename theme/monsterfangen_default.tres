@@ -13,10 +13,10 @@ content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
 bg_color = Color( 1, 1, 1, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
 shadow_color = Color( 0, 0, 0, 0.156863 )
 shadow_size = 7
 
@@ -64,6 +64,7 @@ corner_radius_top_left = 999
 corner_radius_top_right = 999
 corner_radius_bottom_right = 999
 corner_radius_bottom_left = 999
+corner_detail = 12
 shadow_color = Color( 0, 0, 0, 0.156863 )
 shadow_size = 7
 

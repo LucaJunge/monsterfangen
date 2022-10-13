@@ -2,6 +2,7 @@ extends Control
 
 signal exit_button_pressed
 signal save_requested
+signal open_party_menu
 
 var was_clicked: bool = false
 
@@ -12,11 +13,12 @@ onready var exit_button = get_node("%ExitButton")
 onready var save_button = get_node("%SaveButton")
 onready var load_button = get_node("%LoadButton")
 
+
 func _ready() -> void:
 	pass
 
 func _on_PartyButton_button_pressed():
-	print_debug("party info opens")
+	emit_signal("open_party_menu")
 	#disable_all()
 
 func _on_PlayerButton_button_pressed():

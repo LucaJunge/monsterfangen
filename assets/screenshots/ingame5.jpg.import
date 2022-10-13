@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/logo1.png-0dfc3d2f77907e94d1bf8c8ebef6cd1e.stex"
+path="res://.import/ingame5.jpg-04d0e298f2ffa0e816d3fae8bed2bcf1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/logo/logo1.png"
-dest_files=[ "res://.import/logo1.png-0dfc3d2f77907e94d1bf8c8ebef6cd1e.stex" ]
+source_file="res://assets/screenshots/ingame5.jpg"
+dest_files=[ "res://.import/ingame5.jpg-04d0e298f2ffa0e816d3fae8bed2bcf1.stex" ]
 
 [params]
 

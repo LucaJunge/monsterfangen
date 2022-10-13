@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/logo1.svg-570db270feea1f005be614ecb3dbd035.stex"
+path="res://.import/ingame4.jpg-ded35bdca4db4d4b4ec7273842ca3e56.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/logo/logo1.svg"
-dest_files=[ "res://.import/logo1.svg-570db270feea1f005be614ecb3dbd035.stex" ]
+source_file="res://assets/screenshots/ingame4.jpg"
+dest_files=[ "res://.import/ingame4.jpg-ded35bdca4db4d4b4ec7273842ca3e56.stex" ]
 
 [params]
 

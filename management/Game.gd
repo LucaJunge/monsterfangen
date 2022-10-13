@@ -11,6 +11,7 @@ func _ready() -> void:
 	
 	_ui.connect("reload_requested", self, "_create_or_load_save")
 	_ui.connect("save_requested", self, "_save_game")
+	_ui.connect("update_requested", self, "update_ui")
 	
 	# And the start of the game or when pressing the load button, we call this
 	# function. It loads the save data if it exists, otherwise, it creates a 
@@ -47,3 +48,10 @@ func _save_game() -> void:
 	print("saves game")
 	_save.global_position = _player.global_position
 	_save.write_savegame()
+
+func update_ui():
+	var info: Dictionary = {
+		"party_members": _player.party.members
+	}
+	
+	_ui.update_ui(info)

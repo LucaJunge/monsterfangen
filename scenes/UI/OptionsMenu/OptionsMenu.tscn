@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://theme/monsterfangen_default.tres" type="Theme" id=1]
-[ext_resource path="res://scenes/UI/OptionsGrid/OptionsGrid.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/UI/OptionsMenu/OptionsMenu.gd" type="Script" id=3]
 [ext_resource path="res://assets/ui/backgrounds/list_bg.png" type="Texture" id=4]
+[ext_resource path="res://scenes/UI/Components/CircleButton/CircleButton.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -26,21 +26,90 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+mouse_filter = 2
+custom_constants/hseparation = 40
+columns = 2
 
-[node name="OptionsGrid" parent="MarginContainer" instance=ExtResource( 2 )]
+[node name="PartyButton" parent="GridContainer" instance=ExtResource( 5 )]
+unique_name_in_owner = true
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 359.0
-margin_bottom = 760.0
-mouse_filter = 1
+margin_left = 30.0
+margin_top = 38.0
+margin_right = 180.0
+margin_bottom = 226.0
+size_flags_horizontal = 14
+label = "PARTY"
+icon_path = "res://assets/ui/icons/party_icon.png"
+icon_color = Color( 0.878431, 0.713726, 0.0666667, 1 )
 
-[connection signal="exit_button_pressed" from="MarginContainer/OptionsGrid" to="." method="_on_OptionsGrid_exit_button_pressed"]
+[node name="PlayerButton" parent="GridContainer" instance=ExtResource( 5 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 220.0
+margin_top = 38.0
+margin_right = 370.0
+margin_bottom = 226.0
+size_flags_horizontal = 2
+label = "PLAYER"
+icon_color = Color( 0.239216, 0.501961, 0.0901961, 1 )
+
+[node name="ItemsButton" parent="GridContainer" instance=ExtResource( 5 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 30.0
+margin_top = 306.0
+margin_right = 180.0
+margin_bottom = 494.0
+size_flags_horizontal = 10
+label = "ITEMS"
+icon_path = "res://assets/ui/icons/items_icon.png"
+icon_color = Color( 0.533333, 0.317647, 0.0901961, 1 )
+
+[node name="ExitButton" parent="GridContainer" instance=ExtResource( 5 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 220.0
+margin_top = 306.0
+margin_right = 370.0
+margin_bottom = 494.0
+size_flags_horizontal = 2
+label = "EXIT"
+icon_path = "res://assets/ui/icons/exit_icon.png"
+icon_color = Color( 0.180392, 0.180392, 0.180392, 1 )
+
+[node name="SaveButton" parent="GridContainer" instance=ExtResource( 5 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 30.0
+margin_top = 574.0
+margin_right = 180.0
+margin_bottom = 762.0
+size_flags_horizontal = 10
+label = "SAVE"
+icon_path = "res://assets/ui/icons/save_icon.png"
+icon_color = Color( 0.215686, 0.439216, 0.235294, 1 )
+
+[node name="LoadButton" parent="GridContainer" instance=ExtResource( 5 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 220.0
+margin_top = 574.0
+margin_right = 370.0
+margin_bottom = 762.0
+size_flags_horizontal = 2
+label = "LOAD"
+icon_path = "res://assets/ui/icons/load_icon.png"
+icon_color = Color( 0.203922, 0.25098, 0.509804, 1 )
+
+[connection signal="button_pressed" from="GridContainer/PartyButton" to="." method="_on_PartyButton_button_pressed"]
+[connection signal="button_pressed" from="GridContainer/ExitButton" to="." method="_on_ExitButton_button_pressed"]
+[connection signal="button_pressed" from="GridContainer/SaveButton" to="." method="_on_SaveButton_button_pressed"]
