@@ -18,3 +18,9 @@ monsterfangen is a mobile RPG game made with the [Godot Engine](https://godoteng
   <img width="33%" src="./assets/screenshots/ingame4.jpg">
   <img width="33%" src="./assets/screenshots/ingame5.jpg">
 </p>
+
+
+# Contribute
+
+If you want to contribute, feel free to contact me!
+There are still lots of tasks to do
