@@ -165,6 +165,7 @@ __meta__ = {
 
 [node name="Entrance" parent="Entrances" instance=ExtResource( 4 )]
 position = Vector2( -48, -112 )
+next_scene_path = "res://scenes/World/DevRoom/DevRoom.tscn"
 
 [node name="Interactables" type="Node2D" parent="."]
 

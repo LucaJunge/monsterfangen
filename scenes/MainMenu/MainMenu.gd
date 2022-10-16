@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_StartNewGameButton_pressed():
 	AudioManager.fade_out(main_theme)
-	SceneTransition.change_scene("res://management/Game.tscn", "horizontal_bars")
+	SceneTransition.load_from_main_menu("res://management/Game.tscn")
 
 func _on_LoadGameButton_pressed():
 	SceneTransition.change_scene("res://scenes/SavedGames/SavedGames.tscn")

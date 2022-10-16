@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/tilemaps/Tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Entrance/Entrance.tscn" type="PackedScene" id=3]
+
+[node name="DevRoom" type="Node2D"]
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -196610, 1, 0, -196609, 1, 1, -262144, 1, 1, -262143, 1, 1, -262142, 1, 1, -262141, 1, 1, -262140, 1, 1, -262139, 1, 1, -262138, 1, 2, -131074, 1, 65536, -131073, 1, 65537, -196608, 1, 65537, -196607, 1, 65537, -196606, 1, 65537, -196605, 1, 5, -196604, 1, 131073, -196603, 1, 6, -196602, 1, 65538, -65538, 1, 65536, -65537, 1, 65537, -131072, 1, 65537, -131071, 1, 65537, -131070, 1, 65537, -131069, 1, 65538, -131068, 3, 131078, -131067, 1, 65536, -131066, 1, 65538, -2, 1, 65536, -1, 1, 65537, -65536, 1, 65537, -65535, 1, 65537, -65534, 1, 65537, -65533, 1, 65541, -65532, 1, 1, -65531, 1, 65542, -65530, 1, 65538, 65534, 1, 65536, 65535, 1, 65537, 0, 1, 65537, 1, 1, 65537, 2, 1, 65537, 3, 1, 65537, 4, 1, 65537, 5, 1, 65537, 6, 1, 65538, 131070, 1, 131072, 131071, 1, 131073, 65536, 1, 131073, 65537, 1, 131073, 65538, 1, 131073, 65539, 1, 131073, 65540, 1, 131073, 65541, 1, 131073, 65542, 1, 131074 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Entrance" parent="." instance=ExtResource( 3 )]
+position = Vector2( 64, -32 )
+next_scene_path = "res://scenes/World/World.tscn"

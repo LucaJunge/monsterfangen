@@ -27,7 +27,7 @@ func _init(_unique_id = "", current_values: Dictionary = {}, _level: int = 1) ->
 
 	# check if current_values is empty -> generate a completely new monster and set the values
 	if current_values.empty():
-		print_debug("create a new monster", _unique_id)
+		#print_debug("create a new monster", _unique_id)
 		_set_level(_level)
 	else:
 		# overwrite current values

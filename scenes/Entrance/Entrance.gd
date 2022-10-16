@@ -1,9 +1,7 @@
 extends Area2D
 
-export (String, FILE,  "*.tres,*.res") var next_scene_path = ""
+export (String, FILE,  "*.tscn") var next_scene_path = ""
 
-func _ready() -> void:
+func _on_Entrance_body_entered(body) -> void:
+	#print_debug(body)
 	pass
-
-func _on_Entrance_body_entered(body):
-	print(body)

@@ -10,7 +10,7 @@ const TILE_SIZE = 16
 var stop_moving: bool = false
 
 # Resources of the player
-var player: Player setget set_player
+var stats: Stats setget set_stats
 var party: Party setget set_party
 
 # Encounter related
@@ -60,13 +60,13 @@ func _ready():
 	set_spawn_direction(Vector2(0, 1))
 	
 	# connect the interaction button to interact method
-	interact_button.connect("interact_pressed", self, "interact")
+	#interact_button.connect("interact_pressed", self, "interact")
 	
 	# Set camera position on load
 	$Camera2D.position = Vector2(0, 0)
 
-func set_player(new_player: Player) -> void:
-	player = new_player
+func set_stats(new_stats: Stats) -> void:
+	stats = new_stats
 
 func set_party(new_party: Party) -> void:
 	party = new_party
@@ -189,17 +189,18 @@ func move(delta):
 	
 	# first check if there is a scene transition in the next tile
 	if scene_transition_ray.is_colliding():
-
 		percent_moved_to_next_tile += walk_speed * delta
 		
 		if percent_moved_to_next_tile >= 1.0:
 			position = initial_position + (TILE_SIZE * input_direction)
 			percent_moved_to_next_tile = 0.0
-			stop_input = true;
 			moving = false
+			stop_moving = true
+			stop_input = true
+			
 			$Camera2D.clear_current()
-			emit_signal("player_has_entered_signal")
-			emit_signal("player_stopped_signal")
+			var next_scene = scene_transition_ray.get_collider().next_scene_path
+			SceneTransition.change_scene(next_scene, "fade")
 				
 		else:
 			# gradually interpolate the position until percent_moved_to_next_tile is 1.0
@@ -226,7 +227,7 @@ func move(delta):
 			
 			# trigger an encounter, if it should happen
 			if will_encounter:
-				print_debug("ENCOUNTER")
+				#print_debug("ENCOUNTER")
 				encounter()
 
 		else:

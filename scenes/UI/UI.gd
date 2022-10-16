@@ -10,8 +10,6 @@ onready var party_menu = get_node("%PartyMenu")
 onready var click = load("res://assets/sounds/click.wav")
 
 func _ready() -> void:
-	print(_menu_button)
-	
 	_menu_button.connect("menu_button_pressed", self, "open_menu")
 	options_menu.connect("save_requested", self, "emit_signal", ["save_requested"])
 	options_menu.connect("close_options", self, "close_menu")
