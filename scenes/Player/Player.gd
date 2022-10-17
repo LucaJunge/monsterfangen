@@ -258,6 +258,11 @@ func disable_movement():
 	stop_moving = true
 
 func enable_movement():
+	# this is needed, because otherwise the player will
+	# move after exiting from an encounter
+	input_direction = Vector2(0, 0)
+	
+	# activate movement again
 	stop_moving = false
 	will_encounter = false
 	

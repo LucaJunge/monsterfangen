@@ -88,6 +88,7 @@ ItemDatabase="*res://autoloads/ItemDatabase.gd"
 MonsterDatabase="*res://autoloads/MonsterDatabase.gd"
 SceneTransition="*res://autoloads/SceneTransition.tscn"
 AudioManager="*res://autoloads/AudioManager.tscn"
+Utils="*res://autoloads/Utils.gd"
 
 [debug]
 

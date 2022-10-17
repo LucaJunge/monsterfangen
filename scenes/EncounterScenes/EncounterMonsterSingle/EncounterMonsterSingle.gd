@@ -140,7 +140,8 @@ func _exit_scene() -> void:
 	SceneTransition.change_overlay(self, "fade")
 	AudioManager.stop()
 	AudioManager.play_loop(main_theme)
-	var player = get_node("/root/Game/SceneManager/CurrentScene/World/Player")
+
+	var player = Utils.get_player_node()
 	player.enable_movement()
 	
 func _on_RunButton_pressed() -> void:
