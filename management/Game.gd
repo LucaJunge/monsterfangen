@@ -40,9 +40,14 @@ func _create_or_load_save() -> void:
 		_save.inventory.add_item("monsterball", 5)
 		
 		# Party -> Starting Monsters
-		var monster: Monster = Monster.new("treey", {}, 10)
-		_save.party.add_member("0", monster)
-		debug_monsters(_save)
+		var treey: Monster = Monster.new("treey", {}, 10)
+		_save.party.add_member("0", treey)
+		
+		var sparkpaw: Monster = Monster.new("sparkpaw", {}, 8)
+		_save.party.add_member("0", sparkpaw)
+		
+		# Some more debug monsters if needed
+		#debug_monsters(_save)
 		
 		# Other Properties
 		_save.global_position = _player.global_position

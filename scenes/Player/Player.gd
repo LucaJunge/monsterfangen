@@ -60,7 +60,7 @@ func _ready():
 	set_spawn_direction(Vector2(0, 1))
 	
 	# connect the interaction button to interact method
-	#interact_button.connect("interact_pressed", self, "interact")
+	interact_button.connect("interact_pressed", self, "interact")
 	
 	# Set camera position on load
 	$Camera2D.position = Vector2(0, 0)
@@ -249,7 +249,7 @@ func encounter():
 	AudioManager.play_loop(encounter_music)
 	
 	get_node("/root/").add_child(encounter_scene)
-	encounter_scene.init(enemy_monster, party.members[0])
+	encounter_scene.init(enemy_monster, party.members[0], party)
 	
 	# TODO: Grass Animation should animate the anchors, not the rect_position
 	SceneTransition.change_overlay(encounter_scene, "foliage")

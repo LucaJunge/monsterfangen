@@ -12,6 +12,7 @@ onready var run_button = get_node("%RunButton")
 
 var enemy_monster: Monster = null
 var player_monster: Monster = null
+var party: Party = null
 
 var timer_time: float = 2.0
 
@@ -20,6 +21,7 @@ enum BATTLE_STATES {
 	INIT,
 	PLAYER,
 	ENEMY,
+	CATCH
 	WIN,
 	LOSE
 }
@@ -29,9 +31,10 @@ func _ready():
 	self.visible = false
 
 # initializes the scene on a triggered encounter (e.g. from a tall grass node)
-func init(_enemy_monster: Monster, _player_monster: Monster) -> void:
+func init(_enemy_monster: Monster, _player_monster: Monster, _party: Party) -> void:
 	enemy_monster = _enemy_monster
 	player_monster = _player_monster
+	party = _party
 	_set_enemy_monster(enemy_monster)
 	_set_player_monster(player_monster)
 	_handle_state(BATTLE_STATES.INIT)
@@ -92,7 +95,7 @@ func _handle_state(new_state):
 
 			# let the enemy attack you
 			var damage = enemy_monster.attack(player_monster)
-			print_debug("ebeny", damage)
+			print_debug("Enemy made %s damage" % damage)
 			get_node("%DialogText").text = "%s attacked you!" % enemy_monster.display_name
 
 			AudioManager.play(hit_sound)
@@ -103,6 +106,27 @@ func _handle_state(new_state):
 
 			yield(get_tree().create_timer(timer_time / 2.0), "timeout")
 			_handle_state(BATTLE_STATES.PLAYER)
+			pass
+		
+		BATTLE_STATES.CATCH:
+			disable_buttons(true)
+			get_node("%DialogText").text = "%s was catched!" % enemy_monster.display_name
+			
+			# play some sound...
+			
+			# add monster to the party
+			var monster = Monster.new(enemy_monster.unique_id, {}, enemy_monster.level)
+			if not party.is_full():
+				get_node("%DialogText").text = "%s was added to your party!" % enemy_monster.display_name
+				yield(get_tree().create_timer(timer_time * 1.5), "timeout")
+				party.append_member(monster)
+			else:
+				# else: dialog, to add to pc
+				get_node("%DialogText").text = "Your party is full. %s was saved to the PC!" % enemy_monster.display_name
+				# todo: save monster to the pc
+			
+			yield(get_tree().create_timer(timer_time * 1.5), "timeout")
+			_exit_scene()
 			pass
 		BATTLE_STATES.WIN:
 			disable_buttons(true)
@@ -145,7 +169,7 @@ func _exit_scene() -> void:
 	player.enable_movement()
 	
 func _on_RunButton_pressed() -> void:
-	if rand_range(0.0, 1.0) > 0.5:
+	if rand_range(0.0, 1.0) > 0.1:
 		get_node("%DialogText").text = "You fled!"
 		disable_buttons(true)
 		AudioManager.play(run_sound)
@@ -183,4 +207,46 @@ func _on_MonsterButton_pressed():
 
 
 func _on_BagButton_pressed():
+	disable_buttons(true)
+	# open menu to choose item... or CatchNet
+	# play catch animation
+	var text = "You threw a CatchNet on the wild %s!" % enemy_monster.display_name
+	get_node("%DialogText").text = text
+	
+	# AudioManager.play("throwing_net_sound.wav")
+	# replace the monster sprite with the catch net anticipation animation
+	# calculate catch possibility
+	
+	# a timeout as a placeholder for the above steps
+	yield(get_tree().create_timer(timer_time), "timeout")
+	
+	
+	text = "The wild %s fights against the net!" % enemy_monster.display_name
+	get_node("%DialogText").text = text
+	
+	# move the net
+	# another placeholder for the above steps
+	yield(get_tree().create_timer(timer_time), "timeout")
+	
+	
+	var catch_possibility = rand_range(0.0, 1.0)
+	if catch_possibility > 0.5:
+		text = "The wild %s was catched!" % enemy_monster.display_name
+		get_node("%DialogText").text = text
+		
+		# You "won", handle the catching of the monster
+		#_handle_state(BATTLE_STATES.WIN)
+		_handle_state(BATTLE_STATES.CATCH)
+	else:
+		text = "Oh no! The wild %s broke out!" % enemy_monster.display_name
+		get_node("%DialogText").text = text
+		
+		# swap the sprite back to the monster, placeholder here
+		yield(get_tree().create_timer(timer_time), "timeout")
+		
+		# The monster was not catched, so it's the enemies turn
+		_handle_state(BATTLE_STATES.ENEMY)
+	
+	yield(get_tree().create_timer(timer_time), "timeout")
+	
 	pass # Replace with function body.
