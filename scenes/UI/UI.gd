@@ -8,6 +8,7 @@ onready var _menu_button = get_node("%MenuButton")
 onready var options_menu = get_node("%OptionsMenu")
 onready var party_menu = get_node("%PartyMenu")
 onready var player_menu = get_node("%PlayerMenu")
+onready var items_menu = get_node("%ItemsMenu")
 onready var click = load("res://assets/sounds/click.wav")
 
 func _ready() -> void:
@@ -18,7 +19,8 @@ func _ready() -> void:
 	options_menu.connect("close_options", self, "close_menu")
 	options_menu.connect("open_party_menu", self, "open_party_menu")
 	options_menu.connect("open_player_menu", self, "open_player_menu")
-
+	options_menu.connect("open_items_menu", self, "open_items_menu")
+	
 func update_ui(info: Dictionary) -> void:
 	print("update UI")
 	# update the components of the ui
@@ -40,6 +42,10 @@ func open_party_menu() -> void:
 func open_player_menu() -> void:
 	_request_update()
 	SceneTransition.change_overlay(player_menu, "horizontal_bars")
+
+func open_items_menu() -> void:
+	_request_update()
+	SceneTransition.change_overlay(items_menu, "horizontal_bars")
 
 func _request_update():
 	emit_signal("update_requested")
