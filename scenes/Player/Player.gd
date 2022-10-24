@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 signal player_moving_signal
 signal player_stopped_signal
-signal player_has_entered_signal
+#signal player_has_entered_signal
 
 # general
 export var walk_speed = 5.0
@@ -28,7 +28,7 @@ onready var interaction_ray = $InteractionRayCast2D
 # The interact button
 onready var interact_button := get_node("/root/Game/UILayer/UI/%InteractionButton")
 
-onready var interaction_ray_line2d = $InteractionRayLine2D
+#onready var interaction_ray_line2d = $InteractionRayLine2D
 
 # the animation states the player can be in
 enum PlayerState { IDLE, TURNING, WALKING }
@@ -60,7 +60,7 @@ func _ready():
 	set_spawn_direction(Vector2(0, 1))
 	
 	# connect the interaction button to interact method
-	#interact_button.connect("interact_pressed", self, "interact")
+	interact_button.connect("interact_pressed", self, "interact")
 	
 	# Set camera position on load
 	$Camera2D.position = Vector2(0, 0)
@@ -162,7 +162,7 @@ func interact():
 			interaction_ray.force_raycast_update()
 			interactable = interaction_ray.get_collider()
 	
-	interaction_ray_line2d.set_point_position(1, interaction_ray.cast_to + interaction_ray.cast_to)
+	#interaction_ray_line2d.set_point_position(1, interaction_ray.cast_to + interaction_ray.cast_to)
 	#print(interaction_ray.cast_to)
 	if interactable and interactable.has_method("interact"):
 		#stop_input = true

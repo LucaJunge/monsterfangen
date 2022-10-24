@@ -73,10 +73,10 @@ func _set_level(_level: int):
 	current_health = health
 	
 func _set_statusvalues(level: int):
-	attack = int((((base_attack * 2) * level ) / 100) + (level + 5))
-	health = int((((base_health * 2) * level ) / 100) + (level + 5))
-	defense = int((((base_defense * 2) * level ) / 100) + (level + 5))
-	tempo = int((((base_tempo * 2) * level ) / 100) + (level + 5))
+	attack = int((float(((base_attack * 2) * level )) / 100) + (level + 5))
+	health = int((float(((base_health * 2) * level )) / 100) + (level + 5))
+	defense = int((float(((base_defense * 2) * level )) / 100) + (level + 5))
+	tempo = int((float(((base_tempo * 2) * level )) / 100) + (level + 5))
 
 func _set_current_xp():
 	xp = int(pow(level, 3))
@@ -95,7 +95,7 @@ func calculate_gained_xp(enemy: Monster):
 	var calculated_xp: int = 0
 	
 	# loosely based on https://www.pokewiki.de/Erfahrung#5._Generation
-	calculated_xp = int((enemy.base_xp * enemy.level / 5) * (float(enemy.level) / float(level)))
+	calculated_xp = int((float(enemy.base_xp * enemy.level) / 5) * (float(enemy.level) / float(level)))
 
 	return calculated_xp
 
@@ -113,7 +113,7 @@ func attack(enemy_monster: Monster):
 	#var new_damage = 50 # damage of tackle
 	
 	#damage = base_damage * int(ceil(attack / float(enemy_monster.defense)))
-	damage = floor(floor((level * 2/5 + 2)) * base_damage * (float(attack) / (2 * enemy_monster.defense)) + 2)
+	damage = floor(floor((level * 2.0/5 + 2)) * base_damage * (float(attack) / (2 * enemy_monster.defense)) + 2)
 	
 	#print_debug(str(damage) + " : " + str(damage_2))
 	return damage

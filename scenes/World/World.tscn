@@ -1,13 +1,20 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/tilemaps/Tilemap.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/TallGrass/TallGrass.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Entrance/Entrance.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/HealBed/HealBed.tscn" type="PackedScene" id=5]
-[ext_resource path="res://resources/dialogs/hello_world.tres" type="Resource" id=6]
+[ext_resource path="res://scenes/HealingStation/HealingStation.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/dialogs/healing_station.tres" type="Resource" id=6]
 [ext_resource path="res://resources/monsters/diddlejeepers.tres" type="Resource" id=7]
 [ext_resource path="res://resources/monsters/tanglefang.tres" type="Resource" id=8]
+[ext_resource path="res://resources/monsters/wispclaw.tres" type="Resource" id=9]
+[ext_resource path="res://resources/monsters/vaportalon.tres" type="Resource" id=10]
+[ext_resource path="res://resources/monsters/bigpickles.tres" type="Resource" id=11]
+[ext_resource path="res://resources/monsters/vampfly.tres" type="Resource" id=12]
+[ext_resource path="res://resources/monsters/acidly.tres" type="Resource" id=13]
+[ext_resource path="res://resources/dialogs/dialog_with_ref_test/dialog_with_ref.tres" type="Resource" id=14]
+[ext_resource path="res://scenes/DialogWithFuncTest/DialogWithFuncTest.tscn" type="PackedScene" id=15]
 
 [node name="World" type="Node2D"]
 
@@ -139,6 +146,300 @@ available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
 position = Vector2( 96, -128 )
 available_monsters = [ ExtResource( 7 ), ExtResource( 8 ) ]
 
+[node name="TallGrass31" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 160, 16 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass32" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 176, 16 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass33" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 192, 16 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass34" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 208, 16 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass35" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 224, 16 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass36" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 240, 16 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass37" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 256, 16 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass38" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 160, 32 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass39" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 176, 32 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass40" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 192, 32 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass41" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 208, 32 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass42" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 224, 32 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass43" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 240, 32 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass44" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 256, 32 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass45" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 160, 48 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass46" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 176, 48 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass47" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 192, 48 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass48" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 208, 48 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass49" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 224, 48 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass50" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 240, 48 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass51" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 256, 48 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass52" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 160, 64 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass53" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 176, 64 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass54" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 192, 64 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass55" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 208, 64 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass56" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 224, 64 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass57" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 240, 64 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass58" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 256, 64 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass59" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 160, 80 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass60" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 176, 80 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass61" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 192, 80 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass62" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 208, 80 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass63" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 224, 80 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass64" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 240, 80 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass65" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 256, 80 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass66" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 160, 96 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass67" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 176, 96 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass68" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 192, 96 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass69" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 208, 96 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass70" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 224, 96 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass71" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 240, 96 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass72" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 256, 96 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass73" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 160, 112 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass74" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 176, 112 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass75" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 192, 112 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass76" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 208, 112 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass77" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 224, 112 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass78" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 240, 112 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
+[node name="TallGrass79" parent="TallGrasses" instance=ExtResource( 3 )]
+position = Vector2( 256, 112 )
+level_range_min = 6
+level_range_max = 12
+available_monsters = [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ]
+
 [node name="OnGroundBehindPlayer" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
@@ -169,6 +470,18 @@ next_scene_path = "res://scenes/World/DevRoom/DevRoom.tscn"
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="StaticBody2D" parent="Interactables" instance=ExtResource( 5 )]
-position = Vector2( 16, 80 )
+[node name="Healing Station" parent="Interactables" instance=ExtResource( 5 )]
+position = Vector2( 176, -32 )
 dialog = ExtResource( 6 )
+
+[node name="Healing Station2" parent="Interactables" instance=ExtResource( 5 )]
+position = Vector2( 0, 64 )
+dialog = ExtResource( 6 )
+
+[node name="Healing Station3" parent="Interactables" instance=ExtResource( 5 )]
+position = Vector2( 48, -288 )
+dialog = ExtResource( 6 )
+
+[node name="DialogWithFuncTest" parent="Interactables" instance=ExtResource( 15 )]
+position = Vector2( 80, 96 )
+dialog = ExtResource( 14 )

@@ -13,6 +13,7 @@ func _ready() -> void:
 	#self.add_child(direct_player)
 	pass
 	
+# Plays a music stream once
 func play(stream: AudioStream, volume_db: float = 0.0) -> AudioStreamPlayer:
 	var audio_stream_player: AudioStreamPlayer = AudioStreamPlayer.new()
 	audio_stream_player.bus = "Master"

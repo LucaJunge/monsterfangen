@@ -12,7 +12,17 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Dialog",
 "language": "GDScript",
-"path": "res://resources/dialog_types/Dialog.gd"
+"path": "res://resources/dialog/Dialog.gd"
+}, {
+"base": "Resource",
+"class": "DialogFunction",
+"language": "GDScript",
+"path": "res://resources/dialog/components/DialogFunction.gd"
+}, {
+"base": "Resource",
+"class": "DialogLine",
+"language": "GDScript",
+"path": "res://resources/dialog/components/DialogLine.gd"
 }, {
 "base": "Resource",
 "class": "Inventory",
@@ -61,6 +71,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Dialog": "",
+"DialogFunction": "",
+"DialogLine": "",
 "Inventory": "",
 "ItemData": "",
 "Monster": "",

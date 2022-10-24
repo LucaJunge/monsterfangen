@@ -1,8 +1,10 @@
 class_name Dialog
 extends Resource
 
-export var name := "NULL"
-export (Array, String) var dialog_lines := [""]
+# A Dialog consists of different resources, namely DialogFunction and DialogLines
+# We need "Resource" here, to enable both Strings (in form of DialogLine) and Functions here
+# Using native Strings and Resources doesn't seem to work
+export (Array, Resource) var dialog_lines := []
 
 func _to_string() -> String:
 	var output := self.resource_path.get_file().trim_suffix('.tres') + " -> "

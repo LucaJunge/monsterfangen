@@ -37,24 +37,24 @@ func init(_enemy_monster: Monster, _player_monster: Monster) -> void:
 	_handle_state(BATTLE_STATES.INIT)
 
 
-func _set_enemy_monster(enemy_monster: Monster) -> void:
-	get_node("%EnemyMonsterName").text = enemy_monster.display_name
-	get_node("%EnemyMonsterIcon").texture = enemy_monster.icon
-	get_node("%EnemyMonsterLevel").text = "Lv. " + str(enemy_monster.level)
-	get_node("%EnemyMonsterHealthbar").max_value = enemy_monster.health
-	get_node("%EnemyMonsterHealthbar").value = enemy_monster.current_health
+func _set_enemy_monster(_enemy_monster: Monster) -> void:
+	get_node("%EnemyMonsterName").text = _enemy_monster.display_name
+	get_node("%EnemyMonsterIcon").texture = _enemy_monster.icon
+	get_node("%EnemyMonsterLevel").text = "Lv. " + str(_enemy_monster.level)
+	get_node("%EnemyMonsterHealthbar").max_value = _enemy_monster.health
+	get_node("%EnemyMonsterHealthbar").value = _enemy_monster.current_health
 	
 
-func _set_player_monster(player_monster: Monster) -> void:
-	get_node("%PlayerMonsterName").text = player_monster.display_name
-	get_node("%PlayerMonsterHealthLabel").text = str(player_monster.current_health) + " / " + str(player_monster.health)
-	get_node("%PlayerMonsterIcon").texture = player_monster.icon
-	get_node("%PlayerMonsterLevel").text = "Lv. " + str(player_monster.level)
-	get_node("%PlayerMonsterHealthbar").max_value = player_monster.health
-	get_node("%PlayerMonsterHealthbar").value = player_monster.current_health
-	get_node("%PlayerMonsterExp").min_value = player_monster._needed_xp_for_levelup(player_monster.level - 1)
-	get_node("%PlayerMonsterExp").max_value = player_monster._needed_xp_for_levelup()
-	get_node("%PlayerMonsterExp").value = player_monster.xp
+func _set_player_monster(_player_monster: Monster) -> void:
+	get_node("%PlayerMonsterName").text = _player_monster.display_name
+	get_node("%PlayerMonsterHealthLabel").text = str(_player_monster.current_health) + " / " + str(player_monster.health)
+	get_node("%PlayerMonsterIcon").texture = _player_monster.icon
+	get_node("%PlayerMonsterLevel").text = "Lv. " + str(_player_monster.level)
+	get_node("%PlayerMonsterHealthbar").max_value = _player_monster.health
+	get_node("%PlayerMonsterHealthbar").value = _player_monster.current_health
+	get_node("%PlayerMonsterExp").min_value = _player_monster._needed_xp_for_levelup(player_monster.level - 1)
+	get_node("%PlayerMonsterExp").max_value = _player_monster._needed_xp_for_levelup()
+	get_node("%PlayerMonsterExp").value = _player_monster.xp
 
 func _handle_state(new_state):
 	current_state = new_state

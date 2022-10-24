@@ -10,5 +10,5 @@ func interact(player: KinematicBody2D):
 	
 	# heal every monster in party...
 	for monster in player.party.members:
-		monster.heal(10)
+		monster.heal(999)
 	

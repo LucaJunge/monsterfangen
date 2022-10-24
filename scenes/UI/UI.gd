@@ -2,6 +2,7 @@ extends Control
 
 signal save_requested
 signal reload_requested
+
 signal update_requested
 
 onready var _menu_button = get_node("%MenuButton")

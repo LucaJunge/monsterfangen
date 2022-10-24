@@ -76,21 +76,21 @@ func update_ui():
 	
 	_ui.update_ui(info)
 
-func debug_monsters(_save):
+func debug_monsters(new_save):
 	var monster1: Monster = Monster.new("acidly", {}, 7)
-	_save.party.add_member("1", monster1)
+	new_save.party.add_member("1", monster1)
 	
 	var monster2: Monster = Monster.new("bigpickles", {}, 5)
-	_save.party.add_member("2", monster2)
+	new_save.party.add_member("2", monster2)
 	
 	var monster3: Monster = Monster.new("wispclaw", {}, 3)
-	_save.party.add_member("3", monster3)
+	new_save.party.add_member("3", monster3)
 	
 	var monster4: Monster = Monster.new("sparkpaw", {}, 5)
-	_save.party.add_member("4", monster4)
+	new_save.party.add_member("4", monster4)
 	
 	var monster5: Monster = Monster.new("vaportalon", {}, 4)
-	_save.party.add_member("5", monster5)
+	new_save.party.add_member("5", monster5)
 
 func change_scene(target: String) -> void:
 	# remove the current scene
