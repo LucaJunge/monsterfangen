@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://resources/License.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "JSFXR"
+author = "Chris McCormick"
+description = "Quick 'n' easy game sound effects generator. A port of sfxr to HTML5 by Eric Fredricksen. Maintained by Chris McCormick."
+type = "Software"
+license = "The Unlicense"
+url = "https://github.com/chr15m/jsfxr"

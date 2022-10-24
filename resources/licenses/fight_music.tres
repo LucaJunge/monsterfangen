@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://resources/License.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Fight"
+author = "Magic_Spark"
+description = "The music used in the encounter scene"
+type = "Music"
+license = "CC BY 3.0"
+url = "https://soundcloud.com/magic_sparku/fight"

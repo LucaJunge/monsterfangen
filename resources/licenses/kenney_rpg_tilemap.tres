@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://resources/License.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "RPG Urban Pack"
+author = "Kenney"
+description = "This package includes over 480 tiles for urban landscapes. Including vehicles, road tiles, buildings and all sorts of details. Also includes 6 characters in four directions with walking animations."
+type = "Textures"
+license = "CC0"
+url = "https://kenney.nl/assets/rpg-urban-pack"

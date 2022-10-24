@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://resources/License.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Open Sans"
+author = "Steve Matteson"
+description = "Open Sans is a humanist sans serif typeface designed by Steve Matteson. Open Sans was designed with an upright stress, open forms and a neutral, yet friendly appearance. It was optimized for print, web, and mobile interfaces, and has excellent legibility characteristics in its letterforms. "
+type = "Fonts"
+license = "Open Font"
+url = "https://fonts.google.com/specimen/Open+Sans/about"

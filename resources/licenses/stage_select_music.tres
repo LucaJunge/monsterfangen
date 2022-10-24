@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://resources/License.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "4 Chiptunes (Adventure)"
+author = "SubspaceAudio (Juhani Junkala)"
+description = "Beware, these are seriously catchy! Works especially well with lighthearted platformers. Seamlessly looping."
+type = "Music"
+license = "CC0"
+url = "https://opengameart.org/content/4-chiptunes-adventure"
