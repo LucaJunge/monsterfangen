@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/ui/backgrounds/list_bg_orange.png" type="Texture" id=1]
-[ext_resource path="res://assets/ui/icons/player_icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/items/potion.png" type="Texture" id=2]
 [ext_resource path="res://scenes/UI/Panels/ItemsMenu/ItemsMenu.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -25,6 +25,7 @@ stretch_mode = 1
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_vertical = 3
 custom_constants/margin_right = 20
 custom_constants/margin_top = 25
 custom_constants/margin_left = 20
@@ -35,6 +36,7 @@ margin_left = 20.0
 margin_top = 25.0
 margin_right = 380.0
 margin_bottom = 775.0
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_right = 360.0
@@ -44,14 +46,15 @@ text = "BAG"
 [node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 49.0
 margin_right = 360.0
-margin_bottom = 750.0
+margin_bottom = 682.0
 size_flags_vertical = 3
+tab_align = 0
 
 [node name="Items" type="Panel" parent="MarginContainer/VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 46.0
+margin_top = 42.0
 margin_right = -4.0
 margin_bottom = -4.0
 size_flags_vertical = 3
@@ -61,634 +64,1032 @@ custom_styles/panel = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer"]
-margin_right = 340.0
-margin_bottom = 878.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer"]
+margin_right = 338.0
+margin_bottom = 1788.0
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_constants/margin_right = 15
+custom_constants/margin_top = 10
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 10.0
+margin_right = 323.0
+margin_bottom = 1778.0
+size_flags_horizontal = 3
+custom_constants/separation = 30
+
+[node name="ItemInfo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 
-[node name="ItemInfo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_right = 340.0
-margin_bottom = 45.0
-size_flags_horizontal = 3
-
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 49.0
-margin_right = 340.0
+[node name="ItemInfo2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 62.0
+margin_right = 318.0
 margin_bottom = 94.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo2"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo2"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo2"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo2"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo2"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo2"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 98.0
-margin_right = 340.0
-margin_bottom = 143.0
+[node name="ItemInfo3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 124.0
+margin_right = 318.0
+margin_bottom = 156.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo3"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo3"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo3"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo3"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo3"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo3"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 147.0
-margin_right = 340.0
-margin_bottom = 192.0
+[node name="ItemInfo4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 186.0
+margin_right = 318.0
+margin_bottom = 218.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo4"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo4"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo4"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo4"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo4"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo4"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo5" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 196.0
-margin_right = 340.0
-margin_bottom = 241.0
+[node name="ItemInfo5" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 248.0
+margin_right = 318.0
+margin_bottom = 280.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo5"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo5"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo5"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo5"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo5"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo5"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo6" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 245.0
-margin_right = 340.0
-margin_bottom = 290.0
+[node name="ItemInfo6" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 310.0
+margin_right = 318.0
+margin_bottom = 342.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo6"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo6"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo6"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo6"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo6"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo6"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo7" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 294.0
-margin_right = 340.0
-margin_bottom = 339.0
+[node name="ItemInfo7" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 372.0
+margin_right = 318.0
+margin_bottom = 404.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo7"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo7"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo7"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo7"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo7"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo7"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo8" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 343.0
-margin_right = 340.0
-margin_bottom = 388.0
+[node name="ItemInfo8" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 434.0
+margin_right = 318.0
+margin_bottom = 466.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo8"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo8"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo8"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo8"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo8"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo8"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo9" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 392.0
-margin_right = 340.0
-margin_bottom = 437.0
+[node name="ItemInfo9" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 496.0
+margin_right = 318.0
+margin_bottom = 528.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo9"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo9"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo9"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo9"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo9"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo9"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo10" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 441.0
-margin_right = 340.0
-margin_bottom = 486.0
+[node name="ItemInfo10" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 558.0
+margin_right = 318.0
+margin_bottom = 590.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo10"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo10"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo10"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo10"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo10"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo10"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo11" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 490.0
-margin_right = 340.0
-margin_bottom = 535.0
+[node name="ItemInfo11" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 620.0
+margin_right = 318.0
+margin_bottom = 652.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo11"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo11"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo11"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo11"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo11"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo11"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo12" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 539.0
-margin_right = 340.0
-margin_bottom = 584.0
+[node name="ItemInfo12" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 682.0
+margin_right = 318.0
+margin_bottom = 714.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo12"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo12"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo12"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo12"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo12"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo12"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo13" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 588.0
-margin_right = 340.0
-margin_bottom = 633.0
+[node name="ItemInfo13" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 744.0
+margin_right = 318.0
+margin_bottom = 776.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo13"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo13"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo13"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo13"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo13"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo13"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo14" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 637.0
-margin_right = 340.0
-margin_bottom = 682.0
+[node name="ItemInfo14" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 806.0
+margin_right = 318.0
+margin_bottom = 838.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo14"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo14"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo14"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo14"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo14"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo14"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo15" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 686.0
-margin_right = 340.0
-margin_bottom = 731.0
+[node name="ItemInfo15" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 868.0
+margin_right = 318.0
+margin_bottom = 900.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo15"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo15"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo15"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo15"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo15"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo15"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo16" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 735.0
-margin_right = 340.0
-margin_bottom = 780.0
+[node name="ItemInfo16" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 930.0
+margin_right = 318.0
+margin_bottom = 962.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo16"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo16"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo16"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo16"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo16"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo16"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo17" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 784.0
-margin_right = 340.0
-margin_bottom = 829.0
+[node name="ItemInfo17" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 992.0
+margin_right = 318.0
+margin_bottom = 1024.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo17"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo17"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo17"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo17"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo17"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo17"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemInfo18" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer"]
-margin_top = 833.0
-margin_right = 340.0
-margin_bottom = 878.0
+[node name="ItemInfo18" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1054.0
+margin_right = 318.0
+margin_bottom = 1086.0
 size_flags_horizontal = 3
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo18"]
-margin_right = 45.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 45, 45 )
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo18"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 5
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo18"]
-margin_left = 49.0
-margin_right = 297.0
-margin_bottom = 45.0
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo18"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
-text = "Label of the item"
+text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/VBoxContainer/ItemInfo18"]
-margin_left = 301.0
-margin_right = 340.0
-margin_bottom = 45.0
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo18"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="ItemInfo19" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1116.0
+margin_right = 318.0
+margin_bottom = 1148.0
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo19"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo19"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo19"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="ItemInfo20" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1178.0
+margin_right = 318.0
+margin_bottom = 1210.0
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo20"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo20"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo20"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="ItemInfo21" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1240.0
+margin_right = 318.0
+margin_bottom = 1272.0
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo21"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo21"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo21"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="ItemInfo22" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1302.0
+margin_right = 318.0
+margin_bottom = 1334.0
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo22"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo22"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo22"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="ItemInfo23" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1364.0
+margin_right = 318.0
+margin_bottom = 1396.0
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo23"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo23"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo23"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="ItemInfo24" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1426.0
+margin_right = 318.0
+margin_bottom = 1458.0
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo24"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo24"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo24"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="ItemInfo25" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1488.0
+margin_right = 318.0
+margin_bottom = 1520.0
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo25"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo25"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo25"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="ItemInfo26" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1550.0
+margin_right = 318.0
+margin_bottom = 1582.0
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo26"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo26"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo26"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="ItemInfo27" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1612.0
+margin_right = 318.0
+margin_bottom = 1644.0
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo27"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo27"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo27"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="ItemInfo28" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1674.0
+margin_right = 318.0
+margin_bottom = 1706.0
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo28"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo28"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo28"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="ItemInfo29" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1736.0
+margin_right = 318.0
+margin_bottom = 1768.0
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo29"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo29"]
+margin_left = 36.0
+margin_right = 275.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer/MarginContainer/VBoxContainer/ItemInfo29"]
+margin_left = 279.0
+margin_right = 318.0
+margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
 text = "x 16"
@@ -700,7 +1101,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 46.0
+margin_top = 42.0
 margin_right = -4.0
 margin_bottom = -4.0
 
@@ -709,7 +1110,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 46.0
+margin_top = 42.0
 margin_right = -4.0
 margin_bottom = -4.0
 
@@ -718,6 +1119,21 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 46.0
+margin_top = 42.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 686.0
+margin_right = 360.0
+margin_bottom = 698.0
+rect_min_size = Vector2( 0, 12 )
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 702.0
+margin_right = 360.0
+margin_bottom = 750.0
+size_flags_vertical = 0
+text = "BACK"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
