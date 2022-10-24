@@ -111,5 +111,6 @@ icon_path = "res://assets/ui/icons/load_icon.png"
 icon_color = Color( 0.203922, 0.25098, 0.509804, 1 )
 
 [connection signal="button_pressed" from="GridContainer/PartyButton" to="." method="_on_PartyButton_button_pressed"]
+[connection signal="button_pressed" from="GridContainer/PlayerButton" to="." method="_on_PlayerButton_button_pressed"]
 [connection signal="button_pressed" from="GridContainer/ExitButton" to="." method="_on_ExitButton_button_pressed"]
 [connection signal="button_pressed" from="GridContainer/SaveButton" to="." method="_on_SaveButton_button_pressed"]

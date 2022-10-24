@@ -4,6 +4,7 @@ signal close_options
 signal save_requested
 signal exit_button_pressed
 signal open_party_menu
+signal open_player_menu
 
 var was_clicked: bool = false
 
@@ -29,6 +30,9 @@ func _on_ExitButton_button_pressed():
 func _on_SaveButton_button_pressed():
 	emit_signal("save_requested")
 
+func _on_PlayerButton_button_pressed() -> void:
+	emit_signal("open_player_menu")
+	pass # Replace with function body.
 
 func disable_all():
 	party_button.disabled = true
