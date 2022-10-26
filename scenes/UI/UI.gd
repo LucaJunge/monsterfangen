@@ -26,6 +26,7 @@ func update_ui(info: Dictionary) -> void:
 	# update the components of the ui
 	party_menu.update_ui(info.party_members)
 	player_menu.update_ui()
+	items_menu.update_ui()
 	# etc...
 
 func open_menu() -> void:

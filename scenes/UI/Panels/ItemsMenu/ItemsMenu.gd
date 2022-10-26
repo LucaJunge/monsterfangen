@@ -8,3 +8,6 @@ func _ready() -> void:
 func _on_BackButton_pressed() -> void:
 	AudioManager.play(click)
 	SceneTransition.change_overlay(self, "fade")
+
+func update_ui() -> void:
+	pass

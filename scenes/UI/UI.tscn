@@ -95,3 +95,4 @@ visible = false
 
 [node name="ItemsMenu" parent="." instance=ExtResource( 8 )]
 unique_name_in_owner = true
+visible = false
