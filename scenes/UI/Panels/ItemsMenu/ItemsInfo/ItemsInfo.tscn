@@ -1,0 +1,137 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/items/potion.png" type="Texture" id=1]
+[ext_resource path="res://scenes/UI/Panels/ItemsMenu/ItemsInfo/ItemsInfo.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+shadow_color = Color( 0, 0, 0, 0.14902 )
+shadow_size = 7
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "click"
+length = 0.16
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[node name="ItemsInfo" type="PanelContainer"]
+anchor_right = 0.44
+anchor_bottom = 0.062
+margin_right = -1.52588e-05
+margin_bottom = 0.399998
+rect_pivot_offset = Vector2( 88, 25 )
+mouse_filter = 1
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 176.0
+margin_bottom = 50.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 9
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 9
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 16.0
+margin_top = 9.0
+margin_right = 160.0
+margin_bottom = 41.0
+size_flags_vertical = 0
+
+[node name="ItemInfo" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 144.0
+margin_bottom = 32.0
+mouse_filter = 2
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/ItemInfo"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+size_flags_vertical = 5
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/ItemInfo"]
+margin_left = 36.0
+margin_right = 101.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "Potion"
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="MarginContainer/VBoxContainer/ItemInfo"]
+margin_left = 105.0
+margin_right = 144.0
+margin_bottom = 32.0
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+text = "x 16"
+align = 2
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Button")
+method_call_mode = 1
+anims/RESET = SubResource( 1 )
+anims/click = SubResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+margin_right = 176.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

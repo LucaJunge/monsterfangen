@@ -1,11 +1,13 @@
-[gd_resource type="Theme" load_steps=26 format=2]
+[gd_resource type="Theme" load_steps=28 format=2]
 
 [ext_resource path="res://assets/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://theme/buttons/button_normal_style.tres" type="StyleBox" id=2]
 [ext_resource path="res://theme/buttons/button_hover_style.tres" type="StyleBox" id=3]
 [ext_resource path="res://theme/buttons/button_pressed_style.tres" type="StyleBox" id=4]
 [ext_resource path="res://theme/buttons/button_disabled_style.tres" type="StyleBox" id=5]
+[ext_resource path="res://assets/ui/icons/chevron-right.png" type="Texture" id=6]
 [ext_resource path="res://theme/fonts/default_font.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/ui/icons/chevron-left.png" type="Texture" id=8]
 
 [sub_resource type="StyleBoxFlat" id=5]
 content_margin_left = 10.0
@@ -79,10 +81,10 @@ bg_color = Color( 0.129412, 0.129412, 0.129412, 1 )
 bg_color = Color( 0.215686, 0.898039, 0.0980392, 1 )
 
 [sub_resource type="StyleBoxFlat" id=14]
-content_margin_left = 7.0
-content_margin_right = 7.0
-content_margin_top = 7.0
-content_margin_bottom = 7.0
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
 bg_color = Color( 1, 1, 1, 0 )
 
 [sub_resource type="StyleBoxFlat" id=16]
@@ -148,6 +150,10 @@ TabContainer/colors/font_color_fg = Color( 0, 0, 0, 1 )
 TabContainer/constants/label_valign_bg = 2
 TabContainer/constants/side_margin = 0
 TabContainer/constants/top_margin = 25
+TabContainer/icons/decrement = ExtResource( 8 )
+TabContainer/icons/decrement_highlight = ExtResource( 8 )
+TabContainer/icons/increment = ExtResource( 6 )
+TabContainer/icons/increment_highlight = ExtResource( 6 )
 TabContainer/styles/panel = SubResource( 14 )
 TabContainer/styles/tab_bg = SubResource( 16 )
 TabContainer/styles/tab_disabled = SubResource( 15 )

@@ -9,17 +9,21 @@ func _ready() -> void:
 	main_theme = AudioManager.play(main_theme_res, -15.0)
 
 func _on_StartNewGameButton_pressed():
+	AudioManager.play_click()
 	AudioManager.fade_out(main_theme)
 	SceneTransition.load_from_main_menu("res://management/Game.tscn")
 
 func _on_LoadGameButton_pressed():
+	AudioManager.play_click()
 	SceneTransition.change_scene("res://scenes/SavedGames/SavedGames.tscn")
 
 func _on_OptionsButton_pressed():
+	AudioManager.play_click()
 	SceneTransition.change_scene("res://scenes/Options/Options.tscn")
 
 func _on_Exit_pressed():
 	get_tree().quit()
 
 func _on_Licenses_pressed():
+	AudioManager.play_click()
 	SceneTransition.change_overlay(licenses, "fade")

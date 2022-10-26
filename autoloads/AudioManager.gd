@@ -1,5 +1,7 @@
 extends Node
 
+var click_sound = preload("res://assets/sounds/click.wav")
+
 export (Array, Resource) var sound_files
 
 var current_music: AudioStreamPlayer
@@ -24,7 +26,10 @@ func play(stream: AudioStream, volume_db: float = 0.0) -> AudioStreamPlayer:
 	audio_stream_player.connect("finished", audio_stream_player, "queue_free")
 	self.add_child(audio_stream_player)
 	return audio_stream_player
-	
+
+func play_click() -> void:
+	play(click_sound)
+
 func play_loop(stream: AudioStream, volume_db: float = 0.0) -> AudioStreamPlayer:
 	var audio_stream_player: AudioStreamPlayer = AudioStreamPlayer.new()
 	current_music = audio_stream_player

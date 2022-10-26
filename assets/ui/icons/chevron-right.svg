@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   height="48"
-   width="48"
+   viewBox="0 0 24 24"
    version="1.1"
-   id="svg4"
-   sodipodi:docname="bag_icon.svg"
-   inkscape:export-filename="bag_icon.png"
-   inkscape:export-xdpi="1000"
-   inkscape:export-ydpi="1000"
+   id="svg4013"
+   sodipodi:docname="chevron-right.svg"
+   inkscape:export-filename="chevron-right.png"
+   inkscape:export-xdpi="128"
+   inkscape:export-ydpi="128"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs8" />
+     id="defs4017" />
   <sodipodi:namedview
-     id="namedview6"
+     id="namedview4015"
      pagecolor="#ffffff"
      bordercolor="#000000"
      borderopacity="0.25"
@@ -25,17 +24,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="4.9166667"
-     inkscape:cx="23.084746"
-     inkscape:cy="24.101695"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="11.542373"
+     inkscape:cy="12.050847"
      inkscape:window-width="960"
      inkscape:window-height="570"
      inkscape:window-x="-6"
      inkscape:window-y="-6"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg4" />
+     inkscape:current-layer="svg4013" />
   <path
-     d="M11 44q-1.25 0-2.125-.875T8 41V15.5q0-2.75 1.7-4.775Q11.4 8.7 14 8.2V4h5v4h10V4h5v4.2q2.6.5 4.3 2.525Q40 12.75 40 15.5V41q0 1.25-.875 2.125T37 44Zm0-3h26V15.5q0-1.9-1.3-3.2-1.3-1.3-3.2-1.3h-17q-1.85 0-3.175 1.3Q11 13.6 11 15.5V41Zm20-9.5h3v-7H14v3h17ZM11 41h26Z"
-     id="path2"
-     style="fill:#ffffff;fill-opacity:1" />
+     d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+     id="path4011"
+     style="fill:#fefefe;fill-opacity:1" />
 </svg>
