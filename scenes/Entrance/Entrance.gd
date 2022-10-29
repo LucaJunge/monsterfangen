@@ -2,6 +2,5 @@ extends Area2D
 
 export (String, FILE,  "*.tscn") var next_scene_path = ""
 
-func _on_Entrance_body_entered(body) -> void:
-	#print_debug(body)
-	pass
+# The spawn point in the next scene
+export (Vector2) var exit_position = Vector2(0, 0)

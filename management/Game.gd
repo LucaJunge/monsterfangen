@@ -3,6 +3,8 @@ extends Node2D
 
 var _save := SaveGame.new()
 var _player : Node2D = null
+var _current_party : Party = null
+var _current_stats : Stats = null
 var starting_world : String = "res://scenes/World/World.tscn"
 
 onready var _scene_manager := get_node("%SceneManager")
@@ -26,13 +28,13 @@ func _ready() -> void:
 func _create_or_load_save() -> void:
 	if _save.save_exists():
 		_save.load_savegame()
-		change_scene(_save.map_name)
+		change_scene(_save.map_name, _save.global_position)
 		var map = get_node("%SceneManager/CurrentScene").get_child(0)
 		_player = map.get_node("Player")
 	else:
 		# First define the starting world, load it and get the player within
 		_save.map_name = starting_world
-		change_scene(_save.map_name)
+		change_scene(_save.map_name, Vector2(0, 0)) 
 		_player = get_node("%SceneManager/CurrentScene/World/Player")
 		
 		# Inventory -> Starting Items
@@ -62,6 +64,10 @@ func _create_or_load_save() -> void:
 	_player.global_position = _save.global_position
 	_player.party = _save.party
 	_player.stats = _save.stats
+	
+	# save the current info (important for scene switching, as we create a new player)
+	_current_party = _save.party
+	_current_stats = _save.stats
 	
 	#_ui_inventory.inventory = _save.inventory
 	
@@ -97,9 +103,14 @@ func debug_monsters(_save):
 	var monster5: Monster = Monster.new("vaportalon", {}, 4)
 	_save.party.add_member("5", monster5)
 
-func change_scene(target: String) -> void:
+func change_scene(target: String, spawn_position: Vector2) -> void:
 	# remove the current scene
-	var current_scene = get_node("SceneManager/CurrentScene")
+	var current_scene = get_node("%SceneManager/CurrentScene")
+	
+	# temporarily save the current player info (should be global...)
+	var current_player = Utils.get_player_node()
+	_current_party = current_player.party
+	_current_stats = current_player.stats
 	
 	var current_world = current_scene.get_child(0)
 	
@@ -109,4 +120,12 @@ func change_scene(target: String) -> void:
 	
 	var next_world_resource = load(target)
 	var next_world = next_world_resource.instance()
+	
+	_player = next_world.get_node("Player")
+	_player.position = spawn_position
+	
+	# after changing the scene, we also have to pass the party, stats, inventory again
+	_player.party = _current_party
+	_player.stats = _current_stats
+	
 	current_scene.add_child(next_world)
