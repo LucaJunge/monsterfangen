@@ -1,48 +1,203 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/ui/backgrounds/list_bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/icons/monster_icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/backgrounds/menu_bg_red.png" type="Texture" id=2]
 [ext_resource path="res://scenes/UI/Panels/PartyMenu/PartyMenu.gd" type="Script" id=3]
+[ext_resource path="res://assets/items/potion.png" type="Texture" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=1]
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 40.0
+content_margin_right = 30.0
+content_margin_top = 25.0
+content_margin_bottom = 30.0
+bg_color = Color( 1, 1, 1, 1 )
+skew = Vector2( -0.5, 0 )
+expand_margin_right = 50.0
+shadow_color = Color( 0, 0, 0, 0.14902 )
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 40.0
+content_margin_right = 30.0
+content_margin_top = 25.0
+content_margin_bottom = 30.0
+bg_color = Color( 0.8, 0.8, 0.8, 1 )
+skew = Vector2( -0.5, 0 )
+expand_margin_right = 50.0
+shadow_color = Color( 0, 0, 0, 0.14902 )
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+shadow_color = Color( 0, 0, 0, 0.14902 )
+shadow_size = 7
 
 [node name="PartyMenu" type="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_constants/separation = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 83.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2"]
+margin_right = 400.0
+margin_bottom = 83.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+margin_right = 273.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 273.0
+margin_bottom = 83.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = 11.0
+margin_right = 35.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 35, 40 )
+size_flags_vertical = 4
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 39.0
+margin_top = 9.0
+margin_right = 253.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+text = "MONSTERS"
+
+[node name="BackButton" type="Button" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+margin_left = 277.0
+margin_right = 400.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 100, 40 )
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+text = "BACK"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 83.0
+margin_right = 400.0
+margin_bottom = 700.0
+size_flags_vertical = 3
 custom_constants/margin_right = 20
 custom_constants/margin_top = 25
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
 margin_left = 20.0
 margin_top = 25.0
 margin_right = 380.0
-margin_bottom = 775.0
+margin_bottom = 592.0
 custom_constants/separation = 20
 
-[node name="MonsterContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MonsterContainer" type="GridContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_right = 360.0
-custom_constants/separation = 20
+size_flags_horizontal = 3
+custom_constants/vseparation = 15
+custom_constants/hseparation = 15
+columns = 2
 
-[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 702.0
-margin_right = 360.0
-margin_bottom = 750.0
-size_flags_vertical = 10
-text = "BACK"
+[node name="ItemDetailInfoContainer" type="PanelContainer" parent="VBoxContainer"]
+margin_top = 700.0
+margin_right = 400.0
+margin_bottom = 800.0
+custom_styles/panel = SubResource( 4 )
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ItemDetailInfoContainer"]
+margin_right = 400.0
+margin_bottom = 100.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 10
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+
+[node name="ItemDetailContainer" type="VBoxContainer" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer"]
+margin_left = 15.0
+margin_top = 10.0
+margin_right = 385.0
+margin_bottom = 85.0
+
+[node name="ItemDetailTitle" type="HBoxContainer" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer"]
+margin_right = 370.0
+margin_bottom = 32.0
+
+[node name="MonsterIcon" type="TextureRect" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer/ItemDetailTitle"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+size_flags_vertical = 5
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="MonsterName" type="Label" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer/ItemDetailTitle"]
+margin_left = 36.0
+margin_right = 370.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_type_variation = "LabelOptions"
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "MonsterName"
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer"]
+margin_top = 36.0
+margin_right = 370.0
+margin_bottom = 75.0
+custom_constants/margin_right = 15
+custom_constants/margin_left = 15
+
+[node name="ItemDetailDescription" type="Label" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer/MarginContainer"]
+margin_left = 15.0
+margin_right = 355.0
+margin_bottom = 39.0
+theme_type_variation = "LabelDescription"
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Detail here
+Lel
+"
+autowrap = true
+max_lines_visible = 2
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/HBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=28 format=2]
+[gd_resource type="Theme" load_steps=29 format=2]
 
 [ext_resource path="res://assets/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://theme/buttons/button_normal_style.tres" type="StyleBox" id=2]
@@ -28,6 +28,12 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFontData" id=10]
 font_path = "res://assets/fonts/OpenSans-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=20]
+size = 13
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 10 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 12
@@ -90,8 +96,6 @@ bg_color = Color( 1, 1, 1, 0 )
 [sub_resource type="StyleBoxFlat" id=16]
 content_margin_left = 7.0
 content_margin_right = 7.0
-content_margin_top = 7.0
-content_margin_bottom = 7.0
 bg_color = Color( 1, 1, 1, 0 )
 
 [sub_resource type="StyleBoxFlat" id=15]
@@ -99,7 +103,7 @@ content_margin_left = 7.0
 content_margin_right = 7.0
 content_margin_top = 7.0
 content_margin_bottom = 7.0
-bg_color = Color( 1, 1, 1, 1 )
+bg_color = Color( 1, 1, 1, 0 )
 
 [sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 1, 1, 1, 0.737255 )
@@ -131,6 +135,8 @@ Button/styles/normal = ExtResource( 2 )
 Button/styles/pressed = ExtResource( 4 )
 Label/colors/font_color = Color( 0, 0, 0, 1 )
 Label/fonts/font = SubResource( 4 )
+LabelDescription/base_type = "Label"
+LabelDescription/fonts/font = SubResource( 20 )
 LabelEncounterName/base_type = "Label"
 LabelEncounterName/colors/font_color = Color( 0, 0, 0, 1 )
 LabelEncounterName/fonts/font = SubResource( 11 )
@@ -144,7 +150,7 @@ PartyPanel/styles/panel = SubResource( 13 )
 ProgressBar/fonts/font = SubResource( 7 )
 ProgressBar/styles/bg = SubResource( 8 )
 ProgressBar/styles/fg = SubResource( 9 )
-TabContainer/colors/font_color_bg = Color( 0.321569, 0.321569, 0.321569, 1 )
+TabContainer/colors/font_color_bg = Color( 0.396078, 0.396078, 0.396078, 1 )
 TabContainer/colors/font_color_disabled = Color( 0.356863, 0.356863, 0.356863, 0.2 )
 TabContainer/colors/font_color_fg = Color( 0, 0, 0, 1 )
 TabContainer/constants/label_valign_bg = 2
