@@ -147,7 +147,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer"]
-margin_right = 346.0
+margin_right = 196.0
 margin_bottom = 1039.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -277,7 +277,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Medicine/ScrollContainer"]
-margin_right = 360.0
+margin_right = 20.0
 margin_bottom = 14.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -315,7 +315,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attacks/ScrollContainer"]
-margin_right = 352.0
+margin_right = 20.0
 margin_bottom = 14.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -353,7 +353,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Quest/ScrollContainer"]
-margin_right = 352.0
+margin_right = 20.0
 margin_bottom = 14.0
 mouse_filter = 2
 size_flags_horizontal = 3
