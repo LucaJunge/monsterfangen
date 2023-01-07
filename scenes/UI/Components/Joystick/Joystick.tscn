@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/ui/joystick/joystick_outer.svg" type="Texture" id=2]
 [ext_resource path="res://assets/ui/joystick/joystick_inner.png" type="Texture" id=3]
 
-
 [node name="Joystick" type="Control"]
 margin_right = 300.0
 margin_bottom = 300.0

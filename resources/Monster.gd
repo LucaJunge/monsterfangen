@@ -9,7 +9,6 @@ func _init(_unique_id = "", current_values: Dictionary = {}, _level: int = 1) ->
 	# get the base class from the tres resources
 	var base_monster = MonsterDatabase.get_monster_data(_unique_id)
 	unique_id = base_monster.unique_id
-	#print_debug(_unique_id)
 
 	display_name = base_monster.display_name
 	nickname = base_monster.nickname
@@ -25,12 +24,12 @@ func _init(_unique_id = "", current_values: Dictionary = {}, _level: int = 1) ->
 	base_tempo = base_monster.base_tempo
 	base_xp = base_monster.base_xp
 
-	# check if current_values is empty -> generate a completely new monster and set the values
-	if current_values.empty():
-		#print_debug("create a new monster", _unique_id)
-		_set_level(_level)
-	else:
-		# overwrite current values
+	# set the status values based on the given level
+	_set_level(_level)
+
+	# if we need to set custom values, set them
+	if not current_values.empty():
+		# also overwrite current values from _set_level()
 		if(current_values.has("health")):
 			health = current_values["health"]
 		else:
@@ -58,8 +57,8 @@ func _init(_unique_id = "", current_values: Dictionary = {}, _level: int = 1) ->
 			
 		if(current_values.has("level")):
 			level = current_values["level"]
-		else:
-			level = 1
+		# no else here,
+		# we set the level before this "not current_values.empty()" condition
 			
 		if(current_values.has("current_health")):
 			current_health = current_values["current_health"]
@@ -103,7 +102,6 @@ func add_xp(amount: int = 0):
 	xp += amount
 	if(xp >= _needed_xp_for_levelup()):
 		_level_up()
-
 
 func attack(enemy_monster: Monster):
 	var damage = 0

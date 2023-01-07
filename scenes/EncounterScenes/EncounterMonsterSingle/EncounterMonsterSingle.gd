@@ -110,15 +110,19 @@ func _handle_state(new_state):
 		
 		BATTLE_STATES.CATCH:
 			disable_buttons(true)
-			get_node("%DialogText").text = "%s was catched!" % enemy_monster.display_name
+			get_node("%DialogText").text = "%s was caught!" % enemy_monster.display_name
 			
 			# play some sound...
 			
 			# add monster to the party
-			var monster = Monster.new(enemy_monster.unique_id, {}, enemy_monster.level)
+			print(enemy_monster.current_health)
+			print(enemy_monster.health)
+			
+			var monster: Monster = Monster.new(enemy_monster.unique_id, {"current_health": enemy_monster.current_health, "health": enemy_monster.health}, enemy_monster.level)
+			
 			if not party.is_full():
 				get_node("%DialogText").text = "%s was added to your party!" % enemy_monster.display_name
-				yield(get_tree().create_timer(timer_time * 1.5), "timeout")
+				yield(get_tree().create_timer(timer_time), "timeout")
 				party.append_member(monster)
 			else:
 				# else: dialog, to add to pc
@@ -230,8 +234,8 @@ func _on_BagButton_pressed():
 	
 	
 	var catch_possibility = rand_range(0.0, 1.0)
-	if catch_possibility > 0.5:
-		text = "The wild %s was catched!" % enemy_monster.display_name
+	if catch_possibility > 0.0:
+		text = "The wild %s was caught!" % enemy_monster.display_name
 		get_node("%DialogText").text = text
 		
 		# You "won", handle the catching of the monster

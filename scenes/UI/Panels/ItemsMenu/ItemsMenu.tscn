@@ -114,24 +114,24 @@ text = "BACK"
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 83.0
 margin_right = 400.0
-margin_bottom = 594.0
+margin_bottom = 634.0
 size_flags_vertical = 3
 custom_constants/margin_right = 20
 custom_constants/margin_top = 25
 custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
+custom_constants/margin_bottom = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
 margin_left = 20.0
 margin_top = 25.0
 margin_right = 380.0
-margin_bottom = 491.0
+margin_bottom = 536.0
 size_flags_vertical = 3
 custom_constants/separation = 16
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 margin_right = 360.0
-margin_bottom = 466.0
+margin_bottom = 511.0
 size_flags_vertical = 3
 tab_align = 0
 
@@ -147,7 +147,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Items/ScrollContainer"]
-margin_right = 346.0
+margin_right = 196.0
 margin_bottom = 1039.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -265,10 +265,40 @@ margin_bottom = 1025.0
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 7.0
-margin_top = 49.0
-margin_right = -7.0
-margin_bottom = -7.0
+margin_top = 42.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Medicine"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Medicine/ScrollContainer"]
+margin_right = 20.0
+margin_bottom = 14.0
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 7
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Medicine/ScrollContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 7.0
+margin_right = 350.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+custom_constants/separation = 25
+
+[node name="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Medicine/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 340.0
+margin_bottom = 50.0
 
 [node name="Attacks" type="Panel" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer"]
 visible = false
@@ -278,8 +308,37 @@ margin_left = 4.0
 margin_top = 42.0
 margin_right = -4.0
 margin_bottom = -4.0
+custom_styles/panel = SubResource( 2 )
 
-[node name="QuestItems" type="Panel" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attacks"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attacks/ScrollContainer"]
+margin_right = 20.0
+margin_bottom = 14.0
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 7
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attacks/ScrollContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 7.0
+margin_right = 342.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+custom_constants/separation = 25
+
+[node name="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attacks/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 340.0
+margin_bottom = 50.0
+
+[node name="Quest" type="Panel" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -287,32 +346,61 @@ margin_left = 4.0
 margin_top = 42.0
 margin_right = -4.0
 margin_bottom = -4.0
+custom_styles/panel = SubResource( 2 )
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-margin_top = 594.0
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Quest"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Quest/ScrollContainer"]
+margin_right = 20.0
+margin_bottom = 14.0
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 7
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Quest/ScrollContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 7.0
+margin_right = 342.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+custom_constants/separation = 25
+
+[node name="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/TabContainer/Quest/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 332.0
+margin_bottom = 50.0
+
+[node name="ItemDetailInfoContainer" type="PanelContainer" parent="VBoxContainer"]
+margin_top = 634.0
 margin_right = 400.0
 margin_bottom = 800.0
 custom_styles/panel = SubResource( 4 )
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ItemDetailInfoContainer"]
 margin_right = 400.0
-margin_bottom = 206.0
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 25
+margin_bottom = 166.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 10
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
 
-[node name="ItemDetailContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 380.0
-margin_bottom = 181.0
+[node name="ItemDetailContainer" type="VBoxContainer" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer"]
+margin_left = 15.0
+margin_top = 10.0
+margin_right = 385.0
+margin_bottom = 151.0
 
-[node name="ItemDetailTitle" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/ItemDetailContainer"]
-margin_right = 360.0
+[node name="ItemDetailTitle" type="HBoxContainer" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer"]
+margin_right = 370.0
 margin_bottom = 32.0
 
-[node name="ItemTexture" type="TextureRect" parent="VBoxContainer/PanelContainer/MarginContainer/ItemDetailContainer/ItemDetailTitle"]
+[node name="ItemTexture" type="TextureRect" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer/ItemDetailTitle"]
 margin_right = 32.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
@@ -322,9 +410,9 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 
-[node name="ItemName" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/ItemDetailContainer/ItemDetailTitle"]
+[node name="ItemName" type="Label" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer/ItemDetailTitle"]
 margin_left = 36.0
-margin_right = 317.0
+margin_right = 327.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -333,9 +421,9 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Potion"
 valign = 1
 
-[node name="ItemAmount" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/ItemDetailContainer/ItemDetailTitle"]
-margin_left = 321.0
-margin_right = 360.0
+[node name="ItemAmount" type="Label" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer/ItemDetailTitle"]
+margin_left = 331.0
+margin_right = 370.0
 margin_bottom = 32.0
 size_flags_vertical = 5
 theme_type_variation = "LabelOptions"
@@ -343,26 +431,33 @@ text = "x 16"
 align = 2
 valign = 1
 
-[node name="ItemDetailDescription" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/ItemDetailContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer"]
 margin_top = 36.0
-margin_right = 360.0
-margin_bottom = 95.0
-theme_type_variation = "LabelOptions"
+margin_right = 370.0
+margin_bottom = 75.0
+custom_constants/margin_right = 15
+custom_constants/margin_left = 15
+
+[node name="ItemDetailDescription" type="Label" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer/MarginContainer"]
+margin_left = 15.0
+margin_right = 355.0
+margin_bottom = 39.0
+theme_type_variation = "LabelDescription"
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "This is the description of the item. It shouldn't be longer than 2 rows."
 autowrap = true
-max_lines_visible = 3
+max_lines_visible = 2
 
-[node name="Spacer" type="Control" parent="VBoxContainer/PanelContainer/MarginContainer/ItemDetailContainer"]
-margin_top = 99.0
-margin_right = 360.0
-margin_bottom = 109.0
+[node name="Spacer" type="Control" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer"]
+margin_top = 79.0
+margin_right = 370.0
+margin_bottom = 89.0
 rect_min_size = Vector2( 0, 10 )
 
-[node name="Button" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/ItemDetailContainer"]
-margin_top = 113.0
-margin_right = 360.0
-margin_bottom = 161.0
+[node name="Button" type="Button" parent="VBoxContainer/ItemDetailInfoContainer/MarginContainer/ItemDetailContainer"]
+margin_top = 93.0
+margin_right = 370.0
+margin_bottom = 141.0
 text = "USE"
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/HBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
