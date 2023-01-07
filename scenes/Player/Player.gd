@@ -53,7 +53,7 @@ func _ready():
 	animation_tree.active = true
 	
 	# set player position on load
-	position = Vector2(0, 0)
+	#position = Vector2(0, 0)
 	
 	initial_position = position
 	
@@ -200,7 +200,10 @@ func move(delta):
 			
 			$Camera2D.clear_current()
 			var next_scene = scene_transition_ray.get_collider().next_scene_path
-			SceneTransition.change_scene(next_scene, "fade")
+
+			var collider = scene_transition_ray.get_collider()
+			print_debug(collider.exit_position)
+			SceneTransition.change_scene(next_scene, "fade", collider.exit_position)
 				
 		else:
 			# gradually interpolate the position until percent_moved_to_next_tile is 1.0

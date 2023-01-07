@@ -10,3 +10,4 @@ func get_player_node():
 	var player = scene_manager_node.find_node("Player", true, false)
 	
 	return player
+
