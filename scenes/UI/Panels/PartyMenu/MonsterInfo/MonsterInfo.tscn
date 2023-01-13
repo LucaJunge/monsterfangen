@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/ui/icons/drag.png" type="Texture" id=1]
-[ext_resource path="res://assets/interface/massive_crisp_cabbage.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/Massive Crisp Cabbage.png" type="Texture" id=2]
 [ext_resource path="res://scenes/UI/Panels/PartyMenu/MonsterInfo/MonsterInfo.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]

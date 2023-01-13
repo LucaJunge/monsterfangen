@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sour_bottle.png-e4d36c9f5a6aa095d973663e7aa2a601.stex"
+path="res://.import/monsterfangen-main.png-7dc32a85790c9e6eb8ce2e3a60e3aad2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interface/sour_bottle.png"
-dest_files=[ "res://.import/sour_bottle.png-e4d36c9f5a6aa095d973663e7aa2a601.stex" ]
+source_file="res://tileset/monsterfangen-main.png"
+dest_files=[ "res://.import/monsterfangen-main.png-7dc32a85790c9e6eb8ce2e3a60e3aad2.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/massive_crisp_cabbage.png-6faa356192b48fa9bc2c1b6a3a40c980.stex"
+path="res://.import/tileset_template_2x2.png-e9f53af79dec20bf3ab89f4d1677ba74.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interface/massive_crisp_cabbage.png"
-dest_files=[ "res://.import/massive_crisp_cabbage.png-6faa356192b48fa9bc2c1b6a3a40c980.stex" ]
+source_file="res://tileset/templates/tileset_template_2x2.png"
+dest_files=[ "res://.import/tileset_template_2x2.png-e9f53af79dec20bf3ab89f4d1677ba74.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

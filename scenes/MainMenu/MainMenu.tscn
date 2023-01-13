@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/logo/logo.png" type="Texture" id=1]
 [ext_resource path="res://scenes/MainMenu/MainMenu.gd" type="Script" id=2]
@@ -12,10 +12,6 @@
 [sub_resource type="StyleBoxEmpty" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxEmpty" id=8]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 2 )
@@ -140,10 +136,7 @@ margin_top = 632.0
 margin_right = 200.0
 margin_bottom = 680.0
 size_flags_horizontal = 3
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
 text = "Licenses"
-flat = true
 
 [node name="Licenses" parent="MainMenuCanvas" instance=ExtResource( 6 )]
 unique_name_in_owner = true

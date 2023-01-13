@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/missingno.png-3e8628a86ad0dc448a0e33c3b299b295.stex"
+path="res://.import/Massive Crisp Cabbage.png-c12c6734f39f50d470d3bcae935d5e7d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interface/missingno.png"
-dest_files=[ "res://.import/missingno.png-3e8628a86ad0dc448a0e33c3b299b295.stex" ]
+source_file="res://assets/sprites/Massive Crisp Cabbage.png"
+dest_files=[ "res://.import/Massive Crisp Cabbage.png-c12c6734f39f50d470d3bcae935d5e7d.stex" ]
 
 [params]
 
