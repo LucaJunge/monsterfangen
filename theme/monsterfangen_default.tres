@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=27 format=2]
+[gd_resource type="Theme" load_steps=26 format=2]
 
 [ext_resource path="res://assets/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://theme/buttons/button_normal_style.tres" type="StyleBox" id=2]
@@ -54,16 +54,6 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id=13]
-bg_color = Color( 1, 1, 1, 1 )
-corner_radius_top_left = 999
-corner_radius_top_right = 999
-corner_radius_bottom_right = 999
-corner_radius_bottom_left = 999
-corner_detail = 12
-shadow_color = Color( 0, 0, 0, 0.156863 )
-shadow_size = 7
-
 [sub_resource type="DynamicFont" id=7]
 
 [sub_resource type="DynamicFont" id=1]
@@ -113,6 +103,7 @@ Button/styles/hover = ExtResource( 4 )
 Button/styles/normal = ExtResource( 2 )
 Button/styles/pressed = ExtResource( 2 )
 Label/colors/font_color = Color( 0, 0, 0, 1 )
+Label/colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 Label/fonts/font = SubResource( 4 )
 LabelDescription/base_type = "Label"
 LabelDescription/fonts/font = SubResource( 20 )
@@ -125,7 +116,6 @@ LabelOptions/fonts/font = SubResource( 6 )
 Panel/styles/panel = SubResource( 3 )
 PanelContainer/styles/panel = SubResource( 12 )
 PartyPanel/base_type = "Button"
-PartyPanel/styles/panel = SubResource( 13 )
 ProgressBar/fonts/font = SubResource( 7 )
 ProgressBar/styles/bg = ExtResource( 5 )
 ProgressBar/styles/fg = ExtResource( 9 )
@@ -135,6 +125,8 @@ ProgressBarHealth/base_type = "ProgressBar"
 ProgressBarHealth/fonts/font = SubResource( 1 )
 ProgressBarHealth/styles/bg = ExtResource( 5 )
 ProgressBarHealth/styles/fg = ExtResource( 6 )
+RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
+RichTextLabel/fonts/normal_font = ExtResource( 7 )
 TabContainer/colors/font_color_bg = Color( 0.396078, 0.396078, 0.396078, 1 )
 TabContainer/colors/font_color_disabled = Color( 0.356863, 0.356863, 0.356863, 0.2 )
 TabContainer/colors/font_color_fg = Color( 0, 0, 0, 1 )

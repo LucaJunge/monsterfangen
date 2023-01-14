@@ -118,7 +118,7 @@ func _handle_state(new_state):
 			print(enemy_monster.current_health)
 			print(enemy_monster.health)
 			
-			var monster: Monster = Monster.new(enemy_monster.unique_id, {"current_health": enemy_monster.current_health, "health": enemy_monster.health}, enemy_monster.level)
+			var monster: Monster = Monster.new(enemy_monster.unique_id, {"current_health": enemy_monster.current_health, "health": enemy_monster.health, "xp": 0}, enemy_monster.level)
 			
 			if not party.is_full():
 				get_node("%DialogText").text = "%s was added to your party!" % enemy_monster.display_name

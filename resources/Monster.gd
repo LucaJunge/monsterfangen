@@ -33,27 +33,27 @@ func _init(_unique_id = "", current_values: Dictionary = {}, _level: int = 1) ->
 		if(current_values.has("health")):
 			health = current_values["health"]
 		else:
-			health = base_health
+			_set_health(level)
 			
 		if(current_values.has("attack")):
 			attack = current_values["attack"]
 		else:
-			attack = base_attack
+			_set_attack(level)
 			
 		if(current_values.has("xp")):
 			xp = current_values["xp"]
 		else:
-			xp = base_xp
+			xp = 0
 			
 		if(current_values.has("defense")):
 			defense = current_values["defense"]
 		else:
-			defense = base_defense
+			_set_defense(level)
 			
 		if(current_values.has("tempo")):
 			tempo = current_values["tempo"]
 		else:
-			tempo = base_tempo
+			_set_tempo(level)
 			
 		if(current_values.has("level")):
 			level = current_values["level"]
@@ -72,11 +72,23 @@ func _set_level(_level: int):
 	current_health = health
 	
 func _set_statusvalues(level: int):
-	attack = int((((base_attack * 2) * level ) / 100) + (level + 5))
-	health = int((((base_health * 2) * level ) / 100) + (level + 5))
-	defense = int((((base_defense * 2) * level ) / 100) + (level + 5))
-	tempo = int((((base_tempo * 2) * level ) / 100) + (level + 5))
+	_set_attack(level)
+	_set_health(level)
+	_set_defense(level)
+	_set_tempo(level)
 
+func _set_attack(level: int):
+	attack = int((((base_attack * 2) * level ) / 100) + (level + 5))
+	
+func _set_health(level: int):
+	health = int((((base_health * 2) * level ) / 100) + (level + 5))
+
+func _set_defense(level: int):
+	defense = int((((base_defense * 2) * level ) / 100) + (level + 5))
+	
+func _set_tempo(level: int):
+	tempo = int((((base_tempo * 2) * level ) / 100) + (level + 5))
+	
 func _set_current_xp():
 	xp = int(pow(level, 3))
 

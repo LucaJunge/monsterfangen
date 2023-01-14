@@ -40,7 +40,6 @@ size_flags_vertical = 0
 [node name="BackButton" type="Button" parent="ScrollContainer/MarginContainer/LicenseList"]
 margin_right = 370.0
 margin_bottom = 48.0
-theme_type_variation = "PartyPanel"
 text = "Back"
 
 [node name="Intro" type="Label" parent="ScrollContainer/MarginContainer/LicenseList"]

@@ -255,7 +255,7 @@ func encounter():
 	encounter_scene.init(enemy_monster, party.members[0], party)
 	
 	# TODO: Grass Animation should animate the anchors, not the rect_position
-	SceneTransition.change_overlay(encounter_scene, "foliage")
+	SceneTransition.change_overlay(encounter_scene, "fade")
 
 func disable_movement():
 	stop_moving = true

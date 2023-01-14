@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/House/House.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/TallGrass/TallGrass.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Entrance/Entrance.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/HealBed/HealBed.tscn" type="PackedScene" id=5]
@@ -153,7 +154,7 @@ tile_data = PoolIntArray( -983044, 5, 0, -1048557, 7, 0, -917510, 4, 0, -917509,
 [node name="Entrances" type="Node2D" parent="."]
 
 [node name="Entrance" parent="Entrances" instance=ExtResource( 4 )]
-position = Vector2( -48, -112 )
+position = Vector2( -96, -48 )
 next_scene_path = "res://scenes/World/DevRoom/DevRoom.tscn"
 
 [node name="Interactables" type="Node2D" parent="."]
@@ -161,3 +162,6 @@ next_scene_path = "res://scenes/World/DevRoom/DevRoom.tscn"
 [node name="StaticBody2D" parent="Interactables" instance=ExtResource( 5 )]
 position = Vector2( 16, 80 )
 dialog = ExtResource( 6 )
+
+[node name="House" parent="." instance=ExtResource( 2 )]
+position = Vector2( -112, -112 )
